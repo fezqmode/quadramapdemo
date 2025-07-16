@@ -32,16 +32,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // default fill based on risk
   function defaultStyle(feature) {
-    const iso = feature.properties.ISO_A3;
-    const entry = riskData[iso] || {risk:'low', url:'#'};
-    const colors = { high:'#c00', medium:'#fc0', low:'#0c0' };
-    return {
-      fillColor: colors[entry.risk],
-      color: '#333',
-      weight: 1,
-      fillOpacity: 0.5
-    };
-  }
+  const iso = feature.properties.ISO_A3;
+  const entry = riskData[iso] || {risk:'low', url:'#'};
+
+  // ← define your exact colors here
+  const colors = {
+    high:   '#ff0000',  // red
+    medium: '#ffa500',  // orange
+    low:    '#00ff00'   // green
+  };
+
+  return {
+    fillColor:   colors[entry.risk],
+    color:       '#333',
+    weight:      1,
+    fillOpacity: 0.6
+  };
+}
 
   // hover + click logic per feature
   function setupFeature(feature, layer) {
