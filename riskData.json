@@ -1,0 +1,8 @@
+{
+  "USA": { "risk": "high",   "url": "https://fezqmode.github.io/quadramapdemo/USA" },
+  "RUS": { "risk": "high",   "url": "https://fezqmode.github.io/quadramapdemo/RUS" },
+  "IRN": { "risk": "high",   "url": "https://fezqmode.github.io/quadramapdemo/IRN" },
+  
+  "DEU": { "risk": "low",    "url": "https://fezqmode.github.io/quadramapdemo/DEU" },
+  "FRA": { "risk": "low",    "url": "https://fezqmode.github.io/quadramapdemo/FRA" }
+}
