@@ -1,6 +1,5 @@
-// map.js
+// map.js (with debug logging)
 document.addEventListener('DOMContentLoaded', () => {
-  // 1) Initialize the map
   const map = L.map('mapid').setView([20, 0], 2);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
@@ -8,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let riskData = {};
 
-  // 2) Load riskData.json
+  // 1) Load riskData.json
   fetch('riskData.json')
     .then(res => {
       if (!res.ok) throw new Error('Failed to load riskData.json: ' + res.status);
@@ -16,13 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .then(data => {
       riskData = data;
-      drawCountries();
+      drawMap();
       addLegend();
     })
-    .catch(err => console.error('riskData error:', err));
+    .catch(err => console.error('riskData.json error:', err));
 
-  // 3) Fetch & render GeoJSON
-  function drawCountries() {
+  // 2) Fetch & render GeoJSON
+  function drawMap() {
     fetch('custom.geo.json')
       .then(res => res.json())
       .then(geo => {
@@ -31,14 +30,21 @@ document.addEventListener('DOMContentLoaded', () => {
           onEachFeature: attachInteractions
         }).addTo(map);
       })
-      .catch(err => console.error('GeoJSON error:', err));
+      .catch(err => console.error('custom.geo.json error:', err));
   }
 
-  // 4) Style each country by its riskData.json entry
+  // 3) Style callback with console logging
   function styleByRisk(feature) {
-    // use lowercase iso_a3 field from your GeoJSON
-    const iso = feature.properties.iso_a3;
-    const entry = riskData[iso] || { risk: 'low', url: '#' };
+    // **Use uppercase** ISO_A3 from your GeoJSON
+    const iso = feature.properties.ISO_A3;
+    const name = feature.properties.ADMIN;
+    const entry = riskData[iso];
+
+    // Debug log
+    console.log(`Country: ${name} | ISO: ${iso} | riskData entry:`, entry);
+
+    // If we don’t have a matching entry, fall back to LOW
+    const risk = entry && entry.risk ? entry.risk : 'low';
 
     const colors = {
       high:   '#ff0000',
@@ -47,17 +53,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     return {
-      fillColor:   colors[entry.risk],
+      fillColor:   colors[risk] || '#ff0000',  // missing → red
       color:       '#333',
       weight:      1,
       fillOpacity: 0.6
     };
   }
 
-  // 5) Tooltip on hover, highlight, and click → URL
+  // 4) Tooltip, hover highlight, click → URL
   function attachInteractions(feature, layer) {
-    // use lowercase admin field for the name
-    const name = feature.properties.admin;
+    const iso = feature.properties.ISO_A3;
+    const name = feature.properties.ADMIN;
+    const entry = riskData[iso] || {};
+
     layer.bindTooltip(name, { sticky: true });
 
     layer.on('mouseover', () => {
@@ -69,23 +77,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     layer.on('click', () => {
-      const iso = feature.properties.iso_a3;
-      const entry = riskData[iso] || { url: '#' };
-      if (entry.url !== '#') {
-        window.open(entry.url, '_blank');
-      }
+      if (entry.url) window.open(entry.url, '_blank');
     });
   }
 
-  // 6) Legend for High/Medium/Low
+  // 5) Simple legend
   function addLegend() {
     const legend = L.control({ position: 'bottomright' });
     legend.onAdd = () => {
       const div = L.DomUtil.create('div', 'legend');
       div.innerHTML = `
-        <i style="background:#ff0000;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> High Risk<br>
-        <i style="background:#ffa500;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> Medium Risk<br>
-        <i style="background:#00ff00;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> Low Risk
+        <i style="background:#ff0000;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> High<br>
+        <i style="background:#ffa500;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> Medium<br>
+        <i style="background:#00ff00;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> Low
       `;
       return div;
     };
