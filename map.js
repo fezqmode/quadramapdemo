@@ -1,6 +1,6 @@
 // map.js
 document.addEventListener('DOMContentLoaded', () => {
-  // 1) initialize the map
+  // 1) initialize map
   const map = L.map('mapid').setView([20, 0], 2);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
@@ -8,60 +8,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let riskData = {};
 
-  // 2) load your riskData.json
+  // 2) load per-country risk levels
   fetch('riskData.json')
-    .then(res => {
-      if (!res.ok) throw new Error('Failed to load riskData.json: ' + res.status);
-      return res.json();
-    })
-    .then(data => {
-      riskData = data;
+    .then(res => res.ok ? res.json() : Promise.reject(res.status))
+    .then(json => {
+      riskData = json;
       drawCountries();
       addLegend();
     })
-    .catch(err => console.error('riskData.json error:', err));
+    .catch(err => console.error('Failed to load riskData.json:', err));
 
-  // 3) fetch & render GeoJSON
+  // 3) draw countries layer
   function drawCountries() {
     fetch('custom.geo.json')
       .then(res => res.json())
       .then(geo => {
         L.geoJSON(geo, {
           style: styleByRisk,
-          onEachFeature: bindFeatureEvents
+          onEachFeature: bindInteractions
         }).addTo(map);
       })
-      .catch(err => console.error('custom.geo.json error:', err));
+      .catch(err => console.error('Failed to load custom.geo.json:', err));
   }
 
-  // 4) style each country by its risk value
+  // 4) color by risk level
   function styleByRisk(feature) {
     const props = feature.properties;
-    // try both common property names
     const iso = props.iso_a3 || props.ISO_A3 || '';
-    const entry = riskData[iso] || { risk: 'low', url: '#' };
-    const colors = {
-      high:   '#ff0000',
-      medium: '#ffa500',
-      low:    '#00ff00'
-    };
-    const fill = colors[entry.risk] || colors.low;
+    const entry = riskData[iso] || 'low';
+    const colors = { high: '#ff0000', medium: '#ffa500', low: '#00ff00' };
+    const risk = typeof entry === 'string' ? entry : entry.risk;
     return {
-      fillColor:   fill,
+      fillColor:   colors[risk] || colors.low,
       color:       '#333',
       weight:      1,
       fillOpacity: 0.6
     };
   }
 
-  // 5) attach tooltip, hover, click
-  function bindFeatureEvents(feature, layer) {
+  // 5) tooltip, highlight, click → landing page
+  function bindInteractions(feature, layer) {
     const props = feature.properties;
     const iso   = props.iso_a3 || props.ISO_A3 || '';
-    const entry = riskData[iso] || {};
     const name  = props.admin || props.ADMIN || iso;
 
     layer.bindTooltip(name, { sticky: true });
+
     layer.on('mouseover', () => {
       layer.setStyle({ weight: 3, fillOpacity: 0.8 });
       layer.bringToFront();
@@ -69,14 +61,15 @@ document.addEventListener('DOMContentLoaded', () => {
     layer.on('mouseout', () => {
       layer.setStyle(styleByRisk(feature));
     });
+
     layer.on('click', () => {
-      if (entry.url) {
-        window.open(entry.url, '_blank');
-      }
+      if (!iso) return;
+      const url = `https://fezqmode.github.io/quadramapdemo/${iso}`;
+      window.open(url, '_blank');
     });
   }
 
-  // 6) legend for high/medium/low
+  // 6) legend
   function addLegend() {
     const legend = L.control({ position: 'bottomright' });
     legend.onAdd = () => {
