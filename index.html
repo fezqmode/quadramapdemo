@@ -17,13 +17,11 @@
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
-    // Initialize map
     const map = L.map('mapid').setView([20, 0], 2);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    // Load your GeoJSON
     fetch('custom.geo.json')
       .then(res => {
         if (!res.ok) throw new Error('GeoJSON load failed: ' + res.status);
