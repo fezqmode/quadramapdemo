@@ -1,6 +1,5 @@
 // map.js
 document.addEventListener('DOMContentLoaded', () => {
-  // 1) initialize map
   const map = L.map('mapid').setView([20, 0], 2);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
@@ -8,41 +7,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let riskData = {};
 
-  // 2) load your riskData.json
+  // Load your riskData.json
   fetch('riskData.json')
-    .then(res => {
-      if (!res.ok) throw new Error('Failed to fetch riskData.json: ' + res.status);
-      return res.json();
-    })
-    .then(data => {
-      riskData = data;
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(json => {
+      riskData = json;
       drawCountries();
       addLegend();
     })
-    .catch(console.error);
+    .catch(err => console.error('Error loading riskData.json:', err));
 
-  // 3) fetch and render GeoJSON
   function drawCountries() {
     fetch('custom.geo.json')
-      .then(res => res.json())
+      .then(r => r.json())
       .then(geo => {
+        // Log the first feature's property keys so you know which field holds the ISO code
+        if (geo.features && geo.features.length) {
+          console.log(
+            'GeoJSON feature properties keys:',
+            Object.keys(geo.features[0].properties)
+          );
+        }
+
         L.geoJSON(geo, {
           style: styleByRisk,
           onEachFeature: attachInteractions
         }).addTo(map);
       })
-      .catch(console.error);
+      .catch(err => console.error('Error loading custom.geo.json:', err));
   }
 
-  // 4) style callback using ISO_A3 / ADMIN
   function styleByRisk(feature) {
-    const iso = feature.properties.ISO_A3;   // uppercase key
+    const p = feature.properties;
+
+    // Try the common ISO-A3 fields in order
+    const iso = p.ISO_A3 || p.iso_a3 || p.ADM0_A3 || p.ADM0ISO || p.ISO3 || 'UNKNOWN';
     const entry = riskData[iso] || { risk: 'low', url: '#' };
+
+    console.log(`Styling ${p.ADMIN||p.admin} (${iso}) →`, entry);
+
     const colors = {
       high:   '#ff0000',
       medium: '#ffa500',
       low:    '#00ff00'
     };
+
     return {
       fillColor:   colors[entry.risk] || colors.low,
       color:       '#333',
@@ -51,13 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  // 5) tooltip + hover + click → url
   function attachInteractions(feature, layer) {
-    const name  = feature.properties.ADMIN;   // uppercase
-    const iso   = feature.properties.ISO_A3;
+    const p = feature.properties;
+    const iso = p.ISO_A3 || p.iso_a3 || p.ADM0_A3 || p.ISO3 || 'UNKNOWN';
     const entry = riskData[iso] || {};
 
-    layer.bindTooltip(name, { sticky: true });
+    layer.bindTooltip(p.ADMIN || p.admin, { sticky: true });
 
     layer.on('mouseover', () => {
       layer.setStyle({ weight: 3, fillOpacity: 0.8 });
@@ -72,15 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6) legend
   function addLegend() {
     const legend = L.control({ position: 'bottomright' });
     legend.onAdd = () => {
       const div = L.DomUtil.create('div', 'legend');
       div.innerHTML = `
-        <i style="background:#ff0000;"></i> High Risk<br>
-        <i style="background:#ffa500;"></i> Medium Risk<br>
-        <i style="background:#00ff00;"></i> Low Risk
+        <i style="background:#ff0000;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> High Risk<br>
+        <i style="background:#ffa500;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> Medium Risk<br>
+        <i style="background:#00ff00;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> Low Risk
       `;
       return div;
     };
