@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let metrics = {}, geoLayer;
 
-  // 1) Load all metrics
-  fetch('metrics.json')
+  // Load the extended riskData.json
+  fetch('riskData.json')
     .then(r => {
-      if (!r.ok) throw new Error('metrics.json load failed: ' + r.status);
+      if (!r.ok) throw new Error('riskData.json load failed: ' + r.status);
       return r.json();
     })
     .then(data => {
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(err => console.error(err));
 
-  // 2) Draw countries once
+  // Draw countries once
   function initMap() {
     fetch('custom.geo.json')
       .then(r => r.json())
@@ -29,36 +29,35 @@ document.addEventListener('DOMContentLoaded', () => {
           style: styleFeature,
           onEachFeature: bindFeature
         }).addTo(map);
+        addLegend();
       })
       .catch(err => console.error(err));
   }
 
-  // 3) Style function uses continuous green→red by score, with grey-out for filtered-out
+  // Style by continuous gradient + filters
   function styleFeature(feat) {
-    const iso = feat.properties.iso_a3;
-    const m   = metrics[iso] || { fatf:'clean', egmont:false, basel:false, cpi:0, score:0, url:'#' };
+    const iso   = feat.properties.iso_a3;
+    const m     = metrics[iso] || {};
+    const ratio = Math.min(Math.max(m.score || 0, 0), 1);
 
-    // Read filters
+    // Read active filters
     const black = document.getElementById('fatfBlack').checked;
     const grey  = document.getElementById('fatfGrey' ).checked;
     const egm   = document.getElementById('egmont'   ).checked;
     const bas   = document.getElementById('basel'    ).checked;
     const minCpi= +document.getElementById('cpiRange').value;
 
-    // Composite score: you can override to use m.score or normalize CPI etc.
-    const ratio = Math.min(Math.max(m.score, 0), 1);
+    // Check all filters
+    const ok =
+      (!black || m.fatf   === 'black') &&
+      (!grey  || m.fatf   === 'grey')  &&
+      (!egm   || m.egmont === true)   &&
+      (!bas   || m.basel  === true)   &&
+      (m.cpi   >= minCpi);
 
-    // Check if feature passes all active filters
-    const passes =
-      (!black || m.fatf === 'black') &&
-      (!grey  || m.fatf === 'grey')  &&
-      (!egm   || m.egmont)           &&
-      (!bas   || m.basel)            &&
-      (m.cpi >= minCpi);
-
-    // Compute fill color: gradient if passes, grey if not
+    // Compute color
     let fill;
-    if (passes) {
+    if (ok) {
       const r = Math.round(255 * ratio);
       const g = Math.round(255 * (1 - ratio));
       fill = `rgb(${r},${g},0)`;
@@ -68,13 +67,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     return {
       fillColor:   fill,
-      color:       passes ? '#333' : '#888',
-      weight:      passes ? 1   : 0.5,
-      fillOpacity: passes ? 0.6 : 0.3
+      color:       ok ? '#333' : '#888',
+      weight:      ok ? 1 : 0.5,
+      fillOpacity: ok ? 0.7 : 0.3
     };
   }
 
-  // 4) Attach tooltip, hover highlight, click → detail URL
+  // Tooltip, hover, click → url
   function bindFeature(feat, layer) {
     const name = feat.properties.admin || feat.properties.ADMIN;
     layer.bindTooltip(name, { sticky: true });
@@ -94,15 +93,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5) Wire filters to re-style map on change
+  // Wire filter inputs to re-style
   function initFilters() {
-    const inputs = Array.from(document.querySelectorAll('#filters input'));
-    inputs.forEach(inp => {
-      inp.addEventListener('change', () => {
-        geoLayer.setStyle(styleFeature);
-      });
-    });
-    // CPI range label update
+    const inputs = [...document.querySelectorAll('#filters input')];
+    inputs.forEach(i => i.addEventListener('change', () => {
+      geoLayer.setStyle(styleFeature);
+    }));
     const cpiRange = document.getElementById('cpiRange');
     const cpiValue = document.getElementById('cpiValue');
     cpiRange.addEventListener('input', () => {
@@ -111,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6) Legend: continuous gradient bar, with Low/High labels
+  // Add a continuous gradient legend
   function addLegend() {
     const legend = L.control({ position: 'bottomright' });
     legend.onAdd = () => {
