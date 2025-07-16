@@ -1,79 +1,69 @@
 // map.js
 document.addEventListener('DOMContentLoaded', () => {
-  const map = L.map('mapid').setView([20,0],2);
+  const map = L.map('mapid').setView([20, 0], 2);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
   }).addTo(map);
 
-  let riskData = {}, sanData = {};
+  let riskData = {};
 
-  // 1) Load both JSON files in parallel
-  Promise.all([
-    fetch('riskData.json').then(r => r.ok ? r.json() : {}),
-    fetch('sandata.json').then(r => r.ok ? r.json() : {})
-  ]).then(([rData, sData]) => {
-    riskData = rData;
-    sanData  = sData;
-    drawMap();
-    addLegend();
-  }).catch(err => console.error('JSON load error:', err));
+  // Load your riskData.json
+  fetch('riskData.json')
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(json => {
+      riskData = json;
+      drawCountries();
+      addLegend();
+    })
+    .catch(err => console.error('Error loading riskData.json:', err));
 
-  // 2) Draw GeoJSON layer
-  function drawMap() {
+  function drawCountries() {
     fetch('custom.geo.json')
       .then(r => r.json())
       .then(geo => {
+        // Log the first feature's property keys so you know which field holds the ISO code
+        if (geo.features && geo.features.length) {
+          console.log(
+            'GeoJSON feature properties keys:',
+            Object.keys(geo.features[0].properties)
+          );
+        }
+
         L.geoJSON(geo, {
           style: styleByRisk,
-          onEachFeature: addInteractions
+          onEachFeature: attachInteractions
         }).addTo(map);
       })
-      .catch(err => console.error('GeoJSON load error:', err));
+      .catch(err => console.error('Error loading custom.geo.json:', err));
   }
 
-  // 3) Determine risk level and return style
   function styleByRisk(feature) {
-    const iso = feature.properties.ISO_A3 || feature.properties.iso_a3;
-    let level;
+    const p = feature.properties;
 
-    // 3a) If user‐defined riskData.json entry exists, use that
-    if (riskData[iso] && riskData[iso].risk) {
-      level = riskData[iso].risk;                 // "high", "low", "medium"
-    }
-    // 3b) Otherwise, check sanctions data
-    else if (sanData[iso] === 'full') {
-      level = 'high';
-    }
-    else if (sanData[iso] === 'partial') {
-      level = 'medium';
-    }
-    // 3c) Fallback
-    else {
-      level = 'low';
-    }
+    // Try the common ISO-A3 fields in order
+    const iso = p.ISO_A3 || p.iso_a3 || p.ADM0_A3 || p.ISO3 || 'UNKNOWN';
+    const entry = riskData[iso];
 
-    const colors = {
-      high:   '#ff0000',
-      medium: '#ffa500',
-      low:    '#00ff00'
-    };
+    // Debug log
+    console.log(`Styling ${p.ADMIN||p.admin} (${iso}) →`, entry);
+
+    const risk = entry && entry.risk ? entry.risk : 'low';
+    const colors = { high:'#ff0000', medium:'#ffa500', low:'#00ff00' };
 
     return {
-      fillColor:   colors[level],
+      fillColor:   colors[risk],
       color:       '#333',
       weight:      1,
       fillOpacity: 0.6
     };
   }
 
-  // 4) Tooltip, hover, click behavior
-  function addInteractions(feature, layer) {
-    const props = feature.properties;
-    const iso   = props.ISO_A3 || props.iso_a3;
-    const name  = props.ADMIN || props.admin;
+  function attachInteractions(feature, layer) {
+    const p = feature.properties;
+    const iso = p.ISO_A3 || p.iso_a3 || p.ADM0_A3 || p.ISO3 || 'UNKNOWN';
     const entry = riskData[iso] || {};
 
-    layer.bindTooltip(name, { sticky: true });
+    layer.bindTooltip(p.ADMIN || p.admin, { sticky: true });
 
     layer.on('mouseover', () => {
       layer.setStyle({ weight: 3, fillOpacity: 0.8 });
@@ -82,20 +72,20 @@ document.addEventListener('DOMContentLoaded', () => {
     layer.on('mouseout', () => {
       layer.setStyle(styleByRisk(feature));
     });
+
     layer.on('click', () => {
       if (entry.url) window.open(entry.url, '_blank');
     });
   }
 
-  // 5) Legend showing the three buckets
   function addLegend() {
     const legend = L.control({ position: 'bottomright' });
     legend.onAdd = () => {
-      const div = L.DomUtil.create('div','legend');
+      const div = L.DomUtil.create('div', 'legend');
       div.innerHTML = `
-        <i style="background:#ff0000;"></i> High Risk<br>
-        <i style="background:#ffa500;"></i> Medium Risk<br>
-        <i style="background:#00ff00;"></i> Low Risk
+        <i style="background:#ff0000;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> High Risk<br>
+        <i style="background:#ffa500;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> Medium Risk<br>
+        <i style="background:#00ff00;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> Low Risk
       `;
       return div;
     };
