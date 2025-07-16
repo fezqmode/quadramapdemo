@@ -1,94 +1,173 @@
-// map.js
-document.addEventListener('DOMContentLoaded', () => {
-  const map = L.map('mapid').setView([20, 0], 2);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-  }).addTo(map);
+attribution: '© OpenStreetMap contributors'
+}).addTo(map);
 
   let riskData = {};
+  let metrics = {}, geoLayer;
 
-  // Load your riskData.json
+  // 1) Load the JSON of risk levels
   fetch('riskData.json')
-    .then(r => r.ok ? r.json() : Promise.reject(r.status))
-    .then(json => {
-      riskData = json;
+  // 1) Load all metrics
+  fetch('metrics.json')
+.then(r => {
+      if (!r.ok) throw new Error('Risk data load failed: ' + r.status);
+      if (!r.ok) throw new Error('metrics.json load failed: ' + r.status);
+return r.json();
+})
+.then(data => {
+      riskData = data;
       drawCountries();
       addLegend();
-    })
-    .catch(err => console.error('Error loading riskData.json:', err));
+      metrics = data;
+      initMap();
+      initFilters();
+})
+    .catch(err => console.error('Risk data error', err));
+    .catch(err => console.error(err));
 
+  // 2) Draw the GeoJSON layer
   function drawCountries() {
-    fetch('custom.geo.json')
-      .then(r => r.json())
-      .then(geo => {
-        // Log the first feature's property keys so you know which field holds the ISO code
-        if (geo.features && geo.features.length) {
-          console.log(
-            'GeoJSON feature properties keys:',
-            Object.keys(geo.features[0].properties)
-          );
-        }
-
+  // 2) Draw countries once
+  function initMap() {
+fetch('custom.geo.json')
+.then(r => r.json())
+.then(geo => {
         L.geoJSON(geo, {
           style: styleByRisk,
-          onEachFeature: attachInteractions
-        }).addTo(map);
-      })
-      .catch(err => console.error('Error loading custom.geo.json:', err));
-  }
+          onEachFeature: bindFeatureEvents
+        geoLayer = L.geoJSON(geo, {
+          style: styleFeature,
+          onEachFeature: bindFeature
+}).addTo(map);
+})
+      .catch(err => console.error('GeoJSON load error', err));
+      .catch(err => console.error(err));
+}
 
+  // style callback: fillColor by risk level
   function styleByRisk(feature) {
-    const p = feature.properties;
+    // use the iso_a3 field from your GeoJSON
+    const iso = feature.properties.iso_a3;
+    const entry = riskData[iso] || { risk:'low', url:'#' };
+  // 3) Style function uses continuous green→red by score, with grey-out for filtered-out
+  function styleFeature(feat) {
+    const iso = feat.properties.iso_a3;
+    const m   = metrics[iso] || { fatf:'clean', egmont:false, basel:false, cpi:0, score:0, url:'#' };
 
-    // Try the common ISO-A3 fields in order
-    const iso = p.ISO_A3 || p.iso_a3 || p.ADM0_A3 || p.ISO3 || 'UNKNOWN';
-    const entry = riskData[iso];
+    const colors = {
+      high:   '#ff0000',  // red
+      medium: '#ffa500',  // orange
+      low:    '#00ff00'   // green
+    };
+    // Read filters
+    const black = document.getElementById('fatfBlack').checked;
+    const grey  = document.getElementById('fatfGrey' ).checked;
+    const egm   = document.getElementById('egmont'   ).checked;
+    const bas   = document.getElementById('basel'    ).checked;
+    const minCpi= +document.getElementById('cpiRange').value;
 
-    // Debug log
-    console.log(`Styling ${p.ADMIN||p.admin} (${iso}) →`, entry);
+    // Composite score: you can override to use m.score or normalize CPI etc.
+    const ratio = Math.min(Math.max(m.score, 0), 1);
 
-    const risk = entry && entry.risk ? entry.risk : 'low';
-    const colors = { high:'#ff0000', medium:'#ffa500', low:'#00ff00' };
+    // Check if feature passes all active filters
+    const passes =
+      (!black || m.fatf === 'black') &&
+      (!grey  || m.fatf === 'grey')  &&
+      (!egm   || m.egmont)           &&
+      (!bas   || m.basel)            &&
+      (m.cpi >= minCpi);
 
-    return {
-      fillColor:   colors[risk],
+    // Compute fill color: gradient if passes, grey if not
+    let fill;
+    if (passes) {
+      const r = Math.round(255 * ratio);
+      const g = Math.round(255 * (1 - ratio));
+      fill = `rgb(${r},${g},0)`;
+    } else {
+      fill = '#ccc';
+    }
+
+return {
+      fillColor:   colors[entry.risk],
       color:       '#333',
       weight:      1,
       fillOpacity: 0.6
-    };
-  }
+      fillColor:   fill,
+      color:       passes ? '#333' : '#888',
+      weight:      passes ? 1   : 0.5,
+      fillOpacity: passes ? 0.6 : 0.3
+};
+}
 
-  function attachInteractions(feature, layer) {
-    const p = feature.properties;
-    const iso = p.ISO_A3 || p.iso_a3 || p.ADM0_A3 || p.ISO3 || 'UNKNOWN';
-    const entry = riskData[iso] || {};
+  // attach tooltip, hover and click for each country
+  function bindFeatureEvents(feature, layer) {
+    // Tooltip on hover
+    layer.bindTooltip(feature.properties.admin || feature.properties.ADMIN, { sticky: true });
+  // 4) Attach tooltip, hover highlight, click → detail URL
+  function bindFeature(feat, layer) {
+    const name = feat.properties.admin || feat.properties.ADMIN;
+    layer.bindTooltip(name, { sticky: true });
 
-    layer.bindTooltip(p.ADMIN || p.admin, { sticky: true });
-
-    layer.on('mouseover', () => {
-      layer.setStyle({ weight: 3, fillOpacity: 0.8 });
-      layer.bringToFront();
-    });
-    layer.on('mouseout', () => {
+    // Hover highlight
+layer.on('mouseover', () => {
+layer.setStyle({ weight: 3, fillOpacity: 0.8 });
+layer.bringToFront();
+});
+layer.on('mouseout', () => {
       layer.setStyle(styleByRisk(feature));
-    });
+      layer.setStyle(styleFeature(feat));
+});
 
-    layer.on('click', () => {
-      if (entry.url) window.open(entry.url, '_blank');
+    // Click → open details URL
+layer.on('click', () => {
+      const iso = feature.properties.iso_a3;
+      const entry = riskData[iso] || { url: '#' };
+      if (entry.url && entry.url !== '#') {
+        window.open(entry.url, '_blank');
+      }
+      const iso = feat.properties.iso_a3;
+      const url = (metrics[iso] && metrics[iso].url) || '#';
+      if (url !== '#') window.open(url, '_blank');
     });
   }
 
-  function addLegend() {
-    const legend = L.control({ position: 'bottomright' });
-    legend.onAdd = () => {
-      const div = L.DomUtil.create('div', 'legend');
-      div.innerHTML = `
-        <i style="background:#ff0000;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> High Risk<br>
-        <i style="background:#ffa500;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> Medium Risk<br>
-        <i style="background:#00ff00;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> Low Risk
-      `;
-      return div;
-    };
-    legend.addTo(map);
-  }
+  // 5) Wire filters to re-style map on change
+  function initFilters() {
+    const inputs = Array.from(document.querySelectorAll('#filters input'));
+    inputs.forEach(inp => {
+      inp.addEventListener('change', () => {
+        geoLayer.setStyle(styleFeature);
+      });
+    });
+    // CPI range label update
+    const cpiRange = document.getElementById('cpiRange');
+    const cpiValue = document.getElementById('cpiValue');
+    cpiRange.addEventListener('input', () => {
+      cpiValue.textContent = cpiRange.value;
+      geoLayer.setStyle(styleFeature);
+});
+}
+
+  // 3) Legend control
+  // 6) Legend: continuous gradient bar, with Low/High labels
+function addLegend() {
+const legend = L.control({ position: 'bottomright' });
+legend.onAdd = () => {
+const div = L.DomUtil.create('div', 'legend');
+div.innerHTML = `
+        <i style="background:#ff0000"></i> High Risk<br>
+        <i style="background:#ffa500"></i> Medium Risk<br>
+        <i style="background:#00ff00"></i> Low Risk
+        <div style="
+          width:120px;
+          height:10px;
+          background: linear-gradient(to right, #00ff00, #ff0000);
+          margin-bottom:4px">
+        </div>
+        <span>Low Risk</span>
+        <span style="float:right">High Risk</span>
+     `;
+return div;
+};
+legend.addTo(map);
+}
 });
