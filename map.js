@@ -1,72 +1,80 @@
 // map.js
 document.addEventListener('DOMContentLoaded', () => {
-  // initialize map
   const map = L.map('mapid').setView([20, 0], 2);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
   }).addTo(map);
 
-  let sanctionLevels = {};
+  let riskData = {};
 
-  // load sanction data first
-  fetch('sancData.json')
-    .then(res => {
-      if (!res.ok) throw new Error('Failed to load sancData.json: ' + res.status);
-      return res.json();
-    })
+  // 1) load risk data
+  fetch('riskData.json')
+    .then(r => { if(!r.ok) throw new Error(r.status); return r.json(); })
     .then(data => {
-      sanctionLevels = data;
+      riskData = data;
       drawCountries();
       addLegend();
     })
-    .catch(err => console.error(err));
+    .catch(err => console.error('Risk data error', err));
 
-  // draw GeoJSON with styling & popups
+  // 2) draw & style countries
   function drawCountries() {
     fetch('custom.geo.json')
-      .then(res => res.json())
+      .then(r => r.json())
       .then(geo => {
         L.geoJSON(geo, {
-          style: feature => {
-            const iso = feature.properties.ISO_A3;
-            const lvl = sanctionLevels[iso] || 'none';
-            const colors = {
-              full:   '#c00',  // red
-              partial:'#fc0',  // yellow
-              none:   '#0c0'   // green
-            };
-            return {
-              fillColor: colors[lvl],
-              color:     '#333',
-              weight:    1,
-              fillOpacity: 0.6
-            };
-          },
-          onEachFeature: (feature, layer) => {
-            layer.bindTooltip(feature.properties.ADMIN, {sticky: true});
-            layer.on('click', () => {
-              const iso = feature.properties.ISO_A3;
-              const name = feature.properties.ADMIN;
-              const lvl  = sanctionLevels[iso] || 'none';
-              layer.bindPopup(
-                `<h4>${name}</h4><b>Embargo level:</b> ${lvl}`
-              ).openPopup();
-            });
-          }
+          style: defaultStyle,
+          onEachFeature: setupFeature
         }).addTo(map);
       })
-      .catch(err => console.error('Failed to load GeoJSON:', err));
+      .catch(err => console.error(err));
   }
 
-  // add a legend control
+  // default fill based on risk
+  function defaultStyle(feature) {
+    const iso = feature.properties.ISO_A3;
+    const entry = riskData[iso] || {risk:'low', url:'#'};
+    const colors = { high:'#c00', medium:'#fc0', low:'#0c0' };
+    return {
+      fillColor: colors[entry.risk],
+      color: '#333',
+      weight: 1,
+      fillOpacity: 0.5
+    };
+  }
+
+  // hover + click logic per feature
+  function setupFeature(feature, layer) {
+    // tooltip on hover
+    layer.bindTooltip(feature.properties.ADMIN, {sticky:true});
+
+    // highlight on mouseover
+    layer.on('mouseover', () => {
+      layer.setStyle({ weight: 3, fillOpacity: 0.8 });
+      layer.bringToFront();
+    });
+    // reset on mouseout
+    layer.on('mouseout',  () => {
+      layer.setStyle(defaultStyle(feature));
+    });
+
+    // click → open detail page
+    layer.on('click', () => {
+      const iso = feature.properties.ISO_A3;
+      const entry = riskData[iso] || {url:'#'};
+      window.open(entry.url, '_blank');
+    });
+  }
+
+  // 3) legend
   function addLegend() {
-    const legend = L.control({ position: 'bottomright' });
+    const legend = L.control({position:'bottomright'});
     legend.onAdd = () => {
-      const div = L.DomUtil.create('div', 'legend');
+      const div = L.DomUtil.create('div','legend');
       div.innerHTML = `
-        <i style="background:#c00"></i> Full Embargo<br/>
-        <i style="background:#fc0"></i> Partial Embargo<br/>
-        <i style="background:#0c0"></i> No Embargo
+        <i style="background:#c00"></i> High Risk<br>
+        <i style="background:#fc0"></i> Medium Risk<br>
+        <i style="background:#0c0"></i> Low Risk
       `;
       return div;
     };
