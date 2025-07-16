@@ -1,20 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
+  <title>QuadraComply Map</title>
+  <!-- Leaflet CSS -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet/dist/leaflet.css"
   />
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0; height: 100%; }
+    #mapid { width: 100%; height: 100%; }
+  </style>
 </head>
 <body>
-  <div id="mapid" style="width:100%;height:100vh"></div>
+  <!-- single map container -->
+  <div id="mapid"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
-    const map = L.map('mapid').setView([20,0],2);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
-      .addTo(map);
-    // weitere GeoJSON- und Klick-Logik hier
+    // 1. initialize the map
+    const map = L.map('mapid').setView([20, 0], 2);
+
+    // 2. add base tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // 3. load and display GeoJSON borders
+    fetch('countries.geo.json')
+      .then(res => res.json())
+      .then(geo => {
+        L.geoJSON(geo, {
+          style: {
+            color: '#333',
+            weight: 1,
+            fillColor: '#888',
+            fillOpacity: 0.4
+          }
+        }).addTo(map);
+      })
+      .catch(err => console.error('Could not load GeoJSON:', err));
   </script>
 </body>
 </html>
