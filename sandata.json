@@ -1,7 +1,0 @@
-{
-  "AFG":"partial","BLR":"partial","BIR":"partial","CAF":"partial",
-  "CHN":"partial","CUB":"partial","IRN":"full","KOR":"full",
-  "MMR":"partial","RUS":"partial","SYR":"full","VEN":"partial",
-  "YEM":"partial","ZWE":"partial"
-  /* other isos omitted default→"none" (low) */
-}
