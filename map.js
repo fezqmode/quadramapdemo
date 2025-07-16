@@ -1,5 +1,6 @@
 // map.js
 document.addEventListener('DOMContentLoaded', () => {
+  // 1) initialize map
   const map = L.map('mapid').setView([20, 0], 2);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
@@ -7,58 +8,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let riskData = {};
 
-  // 1) Load the JSON of risk levels
+  // 2) load your riskData.json
   fetch('riskData.json')
-    .then(r => {
-      if (!r.ok) throw new Error('Risk data load failed: ' + r.status);
-      return r.json();
+    .then(res => {
+      if (!res.ok) throw new Error('Failed to fetch riskData.json: ' + res.status);
+      return res.json();
     })
     .then(data => {
       riskData = data;
       drawCountries();
       addLegend();
     })
-    .catch(err => console.error('Risk data error', err));
+    .catch(console.error);
 
-  // 2) Draw the GeoJSON layer
+  // 3) fetch and render GeoJSON
   function drawCountries() {
     fetch('custom.geo.json')
-      .then(r => r.json())
+      .then(res => res.json())
       .then(geo => {
         L.geoJSON(geo, {
           style: styleByRisk,
-          onEachFeature: bindFeatureEvents
+          onEachFeature: attachInteractions
         }).addTo(map);
       })
-      .catch(err => console.error('GeoJSON load error', err));
+      .catch(console.error);
   }
 
-  // style callback: fillColor by risk level
+  // 4) style callback using ISO_A3 / ADMIN
   function styleByRisk(feature) {
-    // use the iso_a3 field from your GeoJSON
-    const iso = feature.properties.iso_a3;
-    const entry = riskData[iso] || { risk:'low', url:'#' };
-
+    const iso = feature.properties.ISO_A3;   // uppercase key
+    const entry = riskData[iso] || { risk: 'low', url: '#' };
     const colors = {
-      high:   '#ff0000',  // red
-      medium: '#ffa500',  // orange
-      low:    '#00ff00'   // green
+      high:   '#ff0000',
+      medium: '#ffa500',
+      low:    '#00ff00'
     };
-
     return {
-      fillColor:   colors[entry.risk],
+      fillColor:   colors[entry.risk] || colors.low,
       color:       '#333',
       weight:      1,
       fillOpacity: 0.6
     };
   }
 
-  // attach tooltip, hover and click for each country
-  function bindFeatureEvents(feature, layer) {
-    // Tooltip on hover
-    layer.bindTooltip(feature.properties.admin || feature.properties.ADMIN, { sticky: true });
+  // 5) tooltip + hover + click → url
+  function attachInteractions(feature, layer) {
+    const name  = feature.properties.ADMIN;   // uppercase
+    const iso   = feature.properties.ISO_A3;
+    const entry = riskData[iso] || {};
 
-    // Hover highlight
+    layer.bindTooltip(name, { sticky: true });
+
     layer.on('mouseover', () => {
       layer.setStyle({ weight: 3, fillOpacity: 0.8 });
       layer.bringToFront();
@@ -67,25 +67,20 @@ document.addEventListener('DOMContentLoaded', () => {
       layer.setStyle(styleByRisk(feature));
     });
 
-    // Click → open details URL
     layer.on('click', () => {
-      const iso = feature.properties.iso_a3;
-      const entry = riskData[iso] || { url: '#' };
-      if (entry.url && entry.url !== '#') {
-        window.open(entry.url, '_blank');
-      }
+      if (entry.url) window.open(entry.url, '_blank');
     });
   }
 
-  // 3) Legend control
+  // 6) legend
   function addLegend() {
     const legend = L.control({ position: 'bottomright' });
     legend.onAdd = () => {
       const div = L.DomUtil.create('div', 'legend');
       div.innerHTML = `
-        <i style="background:#ff0000"></i> High Risk<br>
-        <i style="background:#ffa500"></i> Medium Risk<br>
-        <i style="background:#00ff00"></i> Low Risk
+        <i style="background:#ff0000;"></i> High Risk<br>
+        <i style="background:#ffa500;"></i> Medium Risk<br>
+        <i style="background:#00ff00;"></i> Low Risk
       `;
       return div;
     };
