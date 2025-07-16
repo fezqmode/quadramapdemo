@@ -1,6 +1,6 @@
 // map.js
 document.addEventListener('DOMContentLoaded', () => {
-  // 1) initialize map
+  // 1) initialize the map
   const map = L.map('mapid').setView([20, 0], 2);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(err => console.error('Failed to load riskData.json:', err));
 
-  // 3) draw countries layer
+  // 3) draw GeoJSON
   function drawCountries() {
     fetch('custom.geo.json')
       .then(res => res.json())
@@ -31,13 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(err => console.error('Failed to load custom.geo.json:', err));
   }
 
-  // 4) color by risk level
+  // 4) style by risk
   function styleByRisk(feature) {
     const props = feature.properties;
-    const iso = props.iso_a3 || props.ISO_A3 || '';
-    const entry = riskData[iso] || 'low';
-    const colors = { high: '#ff0000', medium: '#ffa500', low: '#00ff00' };
-    const risk = typeof entry === 'string' ? entry : entry.risk;
+    const iso   = props.iso_a3 || props.ISO_A3 || '';
+    const risk  = (riskData[iso] && riskData[iso].risk) ? riskData[iso].risk : 'low';
+    const colors = { high:'#ff0000', medium:'#ffa500', low:'#00ff00' };
     return {
       fillColor:   colors[risk] || colors.low,
       color:       '#333',
@@ -46,13 +45,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  // 5) tooltip, highlight, click → landing page
+  // 5) tooltip now shows name + risk, plus hover & click
   function bindInteractions(feature, layer) {
     const props = feature.properties;
     const iso   = props.iso_a3 || props.ISO_A3 || '';
-    const name  = props.admin || props.ADMIN || iso;
+    const name  = props.admin  || props.ADMIN   || iso;
+    const entry = riskData[iso] || { risk:'low', url:'#' };
+    const risk  = entry.risk || 'low';
 
-    layer.bindTooltip(name, { sticky: true });
+    // show name and risk in tooltip
+    layer.bindTooltip(
+      `<strong>${name}</strong><br>Risk: <em>${risk.charAt(0).toUpperCase() + risk.slice(1)}</em>`,
+      { sticky: true }
+    );
 
     layer.on('mouseover', () => {
       layer.setStyle({ weight: 3, fillOpacity: 0.8 });
@@ -61,11 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
     layer.on('mouseout', () => {
       layer.setStyle(styleByRisk(feature));
     });
-
     layer.on('click', () => {
-      if (!iso) return;
-      const url = `https://fezqmode.github.io/quadramapdemo/${iso}`;
-      window.open(url, '_blank');
+      if (entry.url && entry.url !== '#') {
+        window.open(entry.url, '_blank');
+      }
     });
   }
 
