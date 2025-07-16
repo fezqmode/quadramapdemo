@@ -1,6 +1,6 @@
 // map.js
 document.addEventListener('DOMContentLoaded', () => {
-  // 1) Initialize the map
+  // 1) Initialize map
   const map = L.map('mapid').setView([20, 0], 2);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let riskData = {};
 
-  // 2) Load your riskData.json
+  // 2) Load the riskData.json
   fetch('riskData.json')
     .then(res => {
       if (!res.ok) throw new Error('Failed to load riskData.json: ' + res.status);
@@ -16,27 +16,27 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .then(data => {
       riskData = data;
-      drawCountries();
+      drawMap();
       addLegend();
     })
-    .catch(err => console.error('Risk data error', err));
+    .catch(err => console.error('riskData.json error:', err));
 
-  // 3) Fetch and draw the GeoJSON
-  function drawCountries() {
+  // 3) Fetch GeoJSON and draw
+  function drawMap() {
     fetch('custom.geo.json')
       .then(res => res.json())
       .then(geo => {
         L.geoJSON(geo, {
           style: styleByRisk,
-          onEachFeature: attachInteractions
+          onEachFeature: addInteractions
         }).addTo(map);
       })
-      .catch(err => console.error('GeoJSON load error', err));
+      .catch(err => console.error('custom.geo.json error:', err));
   }
 
-  // 4) Style callback: red/orange/green by risk
+  // 4) Style function: discrete high/medium/low
   function styleByRisk(feature) {
-    const iso = feature.properties.iso_a3;   // correct property name
+    const iso = feature.properties.ISO_A3;   // match your GeoJSON field
     const entry = riskData[iso] || { risk: 'low', url: '#' };
 
     const colors = {
@@ -53,9 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  // 5) Tooltip, hover highlight and click → URL
-  function attachInteractions(feature, layer) {
-    const name = feature.properties.admin;  // correct label property
+  // 5) Tooltip, hover highlight, click → URL
+  function addInteractions(feature, layer) {
+    const name = feature.properties.ADMIN;  // match your GeoJSON field
     layer.bindTooltip(name, { sticky: true });
 
     layer.on('mouseover', () => {
@@ -67,21 +67,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     layer.on('click', () => {
-      const iso = feature.properties.iso_a3;
+      const iso   = feature.properties.ISO_A3;
       const entry = riskData[iso] || { url: '#' };
       if (entry.url !== '#') window.open(entry.url, '_blank');
     });
   }
 
-  // 6) Legend matching these exact hex‐codes
+  // 6) Legend for High/Medium/Low
   function addLegend() {
     const legend = L.control({ position: 'bottomright' });
     legend.onAdd = () => {
       const div = L.DomUtil.create('div', 'legend');
       div.innerHTML = `
-        <i style="background:#ff0000;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> High Risk<br>
-        <i style="background:#ffa500;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> Medium Risk<br>
-        <i style="background:#00ff00;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> Low Risk
+        <i style="background:#ff0000"></i> High Risk<br>
+        <i style="background:#ffa500"></i> Medium Risk<br>
+        <i style="background:#00ff00"></i> Low Risk
       `;
       return div;
     };
