@@ -495,8 +495,8 @@
     "url": "https://fezqmode.github.io/quadramapdemo/IRN"
   },
   "IRQ": {
-    "risk": "low",
-    "score": 0,
+    "risk": "medium",
+    "score": 25,
     "url": "https://fezqmode.github.io/quadramapdemo/IRQ"
   },
   "ISL": {
@@ -770,8 +770,8 @@
     "url": "https://fezqmode.github.io/quadramapdemo/NGA"
   },
   "NIC": {
-    "risk": "low",
-    "score": 0,
+    "risk": "high",
+    "score": 77,
     "url": "https://fezqmode.github.io/quadramapdemo/NIC"
   },
   "NIU": {
@@ -895,8 +895,8 @@
     "url": "https://fezqmode.github.io/quadramapdemo/ROU"
   },
   "RUS": {
-    "risk": "low",
-    "score": 0,
+    "risk": "high",
+    "score": 98,
     "url": "https://fezqmode.github.io/quadramapdemo/RUS"
   },
   "RWA": {
