@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let riskData = {};
 
-  // 1) load riskData.json
+  // 1) Load the JSON of risk levels
   fetch('riskData.json')
     .then(r => {
-      if (!r.ok) throw new Error('Failed to load riskData.json: ' + r.status);
+      if (!r.ok) throw new Error('Risk data load failed: ' + r.status);
       return r.json();
     })
     .then(data => {
@@ -20,23 +20,24 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(err => console.error('Risk data error', err));
 
-  // 2) draw & style countries
+  // 2) Draw the GeoJSON layer
   function drawCountries() {
     fetch('custom.geo.json')
       .then(r => r.json())
       .then(geo => {
         L.geoJSON(geo, {
-          style: defaultStyle,
-          onEachFeature: setupFeature
+          style: styleByRisk,
+          onEachFeature: bindFeatureEvents
         }).addTo(map);
       })
       .catch(err => console.error('GeoJSON load error', err));
   }
 
-  // default fill based on risk
-  function defaultStyle(feature) {
-    const iso = feature.properties.ISO_A3;  // or change to iso_a3 if needed
-    const entry = riskData[iso] || { risk: 'low', url: '#' };
+  // style callback: fillColor by risk level
+  function styleByRisk(feature) {
+    // use the iso_a3 field from your GeoJSON
+    const iso = feature.properties.iso_a3;
+    const entry = riskData[iso] || { risk:'low', url:'#' };
 
     const colors = {
       high:   '#ff0000',  // red
@@ -52,38 +53,39 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  // hover + click logic per feature
-  function setupFeature(feature, layer) {
-    // tooltip on hover
-    layer.bindTooltip(feature.properties.ADMIN, { sticky: true });
+  // attach tooltip, hover and click for each country
+  function bindFeatureEvents(feature, layer) {
+    // Tooltip on hover
+    layer.bindTooltip(feature.properties.admin || feature.properties.ADMIN, { sticky: true });
 
-    // highlight on mouseover
+    // Hover highlight
     layer.on('mouseover', () => {
       layer.setStyle({ weight: 3, fillOpacity: 0.8 });
       layer.bringToFront();
     });
-    // reset on mouseout
     layer.on('mouseout', () => {
-      layer.setStyle(defaultStyle(feature));
+      layer.setStyle(styleByRisk(feature));
     });
 
-    // click → open detail page
+    // Click → open details URL
     layer.on('click', () => {
-      const iso = feature.properties.ISO_A3;  // or iso_a3
+      const iso = feature.properties.iso_a3;
       const entry = riskData[iso] || { url: '#' };
-      if (entry.url !== '#') window.open(entry.url, '_blank');
+      if (entry.url && entry.url !== '#') {
+        window.open(entry.url, '_blank');
+      }
     });
   }
 
-  // 3) legend
+  // 3) Legend control
   function addLegend() {
     const legend = L.control({ position: 'bottomright' });
     legend.onAdd = () => {
       const div = L.DomUtil.create('div', 'legend');
       div.innerHTML = `
-        <i style="background:#ff0000;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> High Risk<br>
-        <i style="background:#ffa500;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> Medium Risk<br>
-        <i style="background:#00ff00;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> Low Risk
+        <i style="background:#ff0000"></i> High Risk<br>
+        <i style="background:#ffa500"></i> Medium Risk<br>
+        <i style="background:#00ff00"></i> Low Risk
       `;
       return div;
     };
