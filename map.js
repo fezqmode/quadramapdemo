@@ -1,78 +1,60 @@
 // map.js
 document.addEventListener('DOMContentLoaded', () => {
-  const map = L.map('mapid').setView([20, 0], 2);
+  const map = L.map('mapid').setView([20,0],2);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
   }).addTo(map);
 
-  let riskData = {};
+  let countryColors = {};
 
-  // Load your riskData.json
-  fetch('riskData.json')
+  // Load your per-country color definitions
+  fetch('countryColors.json')
     .then(r => r.ok ? r.json() : Promise.reject(r.status))
     .then(json => {
-      riskData = json;
-      drawCountries();
+      countryColors = json;
+      drawMap();
       addLegend();
     })
-    .catch(err => console.error('Error loading riskData.json:', err));
+    .catch(err => console.error('countryColors.json error:', err));
 
-  function drawCountries() {
+  function drawMap() {
     fetch('custom.geo.json')
       .then(r => r.json())
       .then(geo => {
-        // Log the first feature's property keys so you know which field holds the ISO code
-        if (geo.features && geo.features.length) {
-          console.log(
-            'GeoJSON feature properties keys:',
-            Object.keys(geo.features[0].properties)
-          );
-        }
-
         L.geoJSON(geo, {
-          style: styleByRisk,
-          onEachFeature: attachInteractions
+          style: styleByCountry,
+          onEachFeature: bindInteractions
         }).addTo(map);
       })
-      .catch(err => console.error('Error loading custom.geo.json:', err));
+      .catch(err => console.error('custom.geo.json error:', err));
   }
 
-  function styleByRisk(feature) {
-    const p = feature.properties;
-
-    // Try the common ISO-A3 fields in order
-    const iso = p.ISO_A3 || p.iso_a3 || p.ADM0_A3 || p.ISO3 || 'UNKNOWN';
-    const entry = riskData[iso];
-
-    // Debug log
-    console.log(`Styling ${p.ADMIN||p.admin} (${iso}) →`, entry);
-
-    const risk = entry && entry.risk ? entry.risk : 'low';
-    const colors = { high:'#ff0000', medium:'#ffa500', low:'#00ff00' };
+  function styleByCountry(feature) {
+    // match whatever your GeoJSON uses — adjust if needed
+    const iso = feature.properties.ISO_A3;   
+    const entry = countryColors[iso];
 
     return {
-      fillColor:   colors[risk],
-      color:       '#333',
+      fillColor:   entry ? entry.color : '#cccccc',
+      color:       '#333333',
       weight:      1,
       fillOpacity: 0.6
     };
   }
 
-  function attachInteractions(feature, layer) {
-    const p = feature.properties;
-    const iso = p.ISO_A3 || p.iso_a3 || p.ADM0_A3 || p.ISO3 || 'UNKNOWN';
-    const entry = riskData[iso] || {};
+  function bindInteractions(feature, layer) {
+    const iso = feature.properties.ISO_A3;
+    const entry = countryColors[iso] || {};
+    const name = feature.properties.ADMIN; 
 
-    layer.bindTooltip(p.ADMIN || p.admin, { sticky: true });
-
+    layer.bindTooltip(name, { sticky: true });
     layer.on('mouseover', () => {
       layer.setStyle({ weight: 3, fillOpacity: 0.8 });
       layer.bringToFront();
     });
-    layer.on('mouseout', () => {
-      layer.setStyle(styleByRisk(feature));
+    layer.on('mouseout',  () => {
+      layer.setStyle(styleByCountry(feature));
     });
-
     layer.on('click', () => {
       if (entry.url) window.open(entry.url, '_blank');
     });
@@ -82,10 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const legend = L.control({ position: 'bottomright' });
     legend.onAdd = () => {
       const div = L.DomUtil.create('div', 'legend');
+      // You can leave this blank or list a few examples:
       div.innerHTML = `
-        <i style="background:#ff0000;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> High Risk<br>
-        <i style="background:#ffa500;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> Medium Risk<br>
-        <i style="background:#00ff00;width:18px;height:18px;display:inline-block;margin-right:6px;"></i> Low Risk
+        <i style="background:#ff0000;"></i> USA, RUS, IRN<br>
+        <i style="background:#00ff00;"></i> DEU, FRA<br>
+        <i style="background:#cccccc;"></i> All others
       `;
       return div;
     };
