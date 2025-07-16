@@ -41,19 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const p = feature.properties;
 
     // Try the common ISO-A3 fields in order
-    const iso = p.ISO_A3 || p.iso_a3 || p.ADM0_A3 || p.ADM0ISO || p.ISO3 || 'UNKNOWN';
-    const entry = riskData[iso] || { risk: 'low', url: '#' };
+    const iso = p.ISO_A3 || p.iso_a3 || p.ADM0_A3 || p.ISO3 || 'UNKNOWN';
+    const entry = riskData[iso];
 
+    // Debug log
     console.log(`Styling ${p.ADMIN||p.admin} (${iso}) →`, entry);
 
-    const colors = {
-      high:   '#ff0000',
-      medium: '#ffa500',
-      low:    '#00ff00'
-    };
+    const risk = entry && entry.risk ? entry.risk : 'low';
+    const colors = { high:'#ff0000', medium:'#ffa500', low:'#00ff00' };
 
     return {
-      fillColor:   colors[entry.risk] || colors.low,
+      fillColor:   colors[risk],
       color:       '#333',
       weight:      1,
       fillOpacity: 0.6
