@@ -1,8 +1,48 @@
 {
-  "USA": { "risk": "high",   "url": "https://fezqmode.github.io/quadramapdemo/USA" },
-  "RUS": { "risk": "high",   "url": "https://fezqmode.github.io/quadramapdemo/RUS" },
-  "IRN": { "risk": "high",   "url": "https://fezqmode.github.io/quadramapdemo/IRN" },
-  
-  "DEU": { "risk": "low",    "url": "https://fezqmode.github.io/quadramapdemo/DEU" },
-  "FRA": { "risk": "low",    "url": "https://fezqmode.github.io/quadramapdemo/FRA" }
+  "USA": {
+    "risk":   "high",    // still useful if you want a discrete label
+    "url":    "https://fezqmode.github.io/quadramapdemo/USA",
+    "fatf":   "clean",   // "black" / "grey" / "clean"
+    "egmont": true,
+    "basel":  true,
+    "cpi":    67,        // CPI 0–100
+    "score":  0.67       // normalized [0–1] for the green→red gradient
+  },
+  "RUS": {
+    "risk":   "high",
+    "url":    "…/RUS",
+    "fatf":   "black",
+    "egmont": true,
+    "basel":  true,
+    "cpi":    25,
+    "score":  0.25
+  },
+  "IRN": {
+    "risk":   "high",
+    "url":    "…/IRN",
+    "fatf":   "black",
+    "egmont": false,
+    "basel":  false,
+    "cpi":    18,
+    "score":  0.18
+  },
+  "DEU": {
+    "risk":   "low",
+    "url":    "…/DEU",
+    "fatf":   "clean",
+    "egmont": true,
+    "basel":  true,
+    "cpi":    79,
+    "score":  0.79
+  },
+  "FRA": {
+    "risk":   "low",
+    "url":    "…/FRA",
+    "fatf":   "clean",
+    "egmont": true,
+    "basel":  true,
+    "cpi":    69,
+    "score":  0.69
+  }
+  // …repeat for every ISO-A3 in your GeoJSON…
 }
