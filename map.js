@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!lines.length) return [];
     const hdr = lines[0].split(',');
     return lines.slice(1).map(line => {
-      // handles quoted values, but simple for now
       const vals = line.split(',');
       const row = {};
       hdr.forEach((h, i) => row[h.trim()] = (vals[i] || '').trim());
@@ -34,19 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('riskData.json').then(r => r.json()),
     fetch('ofac_programs_metrics.csv').then(r => r.text())
   ]).then(([geo, riskData, csv]) => {
-    // Build metrics lookup by ISO3
-    const metrics = parseCSV(csv);
-    const byIso = {};
-    metrics.forEach(m => {
-      const prog = (m['Program Name'] || '').split('-')[0].trim().toUpperCase();
-      if (prog) {
-        byIso[prog] = {
-          eo:  +m.EO_Count || 0,
-          det: +m.Determination_Count || 0,
-          lic: +m.License_Count || 0
-        };
-      }
-    });
 
     // Draw choropleth
     L.geoJSON(geo, {
@@ -62,19 +48,24 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       onEachFeature(f, layer) {
         const iso = f.properties.iso_a3;
-        const entry = riskData[iso] || { score: 'n/a', url: '#' };
-        const m = byIso[iso] || {eo:0, det:0, lic:0};
+        const entry = riskData[iso] || { score: 0, risk: 'low', eo: 0, det: 0, lic: 0, url: `https://fezqmode.github.io/quadramapdemo/${iso}` };
         let popup = `
           <strong>${f.properties.admin}</strong><br>
-          <em>Risk score:</em> ${entry.score}
+          <em>Risk score:</em> ${entry.score}<br>
+          <em>Risk level:</em> ${entry.risk}<br>
+          <em>Executive orders:</em> ${entry.eo}<br>
+          <em>Determinations:</em> ${entry.det}<br>
+          <em>Licenses:</em> ${entry.lic}<br>
+          <a href="${entry.url}" target="_blank" rel="noopener">Country Program Page</a>
         `;
-        if (entry.url && entry.url !== '#') {
-          popup += `<br><a href="${entry.url}" target="_blank" rel="noopener">Country Risk Details</a>`;
-        }
-        popup += `<br><em>Executive orders:</em> ${m.eo}<br>
-                  <em>Determinations:</em> ${m.det}<br>
-                  <em>Licenses:</em> ${m.lic}`;
         layer.bindPopup(popup);
+
+        // Make entire country clickable
+        if (entry.url) {
+          layer.on('click', function() {
+            window.open(entry.url, '_blank');
+          });
+        }
       }
     }).addTo(map);
 
