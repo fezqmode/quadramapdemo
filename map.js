@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let riskData = {};
 
-  // 2) load riskData.json
+  // 2) load your riskData.json
   fetch('riskData.json')
     .then(res => {
-      if (!res.ok) throw new Error('Failed to load riskData.json: ' + res.status);
+      if (!res.ok) throw new Error('Failed to fetch riskData.json: ' + res.status);
       return res.json();
     })
     .then(data => {
@@ -19,77 +19,75 @@ document.addEventListener('DOMContentLoaded', () => {
       drawCountries();
       addLegend();
     })
-    .catch(err => console.error('Data load error:', err));
+    .catch(err => console.error('Risk data error', err));
 
-  // 3) draw GeoJSON layer
+  // 3) draw & style countries
   function drawCountries() {
     fetch('custom.geo.json')
-      .then(res => res.json())
+      .then(r => r.json())
       .then(geo => {
         L.geoJSON(geo, {
-          style: styleByFeature,
-          onEachFeature: bindFeature
+          style: styleByRisk,
+          onEachFeature: bindFeatureEvents
         }).addTo(map);
       })
-      .catch(err => console.error('GeoJSON load error:', err));
+      .catch(err => console.error('GeoJSON load error', err));
   }
 
-  // 4) style callback
-  function styleByFeature(feature) {
-    const iso = (feature.properties.ISO_A3 || feature.properties.iso_a3 || '').toUpperCase();
-    const entry = riskData[iso] || { risk: 'low' };
+  // style callback: fills by risk level
+  function styleByRisk(feature) {
+    // try both common ISO props just in case
+    const iso = feature.properties.iso_a3 || feature.properties.ISO_A3;
+    const entry = riskData[iso] || { risk: 'low', url: '#' };
+
     const colors = {
-      high:   '#ff0000',
-      medium: '#ffa500',
-      low:    '#00ff00'
+      high:   '#ff0000',  // red
+      medium: '#ffa500',  // orange
+      low:    '#00ff00'   // green
     };
+
     return {
-      fillColor:   colors[entry.risk] || colors.low,
+      fillColor:   colors[entry.risk],
       color:       '#333',
       weight:      1,
       fillOpacity: 0.6
     };
   }
 
-  // 5) interactions per feature
-  function bindFeature(feature, layer) {
-    const iso  = (feature.properties.ISO_A3 || feature.properties.iso_a3 || '').toUpperCase();
-    const name = feature.properties.ADMIN || feature.properties.admin || iso;
-    const ent  = riskData[iso] || {};
+  // hover + click logic per feature
+  function bindFeatureEvents(feature, layer) {
+    // tooltip on hover
+    layer.bindTooltip(feature.properties.admin || feature.properties.ADMIN, { sticky: true });
 
-    // build tooltip html
-    const tip = [
-      `<strong>${name}</strong>`,
-      `Risk: ${ent.risk ? ent.risk.charAt(0).toUpperCase()+ent.risk.slice(1) : '—'}`,
-      `Score: ${ent.score != null ? ent.score : '—'}`,
-      `EOs: ${ent.eo_count != null ? ent.eo_count : '—'}`,
-      `Dets: ${ent.det_count != null ? ent.det_count : '—'}`,
-      `Licenses: ${ent.license_count != null ? ent.license_count : '—'}`
-    ].join('<br>');
-
-    layer.bindTooltip(tip, { sticky: true });
-
+    // highlight on mouseover
     layer.on('mouseover', () => {
       layer.setStyle({ weight: 3, fillOpacity: 0.8 });
       layer.bringToFront();
     });
-    layer.on('mouseout', () => {
-      layer.setStyle(styleByFeature(feature));
+    // reset on mouseout
+    layer.on('mouseout',  () => {
+      layer.setStyle(styleByRisk(feature));
     });
+
+    // click → open detail page
     layer.on('click', () => {
-      if (ent.ofac_url) window.open(ent.ofac_url, '_blank');
+      const iso = feature.properties.iso_a3 || feature.properties.ISO_A3;
+      const entry = riskData[iso] || {};
+      if (entry.url && entry.url !== '#') {
+        window.open(entry.url, '_blank');
+      }
     });
   }
 
-  // 6) legend control
+  // 4) legend
   function addLegend() {
     const legend = L.control({ position: 'bottomright' });
     legend.onAdd = () => {
       const div = L.DomUtil.create('div', 'legend');
       div.innerHTML = `
-        <i style="background:#ff0000"></i> High<br>
-        <i style="background:#ffa500"></i> Medium<br>
-        <i style="background:#00ff00"></i> Low
+        <i style="background:#ff0000"></i> High Risk<br>
+        <i style="background:#ffa500"></i> Medium Risk<br>
+        <i style="background:#00ff00"></i> Low Risk
       `;
       return div;
     };
