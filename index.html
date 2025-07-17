@@ -1,43 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>QuadraMap Demo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
-    html, body { height: 100%; margin: 0; padding: 0; overflow: hidden; }
-    #mapid { height: 100vh; width: 100vw; }
+    html, body { height:100%; margin:0; padding:0; }
+    #mapid { height:100vh; width:100vw; }
     .controls {
-      position: absolute;
-      z-index: 1001;
-      top: 15px;
-      left: 20px;
-      background: #fff;
-      padding: 8px 18px;
-      border-radius: 7px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.18);
-      font: 15px/1.4 sans-serif;
-      display: flex;
-      gap: 16px;
-      align-items: center;
+      position:absolute; top:15px; left:20px; z-index:1001;
+      background:#fff; padding:8px 18px; border-radius:7px;
+      box-shadow:0 1px 6px rgba(0,0,0,0.18); font:15px/1.4 sans-serif;
+      display:flex; gap:16px; align-items:center;
     }
     .legend {
-      background: #fff;
-      padding: 8px;
-      border-radius: 6px;
-      font-size: 12px;
-      line-height: 1.3;
-      color: #333;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      background:#fff; padding:8px; border-radius:6px;
+      font-size:12px; line-height:1.3; color:#333;
+      box-shadow:0 1px 3px rgba(0,0,0,0.1);
     }
     .custom-leaflet-popup .leaflet-popup-content-wrapper {
-      max-height: 55vh;
-      overflow-y: auto !important;
+      max-height:55vh; overflow-y:auto!important;
     }
     .custom-leaflet-popup .leaflet-popup-content {
-      max-height: 52vh;
-      overflow-y: auto !important;
+      max-height:52vh; overflow-y:auto!important;
     }
   </style>
 </head>
