@@ -1,10 +1,10 @@
 {
   "CRI": {
-    "score": 0,
+    "score": 12,
     "risk": "low",
-    "eo": 0,
+    "eo": 1,
     "det": 0,
-    "lic": 0,
+    "lic": 10,
     "url": "https://fezqmode.github.io/quadramapdemo/CRI"
   },
   "MDG": {
@@ -80,11 +80,11 @@
     "url": "https://fezqmode.github.io/quadramapdemo/CAF"
   },
   "BEL": {
-    "score": 0,
+    "score": 26,
     "risk": "low",
-    "eo": 0,
+    "eo": 2,
     "det": 0,
-    "lic": 0,
+    "lic": 22,
     "url": "https://fezqmode.github.io/quadramapdemo/BEL"
   },
   "MAR": {
@@ -120,11 +120,11 @@
     "url": "https://fezqmode.github.io/quadramapdemo/CHE"
   },
   "GHA": {
-    "score": 0,
+    "score": 16,
     "risk": "low",
-    "eo": 0,
+    "eo": 1,
     "det": 0,
-    "lic": 0,
+    "lic": 14,
     "url": "https://fezqmode.github.io/quadramapdemo/GHA"
   },
   "NIC": {
@@ -144,11 +144,11 @@
     "url": "https://fezqmode.github.io/quadramapdemo/LUX"
   },
   "PAN": {
-    "score": 0,
+    "score": 8,
     "risk": "low",
     "eo": 0,
     "det": 0,
-    "lic": 0,
+    "lic": 8,
     "url": "https://fezqmode.github.io/quadramapdemo/PAN"
   },
   "PRK": {
@@ -256,11 +256,11 @@
     "url": "https://fezqmode.github.io/quadramapdemo/BFA"
   },
   "LKA": {
-    "score": 0,
+    "score": 19,
     "risk": "low",
-    "eo": 0,
+    "eo": 1,
     "det": 0,
-    "lic": 0,
+    "lic": 17,
     "url": "https://fezqmode.github.io/quadramapdemo/LKA"
   },
   "COL": {
@@ -296,11 +296,11 @@
     "url": "https://fezqmode.github.io/quadramapdemo/LAO"
   },
   "ARM": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
+    "score": 207,
+    "risk": "high",
+    "eo": 6,
+    "det": 30,
+    "lic": 105,
     "url": "https://fezqmode.github.io/quadramapdemo/ARM"
   },
   "FLK": {
@@ -344,11 +344,11 @@
     "url": "https://fezqmode.github.io/quadramapdemo/HRV"
   },
   "VEN": {
-    "score": 89,
+    "score": 178,
     "risk": "high",
-    "eo": 2,
-    "det": 3,
-    "lic": 76,
+    "eo": 4,
+    "det": 6,
+    "lic": 152,
     "url": "https://fezqmode.github.io/quadramapdemo/VEN"
   },
   "MYS": {
@@ -360,19 +360,19 @@
     "url": "https://fezqmode.github.io/quadramapdemo/MYS"
   },
   "ROU": {
-    "score": 0,
+    "score": 6,
     "risk": "low",
-    "eo": 0,
+    "eo": 2,
     "det": 0,
-    "lic": 0,
+    "lic": 2,
     "url": "https://fezqmode.github.io/quadramapdemo/ROU"
   },
   "SDN": {
-    "score": 44,
+    "score": 49,
     "risk": "medium",
-    "eo": 10,
+    "eo": 11,
     "det": 2,
-    "lic": 18,
+    "lic": 21,
     "url": "https://fezqmode.github.io/quadramapdemo/SDN"
   },
   "GAB": {
@@ -416,19 +416,19 @@
     "url": "https://fezqmode.github.io/quadramapdemo/CYP"
   },
   "ERI": {
-    "score": 0,
+    "score": 1,
     "risk": "low",
     "eo": 0,
     "det": 0,
-    "lic": 0,
+    "lic": 1,
     "url": "https://fezqmode.github.io/quadramapdemo/ERI"
   },
   "CAN": {
-    "score": 0,
+    "score": 3,
     "risk": "low",
     "eo": 0,
     "det": 0,
-    "lic": 0,
+    "lic": 3,
     "url": "https://fezqmode.github.io/quadramapdemo/CAN"
   },
   "JAM": {
@@ -512,11 +512,11 @@
     "url": "https://fezqmode.github.io/quadramapdemo/MNE"
   },
   "KOR": {
-    "score": 0,
+    "score": 12,
     "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
+    "eo": 1,
+    "det": 1,
+    "lic": 7,
     "url": "https://fezqmode.github.io/quadramapdemo/KOR"
   },
   "UZB": {
@@ -848,11 +848,11 @@
     "url": "https://fezqmode.github.io/quadramapdemo/PRT"
   },
   "SRB": {
-    "score": 19,
+    "score": 0,
     "risk": "low",
-    "eo": 1,
+    "eo": 0,
     "det": 0,
-    "lic": 17,
+    "lic": 0,
     "url": "https://fezqmode.github.io/quadramapdemo/SRB"
   },
   "LSO": {
@@ -1080,11 +1080,11 @@
     "url": "https://fezqmode.github.io/quadramapdemo/CHL"
   },
   "ITA": {
-    "score": 0,
+    "score": 8,
     "risk": "low",
     "eo": 0,
     "det": 0,
-    "lic": 0,
+    "lic": 8,
     "url": "https://fezqmode.github.io/quadramapdemo/ITA"
   },
   "NGA": {
@@ -1136,11 +1136,11 @@
     "url": "https://fezqmode.github.io/quadramapdemo/ESP"
   },
   "SSD": {
-    "score": 0,
+    "score": 5,
     "risk": "low",
-    "eo": 0,
+    "eo": 1,
     "det": 0,
-    "lic": 0,
+    "lic": 3,
     "url": "https://fezqmode.github.io/quadramapdemo/SSD"
   },
   "ISL": {
@@ -1200,11 +1200,11 @@
     "url": "https://fezqmode.github.io/quadramapdemo/KHM"
   },
   "ETH": {
-    "score": 0,
+    "score": 10,
     "risk": "low",
     "eo": 0,
     "det": 0,
-    "lic": 0,
+    "lic": 10,
     "url": "https://fezqmode.github.io/quadramapdemo/ETH"
   },
   "GUY": {
@@ -1320,11 +1320,11 @@
     "url": "https://fezqmode.github.io/quadramapdemo/SEN"
   },
   "RUS": {
-    "score": 207,
+    "score": 279,
     "risk": "high",
-    "eo": 6,
-    "det": 30,
-    "lic": 105,
+    "eo": 13,
+    "det": 32,
+    "lic": 157,
     "url": "https://fezqmode.github.io/quadramapdemo/RUS"
   },
   "OMN": {
