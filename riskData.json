@@ -324,8 +324,6 @@
       }
     ]
   }
-}
-{
   "SYR": {
     "Sectoral": [
       {
@@ -696,6 +694,597 @@
     "Services": [
       {
         "title": "EO 13664: Blocks property of certain persons related to the situation in South Sudan",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ]
+  }
+  "ZWE": {
+    "Sectoral": [
+      {
+        "title": "EO 13288: Sectoral sanctions on the mining and agricultural sectors",
+        "targets": "Mining companies and agricultural companies",
+        "sector": "Mining, agriculture",
+        "reference": "Full text of EO 13288"
+      },
+      {
+        "title": "EO 13391: Expanded sectoral sanctions in the financial sector",
+        "targets": "Financial institutions and state-owned companies",
+        "sector": "Finance",
+        "reference": "Full text of EO 13391"
+      },
+      {
+        "title": "EO 13469: Sectoral sanctions in the technology and transport sectors",
+        "targets": "IT companies and transport companies",
+        "sector": "Technology, transport",
+        "reference": "Full text of EO 13469"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 13469: Financial sector sanctions against Zimbabwe",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Ban on loans, financial services and securities transactions with sanctioned persons and entities"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13469.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 13288: Blocks property of certain persons related to Zimbabwe's political situation",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13391: Supplements EO 13288 and expands the list of affected persons",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13469: Blocks property of persons linked to human rights abuses in Zimbabwe",
+        "type": "Primary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 13288: Blocks property of certain persons related to Zimbabwe's political situation",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13391: Supplements EO 13288 and expands the list of affected persons",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13469: Blocks property of persons linked to human rights abuses in Zimbabwe",
+        "type": "Primary Sanctions"
+      }
+    ]
+  },
+  "COD": {
+    "Sectoral": [
+      {
+        "title": "EO 13413: Sectoral sanctions on the mining and commodity sectors",
+        "targets": "Mining companies and mineral trading",
+        "sector": "Mining, commodities",
+        "reference": "Full text of EO 13413"
+      },
+      {
+        "title": "EO 13671: Sectoral sanctions in the financial and transport sectors",
+        "targets": "Financial institutions and transport companies",
+        "sector": "Finance, transport",
+        "reference": "Full text of EO 13671"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 13413: Financial restrictions for the DRC financial sector",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Restrictions on financial services, insurance and banking with sanctioned persons and entities"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13413.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 13413: Blocks property of certain persons related to the situation in the DRC",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13671: Supplements EO 13413 and blocks further property of certain persons",
+        "type": "Primary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 13413: Blocks property of certain persons related to the situation in the DRC",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13671: Supplements EO 13413 and blocks further property of certain persons",
+        "type": "Primary Sanctions"
+      }
+    ]
+  },
+  "IRQ": {
+    "Sectoral": [
+      {
+        "title": "EO 13303: Sectoral sanctions in the energy sector",
+        "targets": "Oil and gas companies",
+        "sector": "Energy",
+        "reference": "Full text of EO 13303"
+      },
+      {
+        "title": "EO 13315: Sectoral sanctions in the financial sector",
+        "targets": "Banks and financial service providers",
+        "sector": "Finance",
+        "reference": "Full text of EO 13315"
+      },
+      {
+        "title": "EO 13438: Sectoral sanctions in the defense sector",
+        "targets": "Military goods and technologies",
+        "sector": "Defense",
+        "reference": "Full text of EO 13438"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 13303: Financial sanctions regarding the Development Fund for Iraq",
+        "type": "Primary Sanctions",
+        "main_points": [
+          "Restrictions on financial services and transactions related to Iraqi oil revenues"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13303.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 13303: Protection of the Iraqi Development Fund and sanctions against persons threatening Iraq's stability",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13315: Blocks property of the former Iraqi government and certain individuals",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13438: Blocks property of persons threatening Iraq's stability",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 13303: Protection of the Iraqi Development Fund and sanctions against persons threatening Iraq's stability",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13315: Blocks property of the former Iraqi government and certain individuals",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13438: Blocks property of persons threatening Iraq's stability",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ]
+  },
+  "YEM": {
+    "Sectoral": [
+      {
+        "title": "EO 13611: Sectoral sanctions in the energy and transport sectors",
+        "targets": "Oil, gas and transport sectors",
+        "sector": "Energy, transport",
+        "reference": "Full text of EO 13611"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 13611: Financial restrictions and banking sanctions",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Ban on financial services, loans and insurance with sanctioned persons"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13611.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 13611: Blocks property of certain persons related to the political situation in Yemen",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 13611: Blocks property of certain persons related to the political situation in Yemen",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ]
+  },
+  "LBN": {
+    "Sectoral": [
+      {
+        "title": "EO 13441: Sectoral sanctions in the financial and transport sectors",
+        "targets": "Banks, financial institutions and transport companies",
+        "sector": "Finance, transport",
+        "reference": "Full text of EO 13441"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 13441: Sectoral financial sanctions",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Restrictions on banking services, securities trading and insurance transactions"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13441.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 13441: Blocks property of certain persons related to Lebanon's sovereignty and implementation of UNSCR 1701",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 13441: Blocks property of certain persons related to Lebanon's sovereignty and implementation of UNSCR 1701",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ]
+  },
+  "LBY": {
+    "Sectoral": [
+      {
+        "title": "EO 13566: Sectoral sanctions in the energy and financial sectors",
+        "targets": "Oil and gas companies, state financial institutions",
+        "sector": "Energy, finance",
+        "reference": "Full text of EO 13566"
+      },
+      {
+        "title": "EO 13726: Sectoral sanctions in the commodities and transport sectors",
+        "targets": "Mineral trade, ports and shipping",
+        "sector": "Commodities, transport",
+        "reference": "Full text of EO 13726"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 13566: Financial restrictions against Libya",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Ban on financial services, loans and credits with the Libyan government and certain persons"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13566.pdf"
+      },
+      {
+        "title": "EO 13726: Extended financial sanctions against Libya",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Restrictions on insurance transactions, securities trading and banking services"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13726.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 13566: Blocks property of the Libyan government and certain persons linked to political instability",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13726: Blocks property of persons related to political instability in Libya",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 13566: Blocks property of the Libyan government and certain persons linked to political instability",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13726: Blocks property of persons related to political instability in Libya",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ]
+  },
+  "CUB": {
+    "Sectoral": [
+      {
+        "title": "EO 13850: Sectoral sanctions in the mining and energy sectors",
+        "targets": "Nickel mining, oil refineries and energy supply",
+        "sector": "Mining, energy",
+        "reference": "Full text of EO 13850"
+      },
+      {
+        "title": "EO 13884: Sectoral sanctions in the financial and transport sectors",
+        "targets": "Banks, shipping companies and airlines",
+        "sector": "Finance, transport",
+        "reference": "Full text of EO 13884"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 12854: Financial restrictions under the Cuban Democracy Act",
+        "type": "Primary Sanctions",
+        "main_points": [
+          "Ban on financial services, loans and banking with Cuban entities"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/12854.pdf"
+      },
+      {
+        "title": "EO 13224: Anti-terrorism financial sanctions",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Blocking of financial transactions, ban on insurance and securities trading"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13224.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 12854: Implements the Cuban Democracy Act of 1992",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13224: Blocks property and prohibits transactions with persons supporting terrorism (affecting Cuba)",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 12854: Implements the Cuban Democracy Act of 1992",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13224: Blocks property and prohibits transactions with persons supporting terrorism (affecting Cuba)",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ]
+  },
+  "BLR": {
+    "Sectoral": [
+      {
+        "title": "EO 14038: Sectoral sanctions in multiple economic sectors",
+        "targets": "Potash industry, tobacco production, construction sector and defense industry",
+        "sector": "Commodities, agriculture, construction, defense",
+        "reference": "Full text of EO 14038"
+      },
+      {
+        "title": "EO 13405: Sectoral sanctions in the financial and technology sectors",
+        "targets": "Financial institutions, IT companies and technology exports",
+        "sector": "Finance, technology",
+        "reference": "Full text of EO 13405"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 13405: Financial restrictions against Belarus",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Ban on financial services, loans and securities transactions with sanctioned persons and entities"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13405.pdf"
+      },
+      {
+        "title": "EO 14038: Expanded financial sanctions against Belarus",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Restrictions on insurance, loans and banking services with sanctioned persons"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/14038.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 13405: Blocks property of certain persons related to Belarus",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 14038: Blocks property of certain persons related to Belarus and human rights situation",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 13405: Blocks property of certain persons related to Belarus",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 14038: Blocks property of certain persons related to Belarus and human rights situation",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ]
+  },
+  "CAF": {
+    "Sectoral": [
+      {
+        "title": "EO 13667: Sectoral sanctions in the mining and commodity sectors",
+        "targets": "Diamond trade and mineral exports",
+        "sector": "Mining, commodities",
+        "reference": "Full text of EO 13667"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 13667: Financial sector sanctions against the Central African Republic",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Ban on financial services, loans and insurance with sanctioned persons"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13667.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 13667: Blocks property of certain persons related to the Central African Republic",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 13667: Blocks property of certain persons related to the Central African Republic",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ]
+  },
+  "ETH": {
+    "Sectoral": [
+      {
+        "title": "EO 14046: Sectoral sanctions in the financial and defense sectors",
+        "targets": "Military equipment and financial services",
+        "sector": "Defense, finance",
+        "reference": "Full text of EO 14046"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 14046: Financial restrictions in connection with the crisis in Ethiopia",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Ban on financial services, loans and insurance with sanctioned persons"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/14046.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 14046: Blocks property of certain persons related to the crisis in Ethiopia (Tigray conflict)",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 14046: Blocks property of certain persons related to the crisis in Ethiopia (Tigray conflict)",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ]
+  },
+  "HKG": {
+    "Sectoral": [
+      {
+        "title": "EO 13936: Sectoral sanctions in the financial and technology sectors",
+        "targets": "Banks, financial service providers and technology exports",
+        "sector": "Finance, technology",
+        "reference": "Full text of EO 13936"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 13936: Financial restrictions related to Hong Kong",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Ban on financial services, loans, credits and securities transactions with certain persons and entities"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13936.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 13936: Blocks property of certain persons related to undermining Hong Kong's autonomy",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 13936: Blocks property of certain persons related to undermining Hong Kong's autonomy",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ]
+  }
+  {
+  "Global": {
+    "Sectoral": [
+      {
+        "title": "EO 13818: Sectoral sanctions in various economic sectors",
+        "targets": "Companies suspected of corruption and their business partners",
+        "sector": "Cross-sector (finance, commodities, transport)",
+        "reference": "Full text of EO 13818"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 13818: Financial sector sanctions against persons related to human rights violations",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Restrictions on banking services, securities trading, and insurance transactions with sanctioned persons"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13818.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 13818: Blocks property of persons involved in serious human rights abuses and corruption worldwide",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 13818: Blocks property of persons involved in serious human rights abuses and corruption worldwide",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ]
+  },
+  "MMR": {
+    "Sectoral": [
+      {
+        "title": "EO 14014: Sectoral sanctions",
+        "targets": "Gems, timber, defense, and related materials",
+        "sector": "Commodities, defense",
+        "reference": "Full text of EO 14014"
+      },
+      {
+        "title": "EO 13464: Sectoral sanctions in the financial sector",
+        "targets": "Financial institutions and transactions",
+        "sector": "Financial services",
+        "reference": "Full text of EO 13464"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 14014: Financial sector sanctions after the military coup",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Restrictions on financial services, prohibition of transactions with state funds, restrictions in the insurance sector"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/14014.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 13047: Blocks property of certain persons related to the situation in Myanmar",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13310: Blocks property of the Government of Myanmar",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13448: Blocks property of certain persons related to the situation in Myanmar",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13464: Blocks property of certain persons related to the situation in Myanmar",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 14014: Blocks property of certain persons related to the military coup in Myanmar",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 13047: Blocks property of certain persons related to the situation in Myanmar",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13310: Blocks property of the Government of Myanmar",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13448: Blocks property of certain persons related to the situation in Myanmar",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13464: Blocks property of certain persons related to the situation in Myanmar",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 14014: Blocks property of certain persons related to the military coup in Myanmar",
         "type": "Primary and Secondary Sanctions"
       }
     ]
