@@ -389,7 +389,97 @@
           }
         ]
       }
+    },
+    {
+  "RUS": {
+    "UK": {
+      "Sectoral": {
+        "score": 0,
+        "risk": "high",
+        "reg": 7,
+        "details": [
+          {
+            "type": "Regulation",
+            "reference": "Russia (Sanctions) (EU Exit) Regulations 2019 (SI 2019/855)",
+            "description": "Establishes sectoral restrictions on finance, energy, technology, defense, and key sectors of the Russian economy.",
+            "targets": "Russian government, banks, energy sector, defense industry",
+            "full_text_url": "https://www.legislation.gov.uk/uksi/2019/855/contents"
+          },
+          {
+            "type": "Amending Regulation",
+            "reference": "Russia (Sanctions) (EU Exit) (Amendment) Regulations 2022 (SI 2022/195, 2022/578, 2022/801, etc.)",
+            "description": "Expanded and intensified sectoral restrictions, including new asset freezes, trade bans, and service prohibitions.",
+            "targets": "Russian state entities, major companies, specified individuals",
+            "full_text_url": "https://www.legislation.gov.uk/uksi/2022/195/contents"
+          }
+        ]
+      },
+      "Financial": {
+        "score": 0,
+        "risk": "high",
+        "reg": 7,
+        "details": [
+          {
+            "type": "Regulation",
+            "reference": "Russia (Sanctions) (EU Exit) Regulations 2019, Part 3",
+            "description": "Asset freezes, prohibitions on dealing with funds/economic resources, restrictions on access to capital markets, including bans on SWIFT access.",
+            "targets": "Major Russian banks, state-owned enterprises, designated individuals",
+            "full_text_url": "https://www.legislation.gov.uk/uksi/2019/855/contents"
+          },
+          {
+            "type": "Amending Regulation",
+            "reference": "Russia (Sanctions) (EU Exit) (Amendment) Regulations 2022",
+            "description": "Prohibits provision of financial messaging services (e.g., SWIFT), further expands restrictions on sovereign debt and securities.",
+            "targets": "Russian Central Bank, National Wealth Fund, Ministry of Finance",
+            "full_text_url": "https://www.legislation.gov.uk/uksi/2022/195/contents"
+          }
+        ]
+      },
+      "Goods": {
+        "score": 0,
+        "risk": "high",
+        "reg": 8,
+        "details": [
+          {
+            "type": "Regulation",
+            "reference": "Russia (Sanctions) (EU Exit) Regulations 2019, Part 5",
+            "description": "Prohibits export, supply, delivery, making available, and transfer of military and dual-use goods, critical-industry goods, and technology.",
+            "targets": "Russian defense, aerospace, marine, energy sectors",
+            "full_text_url": "https://www.legislation.gov.uk/uksi/2019/855/contents"
+          },
+          {
+            "type": "Amending Regulation",
+            "reference": "Russia (Sanctions) (EU Exit) (Amendment) Regulations 2022 (and subsequent amendments)",
+            "description": "Expands goods restrictions to include luxury goods, oil refining equipment, quantum computing, and maritime navigation goods.",
+            "targets": "Russian commercial and defense sectors",
+            "full_text_url": "https://www.legislation.gov.uk/uksi/2022/195/contents"
+          }
+        ]
+      },
+      "Services": {
+        "score": 0,
+        "risk": "high",
+        "reg": 7,
+        "details": [
+          {
+            "type": "Regulation",
+            "reference": "Russia (Sanctions) (EU Exit) Regulations 2019, as amended",
+            "description": "Prohibits accounting, business, management consulting, public relations, trust, and certain IT services to Russia.",
+            "targets": "Russian businesses and government entities",
+            "full_text_url": "https://www.legislation.gov.uk/uksi/2019/855/contents"
+          },
+          {
+            "type": "Amending Regulation",
+            "reference": "Russia (Sanctions) (EU Exit) (Amendment) (No. 14) Regulations 2022",
+            "description": "Expands service prohibitions to include auditing, advertising, architectural, and engineering services.",
+            "targets": "Russian private and state sectors",
+            "full_text_url": "https://www.legislation.gov.uk/uksi/2022/1344/contents"
+          }
+        ]
+      }
     }
+  }
+}
   }
 }
 }
