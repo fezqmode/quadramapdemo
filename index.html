@@ -6,24 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="leaflet.css">
   <style>
-    html, body { margin: 0; padding: 0; height: 100%; }
-    #mapid { width: 100vw; height: 100vh; }
-    .legend {
-      background: white;
-      padding: 6px;
-      border-radius: 4px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      font: 14px sans-serif;
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden; /* Prevent scrolling past map */
     }
-    .legend i {
-      display: inline-block;
-      width: 18px;
-      height: 18px;
-      margin-right: 6px;
-      vertical-align: middle;
-      opacity: 0.8;
+    #mapid {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
     }
-    /* Dropdown UI top right */
     .dropdown-bar {
       position: absolute;
       top: 18px;
@@ -48,26 +44,27 @@
       margin-right: 3px;
       font-weight: 600;
     }
-
-    /* --- POPUP SCROLL FIX --- */
+    .legend {
+      background: white;
+      padding: 6px;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      font: 14px sans-serif;
+    }
+    .legend i {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      margin-right: 6px;
+      vertical-align: middle;
+      opacity: 0.8;
+    }
+    /* Optional: Custom styling for Leaflet popups to prevent overflow */
+    .leaflet-popup-content-wrapper,
     .leaflet-popup-content {
-      max-height: 270px;
-      overflow-y: auto;
-    }
-    @media (max-width: 700px) {
-      .leaflet-popup-content {
-        max-height: 180px;
-      }
-    }
-    @media (min-width: 1100px) {
-      .leaflet-popup-content {
-        max-height: 370px;
-      }
-    }
-    /* Optional: Tweak popup width for readability */
-    .leaflet-popup-content {
-      min-width: 280px;
-      max-width: 390px;
+      max-height: 420px;
+      max-width: 375px;
+      overflow-y: auto !important;
     }
   </style>
 </head>
@@ -88,7 +85,6 @@
       <option value="Services">Services</option>
     </select>
   </div>
-
   <div id="mapid"></div>
   <script src="leaflet.js"></script>
   <script src="map.js"></script>
