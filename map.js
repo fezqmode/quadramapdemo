@@ -7,94 +7,83 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let riskData = {};
 
-  // 1) load enriched JSON (must include eo_count, det_count, license_count, score)
+  // load the enriched JSON with {risk, score, url, …}
   fetch('riskData_enriched.json')
-    .then(r => {
-      if (!r.ok) throw new Error('Risk data load failed: ' + r.status);
-      return r.json();
+    .then(res => {
+      if (!res.ok) throw new Error(`Failed to load riskData_enriched.json (${res.status})`);
+      return res.json();
     })
-    .then(data => {
-      riskData = data;
+    .then(json => {
+      riskData = json;
       drawCountries();
       addLegend();
     })
-    .catch(err => console.error('Risk data error', err));
+    .catch(err => console.error(err));
 
-  // 2) draw GeoJSON
   function drawCountries() {
     fetch('custom.geo.json')
-      .then(r => r.json())
+      .then(res => res.json())
       .then(geo => {
         L.geoJSON(geo, {
           style: styleByScore,
-          onEachFeature: bindFeatureEvents
+          onEachFeature: bindEvents
         }).addTo(map);
       })
-      .catch(err => console.error('GeoJSON load error', err));
+      .catch(err => console.error(err));
   }
 
-  // 3) style: compute a color from score: 0=green,100=red
-  function styleByScore(feature) {
-    const iso = feature.properties.iso_a3;
-    const entry = riskData[iso] || {};
-    const score = entry.score ?? 0;  // 0–100
-    // linear interpolation between green (0) and red (100):
-    const r = Math.round(255 * (score / 100));
-    const g = Math.round(255 * (1 - score / 100));
-    const fill = `rgb(${r},${g},0)`;
+  // map a score 0–100 to a HSL hue: 120 = green → 0 = red
+  function scoreToColor(score = 0) {
+    const hue = Math.max(0, Math.min(120, 120 - (score * 1.2)));
+    return `hsl(${hue}, 100%, 50%)`;
+  }
 
+  function styleByScore(feature) {
+    const iso = feature.properties.ISO_A3 || feature.properties.iso_a3;
+    const entry = riskData[iso] || { score: 0 };
     return {
-      fillColor:   fill,
-      color:       '#333',
+      fillColor:   scoreToColor(entry.score),
+      color:       '#444',
       weight:      1,
       fillOpacity: 0.7
     };
   }
 
-  // 4) tooltip, hover, click
-  function bindFeatureEvents(feature, layer) {
-    const iso = feature.properties.iso_a3;
-    const entry = riskData[iso] || {};
-    const name = feature.properties.admin || feature.properties.ADMIN;
-    const score = entry.score;
+  function bindEvents(feature, layer) {
+    const name = feature.properties.ADMIN || feature.properties.admin;
+    const iso  = feature.properties.ISO_A3 || feature.properties.iso_a3;
+    const entry = riskData[iso] || { score: 0, url: '#' };
 
-    // show name + score
-    let tip = name;
-    if (score != null) tip += ` — Score: ${score}`;
-    layer.bindTooltip(tip, { sticky: true });
+    layer.bindTooltip(`${name}<br>Score: ${entry.score}`, {
+      sticky: true,
+      className: 'tooltip-score'
+    });
 
     layer.on('mouseover', () => {
       layer.setStyle({ weight: 3, fillOpacity: 0.9 });
       layer.bringToFront();
     });
-    layer.on('mouseout',  () => {
+    layer.on('mouseout', () => {
       layer.setStyle(styleByScore(feature));
     });
 
     layer.on('click', () => {
-      const url = entry.url;
-      if (url) window.open(url, '_blank');
+      if (entry.url && entry.url !== '#') {
+        window.open(entry.url, '_blank');
+      }
     });
   }
 
-  // 5) legend (gradient bar)
   function addLegend() {
     const legend = L.control({ position: 'bottomright' });
     legend.onAdd = () => {
-      const div = L.DomUtil.create('div','legend');
+      const div = L.DomUtil.create('div', 'legend');
       div.innerHTML = `
-        <div style="display:flex;align-items:center;">
-          <span style="font-size:11px;">Low</span>
-          <div style="
-            flex:1;
-            height:12px;
-            margin: 0 6px;
-            background: linear-gradient(to right,#0f0,#ff0,#f00);
-            border:1px solid #333;
-          "></div>
-          <span style="font-size:11px;">High</span>
-        </div>
-        <small>Score 0 → 100</small>
+        <i style="background:${scoreToColor(100)}"></i> 100 (max)<br>
+        <i style="background:${scoreToColor(75)}"></i> 75<br>
+        <i style="background:${scoreToColor(50)}"></i> 50<br>
+        <i style="background:${scoreToColor(25)}"></i> 25<br>
+        <i style="background:${scoreToColor(0)}"></i> 0 (min)
       `;
       return div;
     };
