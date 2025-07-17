@@ -1,16 +1,17 @@
 // map.js
 document.addEventListener('DOMContentLoaded', () => {
+  // 1) initialize map
   const map = L.map('mapid').setView([20, 0], 2);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: 'Â© OpenStreetMap contributors'
+    attribution: '© OpenStreetMap contributors'
   }).addTo(map);
 
   let riskData = {};
 
-  // 1. load enriched JSON
-  fetch('riskData_enriched.json')
+  // 2) load riskData.json
+  fetch('riskData.json')
     .then(res => {
-      if (!res.ok) throw new Error('Could not load enriched data: ' + res.status);
+      if (!res.ok) throw new Error('Failed to load riskData.json: ' + res.status);
       return res.json();
     })
     .then(data => {
@@ -18,74 +19,73 @@ document.addEventListener('DOMContentLoaded', () => {
       drawCountries();
       addLegend();
     })
-    .catch(err => {
-      console.error(err);
-      // fallback to original
-      console.warn('Falling back to riskData.json');
-      return fetch('riskData.json')
-        .then(r => r.json())
-        .then(d => { riskData = d; drawCountries(); addLegend(); });
-    });
+    .catch(err => console.error('Data load error:', err));
 
-  // 2. draw GeoJSON
+  // 3) draw GeoJSON layer
   function drawCountries() {
     fetch('custom.geo.json')
       .then(res => res.json())
       .then(geo => {
         L.geoJSON(geo, {
           style: styleByFeature,
-          onEachFeature: attachInteractions
+          onEachFeature: bindFeature
         }).addTo(map);
       })
-      .catch(err => console.error('GeoJSON load failed', err));
+      .catch(err => console.error('GeoJSON load error:', err));
   }
 
-  // 3. style by risk (using enriched or fallback data)
-  function styleByFeature(f) {
-    const iso   = (f.properties.iso_a3 || f.properties.ISO_A3 || '').toUpperCase();
-    const ent   = riskData[iso] || {};
-    const risk  = ent.risk || 'low';
-    const cols  = { high:'#ff0000', medium:'#ffa500', low:'#00ff00' };
+  // 4) style callback
+  function styleByFeature(feature) {
+    const iso = (feature.properties.ISO_A3 || feature.properties.iso_a3 || '').toUpperCase();
+    const entry = riskData[iso] || { risk: 'low' };
+    const colors = {
+      high:   '#ff0000',
+      medium: '#ffa500',
+      low:    '#00ff00'
+    };
     return {
-      fillColor:   cols[risk] || cols.low,
-      color:       '#333', weight:1, fillOpacity:0.6
+      fillColor:   colors[entry.risk] || colors.low,
+      color:       '#333',
+      weight:      1,
+      fillOpacity: 0.6
     };
   }
 
-  // 4. bind tooltip, hover & click
-  function attachInteractions(f, layer) {
-    const iso   = (f.properties.iso_a3 || f.properties.ISO_A3 || '').toUpperCase();
-    const name  = f.properties.admin || f.properties.ADMIN || iso;
-    const ent   = riskData[iso] || {};
+  // 5) interactions per feature
+  function bindFeature(feature, layer) {
+    const iso  = (feature.properties.ISO_A3 || feature.properties.iso_a3 || '').toUpperCase();
+    const name = feature.properties.ADMIN || feature.properties.admin || iso;
+    const ent  = riskData[iso] || {};
 
-    // build tooltip with safe defaults
-    const lines = [
+    // build tooltip html
+    const tip = [
       `<strong>${name}</strong>`,
-      `Risk: ${ent.risk ? ent.risk.charAt(0).toUpperCase()+ent.risk.slice(1) : 'Unknown'}`,
-      `Score: ${ent.score != null ? ent.score : 'â€”'}`,
-      `EOs: ${ent.eo_count != null ? ent.eo_count : 'â€”'}`,
-      `Dets: ${ent.det_count != null ? ent.det_count : 'â€”'}`,
-      `Licenses: ${ent.license_count != null ? ent.license_count : 'â€”'}`
-    ];
-    layer.bindTooltip(lines.join('<br>'), { sticky:true });
+      `Risk: ${ent.risk ? ent.risk.charAt(0).toUpperCase()+ent.risk.slice(1) : '—'}`,
+      `Score: ${ent.score != null ? ent.score : '—'}`,
+      `EOs: ${ent.eo_count != null ? ent.eo_count : '—'}`,
+      `Dets: ${ent.det_count != null ? ent.det_count : '—'}`,
+      `Licenses: ${ent.license_count != null ? ent.license_count : '—'}`
+    ].join('<br>');
+
+    layer.bindTooltip(tip, { sticky: true });
 
     layer.on('mouseover', () => {
-      layer.setStyle({ weight:3, fillOpacity:0.8 });
+      layer.setStyle({ weight: 3, fillOpacity: 0.8 });
       layer.bringToFront();
     });
-    layer.on('mouseout',  () => {
-      layer.setStyle(styleByFeature(f));
+    layer.on('mouseout', () => {
+      layer.setStyle(styleByFeature(feature));
     });
     layer.on('click', () => {
       if (ent.ofac_url) window.open(ent.ofac_url, '_blank');
     });
   }
 
-  // 5. legend
+  // 6) legend control
   function addLegend() {
-    const legend = L.control({ position:'bottomright' });
+    const legend = L.control({ position: 'bottomright' });
     legend.onAdd = () => {
-      const div = L.DomUtil.create('div','legend');
+      const div = L.DomUtil.create('div', 'legend');
       div.innerHTML = `
         <i style="background:#ff0000"></i> High<br>
         <i style="background:#ffa500"></i> Medium<br>
