@@ -7,95 +7,94 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let riskData = {};
 
-  // 1. Load enriched JSON (fall back to riskData.json)
+  // 1) load enriched JSON (must include eo_count, det_count, license_count, score)
   fetch('riskData_enriched.json')
-    .then(res => {
-      if (!res.ok) throw new Error(res.statusText);
-      return res.json();
+    .then(r => {
+      if (!r.ok) throw new Error('Risk data load failed: ' + r.status);
+      return r.json();
     })
-    .catch(() => fetch('riskData.json').then(r => r.json()))
     .then(data => {
       riskData = data;
       drawCountries();
       addLegend();
     })
-    .catch(err => console.error('Failed to load any risk data:', err));
+    .catch(err => console.error('Risk data error', err));
 
-  // 2. Draw countries
+  // 2) draw GeoJSON
   function drawCountries() {
     fetch('custom.geo.json')
       .then(r => r.json())
       .then(geo => {
         L.geoJSON(geo, {
-          style: styleByRisk,
-          onEachFeature: bindFeature
+          style: styleByScore,
+          onEachFeature: bindFeatureEvents
         }).addTo(map);
       })
-      .catch(err => console.error('GeoJSON load failed:', err));
+      .catch(err => console.error('GeoJSON load error', err));
   }
 
-  // 3. Color interpolation helper (green→red)
-  function interpolateColor(minCol, maxCol, t) {
-    const [r1,g1,b1] = minCol.match(/\w\w/g).map(x=>parseInt(x,16));
-    const [r2,g2,b2] = maxCol.match(/\w\w/g).map(x=>parseInt(x,16));
-    const r = Math.round(r1 + (r2 - r1) * t);
-    const g = Math.round(g1 + (g2 - g1) * t);
-    const b = Math.round(b1 + (b2 - b1) * t);
-    return `#${r.toString(16).padStart(2,'0')}${g.toString(16).padStart(2,'0')}${b.toString(16).padStart(2,'0')}`;
-  }
-
-  // 4. Style by numeric score
-  function styleByRisk(feature) {
-    const iso = (feature.properties.iso_a3 || feature.properties.ISO_A3 || '').toUpperCase();
+  // 3) style: compute a color from score: 0=green,100=red
+  function styleByScore(feature) {
+    const iso = feature.properties.iso_a3;
     const entry = riskData[iso] || {};
-    const score = entry.score || 0;
-    const maxScore = 100;                // adjust as needed
-    const t = Math.min(score / maxScore, 1);
+    const score = entry.score ?? 0;  // 0–100
+    // linear interpolation between green (0) and red (100):
+    const r = Math.round(255 * (score / 100));
+    const g = Math.round(255 * (1 - score / 100));
+    const fill = `rgb(${r},${g},0)`;
+
     return {
-      fillColor:   interpolateColor('00ff00','ff0000', t),
+      fillColor:   fill,
       color:       '#333',
       weight:      1,
-      fillOpacity: 0.6
+      fillOpacity: 0.7
     };
   }
 
-  // 5. Tooltip, hover, click
-  function bindFeature(feature, layer) {
-    const iso = (feature.properties.iso_a3 || feature.properties.ISO_A3 || '').toUpperCase();
-    const name = feature.properties.admin || feature.properties.ADMIN || iso;
-    const ent  = riskData[iso] || {};
+  // 4) tooltip, hover, click
+  function bindFeatureEvents(feature, layer) {
+    const iso = feature.properties.iso_a3;
+    const entry = riskData[iso] || {};
+    const name = feature.properties.admin || feature.properties.ADMIN;
+    const score = entry.score;
 
-    const tooltipContent = `
-      <strong>${name}</strong><br>
-      Score: ${ent.score || 0}<br>
-      OFAC EOs: ${ent.eo_count || 0}<br>
-      OFAC Dets: ${ent.det_count || 0}<br>
-      OFAC Licenses: ${ent.license_count || 0}<br>
-      Sanctioned Entities: ${ent.open_sanctions_count || 0}
-    `;
-    layer.bindTooltip(tooltipContent, { sticky: true });
+    // show name + score
+    let tip = name;
+    if (score != null) tip += ` — Score: ${score}`;
+    layer.bindTooltip(tip, { sticky: true });
 
     layer.on('mouseover', () => {
-      layer.setStyle({ weight: 3, fillOpacity: 0.8 });
+      layer.setStyle({ weight: 3, fillOpacity: 0.9 });
       layer.bringToFront();
     });
-    layer.on('mouseout', () => {
-      layer.setStyle(styleByRisk(feature));
+    layer.on('mouseout',  () => {
+      layer.setStyle(styleByScore(feature));
     });
+
     layer.on('click', () => {
-      if (ent.ofac_url) window.open(ent.ofac_url, '_blank');
+      const url = entry.url;
+      if (url) window.open(url, '_blank');
     });
   }
 
-  // 6. Legend
+  // 5) legend (gradient bar)
   function addLegend() {
     const legend = L.control({ position: 'bottomright' });
     legend.onAdd = () => {
-      const div = L.DomUtil.create('div', 'legend');
+      const div = L.DomUtil.create('div','legend');
       div.innerHTML = `
-        <i style="background: #ff0000"></i> High score<br>
-        <i style="background: #ffff00"></i> Medium score<br>
-        <i style="background: #00ff00"></i> Low score
+        <div style="display:flex;align-items:center;">
+          <span style="font-size:11px;">Low</span>
+          <div style="
+            flex:1;
+            height:12px;
+            margin: 0 6px;
+            background: linear-gradient(to right,#0f0,#ff0,#f00);
+            border:1px solid #333;
+          "></div>
+          <span style="font-size:11px;">High</span>
+        </div>
+        <small>Score 0 → 100</small>
       `;
       return div;
     };
