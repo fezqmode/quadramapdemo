@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let riskData = {};
 
   // 2. load original riskData.json
-  fetch('riskData.json')
+  fetch('riskData_enriched.json')
     .then(res => {
       if (!res.ok) throw new Error('Failed to load riskData.json: ' + res.status);
       return res.json();
