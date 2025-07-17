@@ -16,7 +16,11 @@
   "ALB": {
     "risk": "low",
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ALB"
+    "url": "https://fezqmode.github.io/quadramapdemo/ALB",
+    "eo_count": 1,
+    "det_count": 0,
+    "license_count": 17,
+    "ofac_url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/balkans-related-sanctions"
   },
   "AND": {
     "risk": "low",
@@ -91,11 +95,7 @@
   "BHR": {
     "risk": "low",
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BHR",
-    "eo_count": 1,
-    "det_count": 0,
-    "license_count": 17,
-    "ofac_url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/balkans-related-sanctions"
+    "url": "https://fezqmode.github.io/quadramapdemo/BHR"
   },
   "BHS": {
     "risk": "low",
@@ -105,7 +105,11 @@
   "BIH": {
     "risk": "low",
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BIH"
+    "url": "https://fezqmode.github.io/quadramapdemo/BIH",
+    "eo_count": 1,
+    "det_count": 0,
+    "license_count": 17,
+    "ofac_url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/balkans-related-sanctions"
   },
   "BLR": {
     "risk": "low",
@@ -159,7 +163,11 @@
   "CAF": {
     "risk": "low",
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CAF"
+    "url": "https://fezqmode.github.io/quadramapdemo/CAF",
+    "eo_count": 0,
+    "det_count": 0,
+    "license_count": 3,
+    "ofac_url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/central-african-republic-sanctions"
   },
   "CAN": {
     "risk": "low",
@@ -184,7 +192,11 @@
   "CHN": {
     "risk": "low",
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CHN"
+    "url": "https://fezqmode.github.io/quadramapdemo/CHN",
+    "eo_count": 0,
+    "det_count": 0,
+    "license_count": 8,
+    "ofac_url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/chinese-military-companies-sanctions"
   },
   "CIV": {
     "risk": "low",
@@ -199,7 +211,11 @@
   "COD": {
     "risk": "low",
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/COD"
+    "url": "https://fezqmode.github.io/quadramapdemo/COD",
+    "eo_count": 1,
+    "det_count": 0,
+    "license_count": 3,
+    "ofac_url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/democratic-republic-of-the-congo-related-sanctions"
   },
   "COG": {
     "risk": "low",
@@ -234,7 +250,11 @@
   "CUB": {
     "risk": "low",
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CUB"
+    "url": "https://fezqmode.github.io/quadramapdemo/CUB",
+    "eo_count": 0,
+    "det_count": 0,
+    "license_count": 3,
+    "ofac_url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/cuba-sanctions"
   },
   "CUW": {
     "risk": "low",
@@ -324,7 +344,11 @@
   "ETH": {
     "risk": "low",
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ETH"
+    "url": "https://fezqmode.github.io/quadramapdemo/ETH",
+    "eo_count": 0,
+    "det_count": 0,
+    "license_count": 10,
+    "ofac_url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/ethiopia"
   },
   "FIN": {
     "risk": "low",
@@ -513,7 +537,11 @@
   "IRQ": {
     "risk": "medium",
     "score": 25,
-    "url": "https://fezqmode.github.io/quadramapdemo/IRQ"
+    "url": "https://fezqmode.github.io/quadramapdemo/IRQ",
+    "eo_count": 1,
+    "det_count": 1,
+    "license_count": 57,
+    "ofac_url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/counter-terrorism-sanctions"
   },
   "ISL": {
     "risk": "low",
@@ -717,7 +745,11 @@
   "MNE": {
     "risk": "low",
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MNE"
+    "url": "https://fezqmode.github.io/quadramapdemo/MNE",
+    "eo_count": 1,
+    "det_count": 0,
+    "license_count": 17,
+    "ofac_url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/balkans-related-sanctions"
   },
   "MNG": {
     "risk": "low",
@@ -792,7 +824,11 @@
   "NIC": {
     "risk": "high",
     "score": 77,
-    "url": "https://fezqmode.github.io/quadramapdemo/NIC"
+    "url": "https://fezqmode.github.io/quadramapdemo/NIC",
+    "eo_count": 0,
+    "det_count": 0,
+    "license_count": 12,
+    "ofac_url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/nicaragua-related-sanctions"
   },
   "NIU": {
     "risk": "low",
@@ -921,7 +957,11 @@
   "RUS": {
     "risk": "high",
     "score": 98,
-    "url": "https://fezqmode.github.io/quadramapdemo/RUS"
+    "url": "https://fezqmode.github.io/quadramapdemo/RUS",
+    "eo_count": 5,
+    "det_count": 2,
+    "license_count": 29,
+    "ofac_url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/ukraine-russia-related-sanctions"
   },
   "RWA": {
     "risk": "low",
@@ -936,7 +976,11 @@
   "SDN": {
     "risk": "low",
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SDN"
+    "url": "https://fezqmode.github.io/quadramapdemo/SDN",
+    "eo_count": 10,
+    "det_count": 2,
+    "license_count": 18,
+    "ofac_url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/sudan-and-darfur-sanctions"
   },
   "SEN": {
     "risk": "low",
@@ -971,7 +1015,11 @@
   "SOM": {
     "risk": "low",
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SOM"
+    "url": "https://fezqmode.github.io/quadramapdemo/SOM",
+    "eo_count": 1,
+    "det_count": 0,
+    "license_count": 3,
+    "ofac_url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/somalia-sanctions"
   },
   "SPM": {
     "risk": "low",
@@ -981,12 +1029,20 @@
   "SRB": {
     "risk": "low",
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SRB"
+    "url": "https://fezqmode.github.io/quadramapdemo/SRB",
+    "eo_count": 1,
+    "det_count": 0,
+    "license_count": 17,
+    "ofac_url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/balkans-related-sanctions"
   },
   "SSD": {
     "risk": "low",
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SSD"
+    "url": "https://fezqmode.github.io/quadramapdemo/SSD",
+    "eo_count": 1,
+    "det_count": 0,
+    "license_count": 3,
+    "ofac_url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/south-sudan-related-sanctions"
   },
   "STP": {
     "risk": "low",
@@ -1116,7 +1172,11 @@
   "UKR": {
     "risk": "low",
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/UKR"
+    "url": "https://fezqmode.github.io/quadramapdemo/UKR",
+    "eo_count": 5,
+    "det_count": 2,
+    "license_count": 29,
+    "ofac_url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/ukraine-russia-related-sanctions"
   },
   "UMI": {
     "risk": "low",
@@ -1151,7 +1211,11 @@
   "VEN": {
     "risk": "low",
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/VEN"
+    "url": "https://fezqmode.github.io/quadramapdemo/VEN",
+    "eo_count": 2,
+    "det_count": 3,
+    "license_count": 76,
+    "ofac_url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/venezuela-related-sanctions"
   },
   "VGB": {
     "risk": "low",
@@ -1186,7 +1250,11 @@
   "YEM": {
     "risk": "low",
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/YEM"
+    "url": "https://fezqmode.github.io/quadramapdemo/YEM",
+    "eo_count": 0,
+    "det_count": 0,
+    "license_count": 4,
+    "ofac_url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/yemen-related-sanctions"
   },
   "ZAF": {
     "risk": "low",
