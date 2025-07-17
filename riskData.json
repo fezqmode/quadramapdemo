@@ -1,1182 +1,1386 @@
 {
-  "AFG": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/AFG"
-  },
-  "ALA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ALA"
-  },
-  "ALB": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ALB"
-  },
-  "AND": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/AND"
-  },
-  "ARE": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ARE"
-  },
-  "ARG": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ARG"
-  },
-  "ARM": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ARM"
-  },
-  "ATF": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ATF"
-  },
-  "AUS": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/AUS"
-  },
-  "AUT": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/AUT"
-  },
-  "AZE": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/AZE"
-  },
-  "BDI": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BDI"
-  },
-  "BEL": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BEL"
-  },
-  "BEN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BEN"
-  },
-  "BFA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BFA"
-  },
-  "BGD": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BGD"
-  },
-  "BGR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BGR"
-  },
-  "BHR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BHR"
-  },
-  "BHS": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BHS"
-  },
-  "BIH": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BIH"
-  },
-  "BLR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BLR"
-  },
-  "BLZ": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BLZ"
-  },
-  "BMU": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BMU"
-  },
-  "BOL": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BOL"
-  },
-  "BRA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BRA"
-  },
-  "BRB": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BRB"
-  },
-  "BRN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BRN"
-  },
-  "BTN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BTN"
-  },
-  "BWA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BWA"
-  },
-  "CAF": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CAF"
-  },
-  "CAN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CAN"
-  },
-  "CCK": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CCK"
-  },
-  "CHE": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CHE"
-  },
-  "CHL": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CHL"
-  },
-  "CHN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CHN"
-  },
-  "CIV": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CIV"
-  },
-  "CMR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CMR"
-  },
-  "COD": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/COD"
-  },
-  "COG": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/COG"
-  },
-  "COK": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/COK"
-  },
-  "COL": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/COL"
-  },
-  "COM": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/COM"
-  },
-  "CPV": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CPV"
-  },
   "CRI": {
-    "risk": "low",
     "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
     "url": "https://fezqmode.github.io/quadramapdemo/CRI"
   },
-  "CUB": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CUB"
-  },
-  "CUW": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CUW"
-  },
-  "CXR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CXR"
-  },
-  "CYM": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CYM"
-  },
-  "CYP": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CYP"
-  },
-  "CZE": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CZE"
-  },
-  "DEU": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/DEU"
-  },
-  "DJI": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/DJI"
-  },
-  "DMA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/DMA"
-  },
-  "DNK": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/DNK"
-  },
-  "DOM": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/DOM"
-  },
-  "DZA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/DZA"
-  },
-  "ECU": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ECU"
-  },
-  "EGY": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/EGY"
-  },
-  "ERI": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ERI"
-  },
-  "ESH": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ESH"
-  },
-  "ESP": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ESP"
-  },
-  "EST": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/EST"
-  },
-  "ETH": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ETH"
-  },
-  "FIN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/FIN"
-  },  
-  "FJI": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/FJI"
-  },
-  "FLK": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/FLK"
-  },
-  "FRA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/FRA"
-  },
-  "FRO": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/FRO"
-  },
-  "FSM": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/FSM"
-  },
-  "GAB": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GAB"
-  },
-  "GBR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GBR"
-  },
-  "GEO": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GEO"
-  },
-  "GGY": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GGY"
-  },
-  "GHA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GHA"
-  },
-  "GIB": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GIB"
-  },
-  "GIN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GIN"
-  },
-  "GLP": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GLP"
-  },
-  "GMB": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GMB"
-  },
-  "GNB": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GNB"
-  },
-  "GNQ": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GNQ"
-  },
-  "GRC": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GRC"
-  },
-  "GRD": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GRD"
-  },
-  "GRL": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GRL"
-  },
-  "GTM": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GTM"
-  },
-  "GUF": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GUF"
-  },
-  "GUM": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GUM"
-  },
-  "GUY": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GUY"
-  },
-  "HKG": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/HKG"
-  },
-  "HMD": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/HMD"
-  },
-  "HND": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/HND"
-  },
-  "HRV": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/HRV"
-  },
-  "HTI": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/HTI"
-  },
-  "HUN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/HUN"
-  },
-  "IDN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/IDN"
-  },
-  "IMN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/IMN"
-  },
-  "IND": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/IND"
-  },
-  "IOT": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/IOT"
-  },
-  "IRL": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/IRL"
-  },
-  "IRN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/IRN"
-  },
-  "IRQ": {
-    "risk": "medium",
-    "score": 25,
-    "url": "https://fezqmode.github.io/quadramapdemo/IRQ"
-  },
-  "ISL": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ISL"
-  },
-  "ISR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ISR"
-  },
-  "ITA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ITA"
-  },
-  "JAM": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/JAM"
-  },
-  "JEY": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/JEY"
-  },
-  "JOR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/JOR"
-  },
-  "JPN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/JPN"
-  },
-  "KAZ": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/KAZ"
-  },
-  "KEN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/KEN"
-  },
-  "KGZ": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/KGZ"
-  },
-  "KHM": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/KHM"
-  },
-  "KIR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/KIR"
-  },
-  "KNA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/KNA"
-  },
-  "KOR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/KOR"
-  },
-  "KWT": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/KWT"
-  },
-  "LAO": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/LAO"
-  },
-  "LBN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/LBN"
-  },
-  "LBR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/LBR"
-  },
-  "LBY": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/LBY"
-  },
-  "LCA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/LCA"
-  },
-  "LIE": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/LIE"
-  },
-  "LKA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/LKA"
-  },
-  "LSO": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/LSO"
-  },
-  "LTU": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/LTU"
-  },
-  "LUX": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/LUX"
-  },
-  "LVA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/LVA"
-  },
-  "MAC": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MAC"
-  },
-  "MAF": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MAF"
-  },
-  "MAR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MAR"
-  },
-  "MCO": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MCO"
-  },
-  "MDA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MDA"
-  },
   "MDG": {
-    "risk": "low",
     "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
     "url": "https://fezqmode.github.io/quadramapdemo/MDG"
   },
-  "MDV": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MDV"
-  },
-  "MEX": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MEX"
-  },
-  "MHL": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MHL"
-  },
-  "MKD": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MKD"
-  },
-  "MLI": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MLI"
-  },
-  "MLT": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MLT"
-  },
-  "MMR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MMR"
-  },
-  "MNE": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MNE"
-  },
-  "MNG": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MNG"
-  },
-  "MNP": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MNP"
-  },
-  "MOZ": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MOZ"
-  },
-  "MRT": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MRT"
-  },
-  "MSR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MSR"
-  },
-  "MTQ": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MTQ"
-  },
-  "MUS": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MUS"
-  },
-  "MWI": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MWI"
-  },
-  "MYS": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MYS"
-  },
-  "NAM": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/NAM"
-  },
-  "NCL": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/NCL"
-  },
-  "NER": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/NER"
-  },
-  "NFK": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/NFK"
-  },
-  "NGA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/NGA"
-  },
-  "NIC": {
-    "risk": "high",
-    "score": 77,
-    "url": "https://fezqmode.github.io/quadramapdemo/NIC"
-  },
-  "NIU": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/NIU"
-  },
-  "NLD": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/NLD"
-  },
-  "NOR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/NOR"
-  },
-  "NPL": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/NPL"
-  },
-  "NRU": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/NRU"
-  },
-  "NZL": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/NZL"
-  },
-  "OMN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/OMN"
-  },
-  "PAK": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PAK"
-  },
-  "PAN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PAN"
-  },
-  "PCN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PCN"
-  },
-  "PER": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PER"
-  },
-  "PHL": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PHL"
-  },
-  "PLW": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PLW"
-  },
-  "PNG": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PNG"
-  },
-  "POL": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/POL"
-  },
-  "PRI": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PRI"
-  },
-  "PRK": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PRK"
-  },
-  "PRT": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PRT"
-  },
-  "PRY": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PRY"
-  },
-  "PSE": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PSE"
-  },
-  "PYF": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PYF"
-  },
-  "QAT": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/QAT"
-  },
-  "REU": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/REU"
-  },
-  "ROU": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ROU"
-  },
-  "RUS": {
-    "risk": "high",
-    "score": 98,
-    "url": "https://fezqmode.github.io/quadramapdemo/RUS"
-  },
-  "RWA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/RWA"
-  },
-  "SAU": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SAU"
-  },
-  "SDN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SDN"
-  },
-  "SEN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SEN"
-  },
-  "SGP": {
-    "risk": "low",  
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SGP"
-  },
-  "SLB": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SLB"
-  },
-  "SLE": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SLE"
-  },
-  "SLV": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SLV"
-  },
-  "SMR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SMR"
-  },
-  "SOM": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SOM"
-  },
-  "SPM": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SPM"
-  },
-  "SRB": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SRB"
-  },
-  "SSD": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SSD"
-  },
-  "STP": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/STP"
-  },
-  "SUR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SUR"
-  },
-  "SVK": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SVK"
-  },
-  "SVN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SVN"
-  },
-  "SWE": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SWE"
-  },
-  "SWZ": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SWZ"
-  },
-  "SXM": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SXM"
-  },
-  "SYC": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SYC"
-  },
-  "SYR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SYR"
-  },
-  "TCA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TCA"
-  },
-  "TCD": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TCD"
-  },
-  "TGO": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TGO"
-  },
-  "THA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/THA"
-  },
-  "TJK": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TJK"
-  },
-  "TKL": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TKL"
-  },
-  "TKM": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TKM"
-  },
-  "TLS": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TLS"
-  },
-  "TON": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TON"
-  },
-  "TTO": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TTO"
-  },
-  "TUN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TUN"
-  },
-  "TUR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TUR"
-  },
-  "TUV": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TUV"
-  },
-  "TWN": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TWN"
-  },
-  "TZA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TZA"
-  },
-  "UGA": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/UGA"
-  },
-  "UKR": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/UKR"
-  },
-  "UMI": {
-    "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/UMI"
-  },
   "URY": {
-    "risk": "low",
     "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
     "url": "https://fezqmode.github.io/quadramapdemo/URY"
   },
-  "USA": {
-    "risk": "low",
+  "EST": {
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/USA"
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/EST"
   },
-  "UZB": {
-    "risk": "low",
+  "MKD": {
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/UZB"
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/MKD"
   },
-  "VAT": {
-    "risk": "low",
+  "BOL": {
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/VAT"
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/BOL"
   },
-  "VCT": {
-    "risk": "low",
+  "NLD": {
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/VCT"
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/NLD"
   },
-  "VEN": {
-    "risk": "low",
+  "IDN": {
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/VEN"
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/IDN"
   },
-  "VGB": {
-    "risk": "low",
+  "ATF": {
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/VGB"
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/ATF"
   },
-  "VIR": {
+  "CAF": {
+    "score": 3,
     "risk": "low",
-    "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/VIR"
+    "eo": 0,
+    "det": 0,
+    "lic": 3,
+    "url": "https://fezqmode.github.io/quadramapdemo/CAF"
   },
-  "VNM": {
-    "risk": "low",
+  "BEL": {
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/VNM"
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/BEL"
   },
-  "VUT": {
-    "risk": "low",
+  "MAR": {
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/VUT"
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/MAR"
   },
-  "WLF": {
-    "risk": "low",
+  "NCL": {
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/WLF"
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/NCL"
   },
-  "WSM": {
-    "risk": "low",
+  "ARG": {
     "score": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/WSM"
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/ARG"
+  },
+  "CHE": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/CHE"
+  },
+  "GHA": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/GHA"
+  },
+  "NIC": {
+    "score": 12,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 12,
+    "url": "https://fezqmode.github.io/quadramapdemo/NIC"
+  },
+  "LUX": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/LUX"
+  },
+  "PAN": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/PAN"
+  },
+  "PRK": {
+    "score": 12,
+    "risk": "low",
+    "eo": 1,
+    "det": 1,
+    "lic": 7,
+    "url": "https://fezqmode.github.io/quadramapdemo/PRK"
+  },
+  "GBR": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/GBR"
+  },
+  "ATA": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/ATA"
+  },
+  "GMB": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/GMB"
+  },
+  "MMR": {
+    "score": 17,
+    "risk": "low",
+    "eo": 1,
+    "det": 1,
+    "lic": 12,
+    "url": "https://fezqmode.github.io/quadramapdemo/MMR"
+  },
+  "BLR": {
+    "score": 26,
+    "risk": "low",
+    "eo": 2,
+    "det": 0,
+    "lic": 22,
+    "url": "https://fezqmode.github.io/quadramapdemo/BLR"
+  },
+  "SLE": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/SLE"
+  },
+  "TWN": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/TWN"
   },
   "YEM": {
+    "score": 4,
     "risk": "low",
-    "score": 0,
+    "eo": 0,
+    "det": 0,
+    "lic": 4,
     "url": "https://fezqmode.github.io/quadramapdemo/YEM"
   },
-  "ZAF": {
-    "risk": "low",
+  "UGA": {
     "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/UGA"
+  },
+  "GIN": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/GIN"
+  },
+  "MWI": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/MWI"
+  },
+  "BFA": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/BFA"
+  },
+  "LKA": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/LKA"
+  },
+  "COL": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/COL"
+  },
+  "SWE": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/SWE"
+  },
+  "JOR": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/JOR"
+  },
+  "LAO": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/LAO"
+  },
+  "ARM": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/ARM"
+  },
+  "FLK": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/FLK"
+  },
+  "COG": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/COG"
+  },
+  "PNG": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/PNG"
+  },
+  "CZE": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/CZE"
+  },
+  "HRV": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/HRV"
+  },
+  "VEN": {
+    "score": 89,
+    "risk": "high",
+    "eo": 2,
+    "det": 3,
+    "lic": 76,
+    "url": "https://fezqmode.github.io/quadramapdemo/VEN"
+  },
+  "MYS": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/MYS"
+  },
+  "ROU": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/ROU"
+  },
+  "SDN": {
+    "score": 44,
+    "risk": "medium",
+    "eo": 10,
+    "det": 2,
+    "lic": 18,
+    "url": "https://fezqmode.github.io/quadramapdemo/SDN"
+  },
+  "GAB": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/GAB"
+  },
+  "GRC": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/GRC"
+  },
+  "DEU": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/DEU"
+  },
+  "POL": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/POL"
+  },
+  "CYP": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/CYP"
+  },
+  "ERI": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/ERI"
+  },
+  "CAN": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/CAN"
+  },
+  "JAM": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/JAM"
+  },
+  "MDA": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/MDA"
+  },
+  "CIV": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/CIV"
+  },
+  "BDI": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/BDI"
+  },
+  "BGD": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/BGD"
+  },
+  "CMR": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/CMR"
+  },
+  "AZE": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/AZE"
+  },
+  "TTO": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/TTO"
+  },
+  "SVN": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/SVN"
+  },
+  "MNE": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/MNE"
+  },
+  "KOR": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/KOR"
+  },
+  "UZB": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/UZB"
+  },
+  "ALB": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/ALB"
+  },
+  "CHN": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/CHN"
+  },
+  "JPN": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/JPN"
+  },
+  "MLI": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/MLI"
+  },
+  "VNM": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/VNM"
+  },
+  "THA": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/THA"
+  },
+  "QAT": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/QAT"
+  },
+  "BIH": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/BIH"
+  },
+  "SVK": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/SVK"
+  },
+  "HUN": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/HUN"
+  },
+  "FJI": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/FJI"
+  },
+  "ARE": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/ARE"
+  },
+  "PER": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/PER"
+  },
+  "KGZ": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/KGZ"
+  },
+  "AFG": {
+    "score": 16,
+    "risk": "low",
+    "eo": 1,
+    "det": 0,
+    "lic": 14,
+    "url": "https://fezqmode.github.io/quadramapdemo/AFG"
+  },
+  "GNQ": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/GNQ"
+  },
+  "TJK": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/TJK"
+  },
+  "LBY": {
+    "score": 14,
+    "risk": "low",
+    "eo": 1,
+    "det": 0,
+    "lic": 12,
+    "url": "https://fezqmode.github.io/quadramapdemo/LBY"
+  },
+  "MNG": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/MNG"
+  },
+  "RWA": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/RWA"
+  },
+  "BRA": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/BRA"
+  },
+  "IND": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/IND"
+  },
+  "USA": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/USA"
+  },
+  "BHS": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/BHS"
+  },
+  "NAM": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/NAM"
+  },
+  "AUS": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/AUS"
+  },
+  "ZAF": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
     "url": "https://fezqmode.github.io/quadramapdemo/ZAF"
   },
-  "ZMB": {
-    "risk": "low",
+  "BRN": {
     "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/BRN"
+  },
+  "GNB": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/GNB"
+  },
+  "PHL": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/PHL"
+  },
+  "ZMB": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
     "url": "https://fezqmode.github.io/quadramapdemo/ZMB"
   },
-  "ZWE": {
-    "risk": "low",
+  "PRY": {
     "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/PRY"
+  },
+  "SLV": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/SLV"
+  },
+  "HND": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/HND"
+  },
+  "GTM": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/GTM"
+  },
+  "MRT": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/MRT"
+  },
+  "TUN": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/TUN"
+  },
+  "SOM": {
+    "score": 5,
+    "risk": "low",
+    "eo": 1,
+    "det": 0,
+    "lic": 3,
+    "url": "https://fezqmode.github.io/quadramapdemo/SOM"
+  },
+  "ESH": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/ESH"
+  },
+  "PRT": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/PRT"
+  },
+  "SRB": {
+    "score": 19,
+    "risk": "low",
+    "eo": 1,
+    "det": 0,
+    "lic": 17,
+    "url": "https://fezqmode.github.io/quadramapdemo/SRB"
+  },
+  "LSO": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/LSO"
+  },
+  "LBN": {
+    "score": 6,
+    "risk": "low",
+    "eo": 1,
+    "det": 0,
+    "lic": 4,
+    "url": "https://fezqmode.github.io/quadramapdemo/LBN"
+  },
+  "SAU": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/SAU"
+  },
+  "CUB": {
+    "score": 3,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 3,
+    "url": "https://fezqmode.github.io/quadramapdemo/CUB"
+  },
+  "SWZ": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/SWZ"
+  },
+  "KAZ": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/KAZ"
+  },
+  "UKR": {
+    "score": 45,
+    "risk": "medium",
+    "eo": 5,
+    "det": 2,
+    "lic": 29,
+    "url": "https://fezqmode.github.io/quadramapdemo/UKR"
+  },
+  "BGR": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/BGR"
+  },
+  "MEX": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/MEX"
+  },
+  "PAK": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/PAK"
+  },
+  "TCD": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/TCD"
+  },
+  "LTU": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/LTU"
+  },
+  "TZA": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/TZA"
+  },
+  "KEN": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/KEN"
+  },
+  "NPL": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/NPL"
+  },
+  "EGY": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/EGY"
+  },
+  "DOM": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/DOM"
+  },
+  "BEN": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/BEN"
+  },
+  "GRL": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/GRL"
+  },
+  "LBR": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/LBR"
+  },
+  "NZL": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/NZL"
+  },
+  "DJI": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/DJI"
+  },
+  "GEO": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/GEO"
+  },
+  "BLZ": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/BLZ"
+  },
+  "IRL": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/IRL"
+  },
+  "BTN": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/BTN"
+  },
+  "TLS": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/TLS"
+  },
+  "CHL": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/CHL"
+  },
+  "ITA": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/ITA"
+  },
+  "NGA": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/NGA"
+  },
+  "SUR": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/SUR"
+  },
+  "IRQ": {
+    "score": 24,
+    "risk": "low",
+    "eo": 4,
+    "det": 1,
+    "lic": 13,
+    "url": "https://fezqmode.github.io/quadramapdemo/IRQ"
+  },
+  "AGO": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/AGO"
+  },
+  "ZWE": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
     "url": "https://fezqmode.github.io/quadramapdemo/ZWE"
+  },
+  "ESP": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/ESP"
+  },
+  "SSD": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/SSD"
+  },
+  "ISL": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/ISL"
+  },
+  "KWT": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/KWT"
+  },
+  "LVA": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/LVA"
+  },
+  "NER": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/NER"
+  },
+  "HTI": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/HTI"
+  },
+  "ISR": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/ISR"
+  },
+  "KHM": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/KHM"
+  },
+  "ETH": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/ETH"
+  },
+  "GUY": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/GUY"
+  },
+  "TKM": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/TKM"
+  },
+  "ECU": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/ECU"
+  },
+  "TGO": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/TGO"
+  },
+  "PRI": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/PRI"
+  },
+  "SYR": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/SYR"
+  },
+  "MOZ": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/MOZ"
+  },
+  "IRN": {
+    "score": 73,
+    "risk": "high",
+    "eo": 9,
+    "det": 3,
+    "lic": 46,
+    "url": "https://fezqmode.github.io/quadramapdemo/IRN"
+  },
+  "DNK": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/DNK"
+  },
+  "DZA": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/DZA"
+  },
+  "TUR": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/TUR"
+  },
+  "-99": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/-99"
+  },
+  "AUT": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/AUT"
+  },
+  "SEN": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/SEN"
+  },
+  "RUS": {
+    "score": 207,
+    "risk": "high",
+    "eo": 6,
+    "det": 30,
+    "lic": 105,
+    "url": "https://fezqmode.github.io/quadramapdemo/RUS"
+  },
+  "OMN": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/OMN"
+  },
+  "COD": {
+    "score": 5,
+    "risk": "low",
+    "eo": 1,
+    "det": 0,
+    "lic": 3,
+    "url": "https://fezqmode.github.io/quadramapdemo/COD"
+  },
+  "SLB": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/SLB"
+  },
+  "PSE": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/PSE"
+  },
+  "BWA": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/BWA"
+  },
+  "FIN": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/FIN"
+  },
+  "VUT": {
+    "score": 0,
+    "risk": "low",
+    "eo": 0,
+    "det": 0,
+    "lic": 0,
+    "url": "https://fezqmode.github.io/quadramapdemo/VUT"
   }
 }
