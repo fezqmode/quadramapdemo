@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentJurisdiction = 'US';
   let currentSubcategory = 'all';
 
-  // Helper: update dropdowns
+  // Dropdown setup
   function setupDropdowns() {
     const jurisdictionSelect = document.getElementById('jurisdictionSelect');
     const subcategorySelect = document.getElementById('subcategorySelect');
@@ -42,57 +42,64 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Helper: main popup HTML builder with scroll for long content
+  // Main popup builder
   function buildPopup(iso, feature) {
     const entry = (riskData[iso] && riskData[iso][currentJurisdiction]) || {};
-    let score, risk, countKey, countValue;
+    let cat = entry;
+    let score = entry.score != null ? entry.score : 0;
+    let risk = entry.risk || 'N/A';
     let counts = '';
 
-    // Use subcategory for counts, fallback to aggregate if not available
+    // If subcategory is selected, use that category's stats
     if (currentSubcategory !== 'all' && entry[currentSubcategory]) {
-      const cat = entry[currentSubcategory];
-      score = cat.score != null ? cat.score : (entry.score != null ? entry.score : 0);
-      risk = cat.risk || entry.risk || 'N/A';
-      if ('eo' in cat) counts += `<em>EO:</em> ${cat.eo}, `;
-      if ('det' in cat) counts += `<em>Det:</em> ${cat.det}, `;
-      if ('lic' in cat) counts += `<em>Lic:</em> ${cat.lic}, `;
-      if ('reg' in cat) counts += `<em>Reg:</em> ${cat.reg}, `;
-      counts = counts.replace(/, $/, '');
-    } else {
-      score = entry.score != null ? entry.score : 0;
-      risk = entry.risk || 'N/A';
-      if ('eo' in entry) counts += `<em>EO:</em> ${entry.eo}, `;
-      if ('det' in entry) counts += `<em>Det:</em> ${entry.det}, `;
-      if ('lic' in entry) counts += `<em>Lic:</em> ${entry.lic}, `;
-      if ('reg' in entry) counts += `<em>Reg:</em> ${entry.reg}, `;
-      counts = counts.replace(/, $/, '');
+      cat = entry[currentSubcategory];
+      if (cat.score != null) score = cat.score;
+      if (cat.risk) risk = cat.risk;
     }
 
-    // Subcategory specific details
+    // EO/DET/LIC/REG counters, depending on available data
+    if ('eo' in cat) counts += `EO: ${cat.eo}, `;
+    if ('det' in cat) counts += `Det: ${cat.det}, `;
+    if ('lic' in cat) counts += `Lic: ${cat.lic}, `;
+    if ('reg' in cat) counts += `Reg: ${cat.reg}, `;
+    counts = counts.replace(/, $/, '');
+
+    // Subcategory-specific details (for 'all', show nothing)
     let details = '';
-    if (currentSubcategory !== 'all' && entry[currentSubcategory] && Array.isArray(entry[currentSubcategory].details)) {
-      const detailList = entry[currentSubcategory].details;
-      if (detailList.length > 0) {
-        details = `<div style="margin-top:8px; max-height:250px; overflow:auto; border-top:1px solid #ddd; padding-top:7px;"><b>Sanction Details:</b><ul style="padding-left:18px;">`;
-        detailList.forEach(item => {
-          details += `<li style="margin-bottom:5px;">
-            <b>${item.type}:</b> ${item.reference ? item.reference + ' – ' : ''}${item.description || ''}
-            <br><span style="font-size:12px;"><i>Targets:</i> ${item.targets || ''}</span>
-            <br><a href="${item.full_text_url}" target="_blank" rel="noopener" style="font-size:12px;">Source</a>
-          </li>`;
-        });
-        details += '</ul></div>';
-      }
+    if (
+      currentSubcategory !== 'all' &&
+      cat.details &&
+      Array.isArray(cat.details) &&
+      cat.details.length > 0
+    ) {
+      details = `<div style="margin-top:7px; font-size:13.5px; line-height:1.45; max-height:210px; overflow:auto;">
+        <b>Sanction Details:</b>
+        <ul style="padding-left:20px; margin:5px 0 0 0; max-height:175px; overflow-y:auto;">`;
+      cat.details.forEach(item => {
+        details += `<li style="margin-bottom:3px;">
+            <b>${item.type}:</b> ${item.reference ? `<span>${item.reference}</span> – ` : ''}
+            ${item.description || ''}
+            ${item.targets ? `<br><span style="font-size:12px; color:#666;">Targets: ${item.targets}</span>` : ''}
+            ${item.full_text_url ? `<br><a href="${item.full_text_url}" target="_blank" style="font-size:12px;">Source</a>` : ''}
+        </li>`;
+      });
+      details += `</ul></div>`;
     }
 
-    // Main popup
+    // Main popup content
     return `
-      <div style="max-width:370px; max-height:340px; overflow:auto; font-size:15px;">
-        <strong>${feature.properties.admin}</strong><br>
-        <em>Risk:</em> ${risk}<br>
-        <em>Score:</em> ${score}<br>
-        ${counts ? counts + '<br>' : ''}
-        <a href="${(entry.url || `https://fezqmode.github.io/quadramapdemo/${iso}`)}" target="_blank" rel="noopener">Open Country Page</a>
+      <div>
+        <div style="font-size:1.13em; font-weight:700; margin-bottom:2px;">${feature.properties.admin}</div>
+        <div style="margin-bottom:2px;">
+          <span style="font-weight:500;">Risk:</span> ${risk}
+        </div>
+        <div style="margin-bottom:2px;">
+          <span style="font-weight:500;">Score:</span> ${score}
+        </div>
+        ${counts ? `<div style="margin-bottom:2px;">${counts}</div>` : ''}
+        <div style="margin-bottom:4px;">
+          <a href="${entry.url || `https://fezqmode.github.io/quadramapdemo/${iso}`}" target="_blank" rel="noopener">Open Country Page</a>
+        </div>
         ${details}
       </div>
     `;
@@ -110,12 +117,13 @@ document.addEventListener('DOMContentLoaded', () => {
       style: function(feature) {
         const iso = feature.properties.iso_a3;
         const entry = (riskData[iso] && riskData[iso][currentJurisdiction]) || {};
-        let score = 0;
-        // Show score of subcategory if filtered
-        if (currentSubcategory !== 'all' && entry[currentSubcategory] && entry[currentSubcategory].score != null) {
+        let score = entry.score != null ? entry.score : 0;
+        if (
+          currentSubcategory !== 'all' &&
+          entry[currentSubcategory] &&
+          entry[currentSubcategory].score != null
+        ) {
           score = entry[currentSubcategory].score;
-        } else if (entry.score != null) {
-          score = entry.score;
         }
         return {
           fillColor: colorFor(score),
@@ -127,7 +135,11 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       onEachFeature: function(feature, layer) {
         const iso = feature.properties.iso_a3;
-        layer.bindPopup(buildPopup(iso, feature), { autoPan: true, maxWidth: 390, className: 'custom-leaflet-popup' });
+        layer.bindPopup(buildPopup(iso, feature), {
+          autoPan: true,
+          maxWidth: 410,
+          className: 'custom-leaflet-popup'
+        });
 
         // Mouseover: open popup (if not open)
         layer.on('mouseover', function(e) {
@@ -148,17 +160,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     geoLayer.addTo(map);
 
-    // Ensure popups always pan into view if they would be cut off by the filter bar
+    // Ensure popups always pan into full view (especially from top)
     geoLayer.on('popupopen', function(e) {
       const popup = e.popup;
-      const popupPoint = map.latLngToContainerPoint(popup.getLatLng());
-      // Adjust the offset for your filter bar (change 130 and 180 as needed)
-      if (popupPoint.y < 130) {
-        const offset = 180;
-        const newPoint = L.point(popupPoint.x, popupPoint.y + offset);
-        const newLatLng = map.containerPointToLatLng(newPoint);
-        map.panTo(newLatLng, { animate: true });
-      }
+      const MIN_TOP = 110; // Adjust for your dropdown/top bar height
+      setTimeout(() => {
+        const popupPoint = map.latLngToContainerPoint(popup.getLatLng());
+        if (popupPoint.y < MIN_TOP) {
+          const offset = MIN_TOP - popupPoint.y;
+          const newPoint = L.point(popupPoint.x, popupPoint.y + offset + 10);
+          const newLatLng = map.containerPointToLatLng(newPoint);
+          map.panTo(newLatLng, { animate: true });
+        }
+      }, 110); // Wait for Leaflet to fully render the popup
     });
   }
 
