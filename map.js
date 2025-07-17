@@ -1,6 +1,17 @@
 // map.js
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Show a simple loading spinner/message
+  const loadingDiv = document.createElement('div');
+  loadingDiv.id = 'loading-spinner';
+  loadingDiv.style.cssText = `
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.92); z-index: 4000; font-size: 2rem; color: #135db4;
+  `;
+  loadingDiv.textContent = 'Loading map...';
+  document.body.appendChild(loadingDiv);
+
   // Base map layer
   const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
@@ -13,8 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     layers: [osm]
   });
 
-  // Helper: color ramp for scores
-  function colorFor(score) {
+  // Helper: color ramp for scores (0=green, 100=red, no data=grey)
+  function colorFor(score, hasData) {
+    if (!hasData) return '#bbb'; // neutral grey for "no data"
     const s = Math.max(0, Math.min(100, +score));
     const r = Math.round(255 * s / 100);
     const g = Math.round(255 * (100 - s) / 100);
@@ -45,44 +57,46 @@ document.addEventListener('DOMContentLoaded', () => {
   // Helper: main popup HTML builder with scroll for long content
   function buildPopup(iso, feature) {
     const entry = (riskData[iso] && riskData[iso][currentJurisdiction]) || {};
-    let score, risk, countKey, countValue;
-    let counts = '';
+    let score, risk, counts = '';
+    let hasData = true;
 
     // Use subcategory for counts, fallback to aggregate if not available
-    if (currentSubcategory !== 'all' && entry[currentSubcategory]) {
-      const cat = entry[currentSubcategory];
-      score = cat.score != null ? cat.score : (entry.score != null ? entry.score : 0);
+    let cat = (currentSubcategory !== 'all' && entry[currentSubcategory]) ? entry[currentSubcategory] : entry;
+
+    // Determine score and risk
+    if (cat && (typeof cat.score === 'number' || typeof cat.score === 'string')) {
+      score = cat.score;
       risk = cat.risk || entry.risk || 'N/A';
+    } else if (typeof entry.score === 'number' || typeof entry.score === 'string') {
+      score = entry.score;
+      risk = entry.risk || 'N/A';
+    } else {
+      hasData = false;
+      score = 'No data';
+      risk = 'No data';
+    }
+
+    // Sanction counts (only if present)
+    if (hasData) {
       if ('eo' in cat) counts += `<em>EO:</em> ${cat.eo}, `;
       if ('det' in cat) counts += `<em>Det:</em> ${cat.det}, `;
       if ('lic' in cat) counts += `<em>Lic:</em> ${cat.lic}, `;
       if ('reg' in cat) counts += `<em>Reg:</em> ${cat.reg}, `;
       counts = counts.replace(/, $/, '');
-    } else {
-      score = entry.score != null ? entry.score : 0;
-      risk = entry.risk || 'N/A';
-      if ('eo' in entry) counts += `<em>EO:</em> ${entry.eo}, `;
-      if ('det' in entry) counts += `<em>Det:</em> ${entry.det}, `;
-      if ('lic' in entry) counts += `<em>Lic:</em> ${entry.lic}, `;
-      if ('reg' in entry) counts += `<em>Reg:</em> ${entry.reg}, `;
-      counts = counts.replace(/, $/, '');
     }
 
     // Subcategory specific details
     let details = '';
-    if (currentSubcategory !== 'all' && entry[currentSubcategory] && Array.isArray(entry[currentSubcategory].details)) {
-      const detailList = entry[currentSubcategory].details;
-      if (detailList.length > 0) {
-        details = `<div style="margin-top:8px; max-height:250px; overflow:auto; border-top:1px solid #ddd; padding-top:7px;"><b>Sanction Details:</b><ul style="padding-left:18px;">`;
-        detailList.forEach(item => {
-          details += `<li style="margin-bottom:5px;">
-            <b>${item.type}:</b> ${item.reference ? item.reference + ' – ' : ''}${item.description || ''}
-            <br><span style="font-size:12px;"><i>Targets:</i> ${item.targets || ''}</span>
-            <br><a href="${item.full_text_url}" target="_blank" rel="noopener" style="font-size:12px;">Source</a>
-          </li>`;
-        });
-        details += '</ul></div>';
-      }
+    if (hasData && currentSubcategory !== 'all' && Array.isArray(cat.details) && cat.details.length > 0) {
+      details = `<div style="margin-top:8px; max-height:250px; overflow:auto; border-top:1px solid #ddd; padding-top:7px;"><b>Sanction Details:</b><ul style="padding-left:18px;">`;
+      cat.details.forEach(item => {
+        details += `<li style="margin-bottom:5px;">
+          <b>${item.type}:</b> ${item.reference ? item.reference + ' – ' : ''}${item.description || ''}
+          <br><span style="font-size:12px;"><i>Targets:</i> ${item.targets || ''}</span>
+          <br><a href="${item.full_text_url}" target="_blank" rel="noopener" style="font-size:12px;">Source</a>
+        </li>`;
+      });
+      details += '</ul></div>';
     }
 
     // Main popup
@@ -92,8 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <em>Risk:</em> ${risk}<br>
         <em>Score:</em> ${score}<br>
         ${counts ? counts + '<br>' : ''}
-        <a href="${(entry.url || `https://fezqmode.github.io/quadramapdemo/${iso}`)}" target="_blank" rel="noopener">Open Country Page</a>
+        <a href="country.html?iso=${iso}&jurisdiction=${currentJurisdiction}&category=${currentSubcategory}" target="_blank" rel="noopener">Open Country Page</a>
         ${details}
+        ${!hasData ? `<div style="margin-top:8px; color:#888;"><em>No sanctions data for this country/jurisdiction.</em></div>` : ''}
       </div>
     `;
   }
@@ -110,15 +125,11 @@ document.addEventListener('DOMContentLoaded', () => {
       style: function(feature) {
         const iso = feature.properties.iso_a3;
         const entry = (riskData[iso] && riskData[iso][currentJurisdiction]) || {};
-        let score = 0;
-        // Show score of subcategory if filtered
-        if (currentSubcategory !== 'all' && entry[currentSubcategory] && entry[currentSubcategory].score != null) {
-          score = entry[currentSubcategory].score;
-        } else if (entry.score != null) {
-          score = entry.score;
-        }
+        let cat = (currentSubcategory !== 'all' && entry[currentSubcategory]) ? entry[currentSubcategory] : entry;
+        let hasData = typeof (cat && cat.score) !== 'undefined' && cat.score !== null;
+        let score = hasData ? cat.score : 0;
         return {
-          fillColor: colorFor(score),
+          fillColor: colorFor(score, hasData),
           color: '#444',
           weight: 1,
           opacity: 1,
@@ -129,61 +140,50 @@ document.addEventListener('DOMContentLoaded', () => {
         const iso = feature.properties.iso_a3;
         layer.bindPopup(buildPopup(iso, feature), { autoPan: true, maxWidth: 390, className: 'custom-leaflet-popup' });
 
-        // Mouseover: open popup (if not open)
-        layer.on('mouseover', function(e) {
-          if (!layer.isPopupOpen()) layer.openPopup();
-          layer.setStyle({ weight: 2, color: '#000' });
-        });
-        // Mouseout: close popup, reset style
-        layer.on('mouseout', function(e) {
-          if (layer.isPopupOpen()) layer.closePopup();
-          geoLayer.resetStyle(layer);
-        });
-        // Click: open new page for country
+        // -- Popup behavior: open on click --
         layer.on('click', function(e) {
-          const entry = (riskData[iso] && riskData[iso][currentJurisdiction]) || {};
-          window.open(entry.url || `https://fezqmode.github.io/quadramapdemo/${iso}`, '_blank');
+          layer.openPopup();
+          map.panTo(e.latlng);
         });
-      }
-    });
-    geoLayer.addTo(map);
 
-    // Ensure popups always pan into view if they would be cut off by the filter bar
-    geoLayer.on('popupopen', function(e) {
-      const popup = e.popup;
-      const popupPoint = map.latLngToContainerPoint(popup.getLatLng());
-      // Adjust the offset for your filter bar (change 130 and 180 as needed)
-      if (popupPoint.y < 130) {
-        const offset = 180;
-        const newPoint = L.point(popupPoint.x, popupPoint.y + offset);
-        const newLatLng = map.containerPointToLatLng(newPoint);
-        map.panTo(newLatLng, { animate: true });
+        // Optionally: open popup on mouseover (uncomment to enable)
+        // layer.on('mouseover', function(e) {
+        //   if (!layer.isPopupOpen()) {
+        //     layer.openPopup();
+        //   }
+        // });
+        // layer.on('mouseout', function(e) {
+        //   layer.closePopup();
+        // });
       }
     });
+
+    geoLayer.addTo(map);
   }
 
-  // --- LOAD DATA ---
+  // --- Data Loading with Error Handling and Cache Busting ---
   Promise.all([
-    fetch('custom.geo.json').then(r => r.json()),
-    fetch('riskData.json').then(r => r.json())
-  ]).then(([geo, risk]) => {
+    fetch('custom.geo.json?v=20240717').then(r => {
+      if (!r.ok) throw new Error('custom.geo.json failed to load');
+      return r.json();
+    }),
+    fetch('riskData.json?v=20240717').then(r => {
+      if (!r.ok) throw new Error('riskData.json failed to load');
+      return r.json();
+    })
+  ])
+  .then(([geo, risk]) => {
     geoData = geo;
     riskData = risk;
     setupDropdowns();
     renderMap();
-
-    // Legend (color ramp)
-    const legend = L.control({ position: 'bottomright' });
-    legend.onAdd = () => {
-      const div = L.DomUtil.create('div', 'legend');
-      [0, 20, 40, 60, 80, 100].forEach((v, i, arr) => {
-        const next = arr[i + 1] || 100;
-        div.innerHTML += `<i style="background:${colorFor((v + next) / 2)}"></i> ${v}&ndash;${next}<br>`;
-      });
-      return div;
-    };
-    legend.addTo(map);
-  }).catch(err => {
-    console.error('Map error:', err);
+    // Remove loading spinner
+    if (loadingDiv && loadingDiv.parentNode) loadingDiv.parentNode.removeChild(loadingDiv);
+  })
+  .catch(err => {
+    if (loadingDiv && loadingDiv.parentNode) loadingDiv.parentNode.removeChild(loadingDiv);
+    alert('Error loading map data. Please refresh the page or contact the site administrator.');
+    console.error('Map data load error:', err);
   });
+
 });
