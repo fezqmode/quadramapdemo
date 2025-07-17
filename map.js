@@ -1,55 +1,98 @@
 // map.js
-const map = L.map('map').setView([20,0],2);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OSM'}).addTo(map);
+document.addEventListener('DOMContentLoaded', () => {
+  const map = L.map('mapid').setView([20, 0], 2);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Â© OpenStreetMap contributors'
+  }).addTo(map);
 
-let data;
-Promise.all([
-  fetch('riskData_enriched.json').then(r=>r.json()),
-  fetch('custom.geo.json').then(r=>r.json())
-]).then(([risk,geo])=>{
-  data = risk;
-  L.geoJSON(geo, { style, onEachFeature }).addTo(map);
-  addLegend();
+  let riskData = {};
+
+  // 1. load enriched JSON
+  fetch('riskData_enriched.json')
+    .then(res => {
+      if (!res.ok) throw new Error('Could not load enriched data: ' + res.status);
+      return res.json();
+    })
+    .then(data => {
+      riskData = data;
+      drawCountries();
+      addLegend();
+    })
+    .catch(err => {
+      console.error(err);
+      // fallback to original
+      console.warn('Falling back to riskData.json');
+      return fetch('riskData.json')
+        .then(r => r.json())
+        .then(d => { riskData = d; drawCountries(); addLegend(); });
+    });
+
+  // 2. draw GeoJSON
+  function drawCountries() {
+    fetch('custom.geo.json')
+      .then(res => res.json())
+      .then(geo => {
+        L.geoJSON(geo, {
+          style: styleByFeature,
+          onEachFeature: attachInteractions
+        }).addTo(map);
+      })
+      .catch(err => console.error('GeoJSON load failed', err));
+  }
+
+  // 3. style by risk (using enriched or fallback data)
+  function styleByFeature(f) {
+    const iso   = (f.properties.iso_a3 || f.properties.ISO_A3 || '').toUpperCase();
+    const ent   = riskData[iso] || {};
+    const risk  = ent.risk || 'low';
+    const cols  = { high:'#ff0000', medium:'#ffa500', low:'#00ff00' };
+    return {
+      fillColor:   cols[risk] || cols.low,
+      color:       '#333', weight:1, fillOpacity:0.6
+    };
+  }
+
+  // 4. bind tooltip, hover & click
+  function attachInteractions(f, layer) {
+    const iso   = (f.properties.iso_a3 || f.properties.ISO_A3 || '').toUpperCase();
+    const name  = f.properties.admin || f.properties.ADMIN || iso;
+    const ent   = riskData[iso] || {};
+
+    // build tooltip with safe defaults
+    const lines = [
+      `<strong>${name}</strong>`,
+      `Risk: ${ent.risk ? ent.risk.charAt(0).toUpperCase()+ent.risk.slice(1) : 'Unknown'}`,
+      `Score: ${ent.score != null ? ent.score : 'â€”'}`,
+      `EOs: ${ent.eo_count != null ? ent.eo_count : 'â€”'}`,
+      `Dets: ${ent.det_count != null ? ent.det_count : 'â€”'}`,
+      `Licenses: ${ent.license_count != null ? ent.license_count : 'â€”'}`
+    ];
+    layer.bindTooltip(lines.join('<br>'), { sticky:true });
+
+    layer.on('mouseover', () => {
+      layer.setStyle({ weight:3, fillOpacity:0.8 });
+      layer.bringToFront();
+    });
+    layer.on('mouseout',  () => {
+      layer.setStyle(styleByFeature(f));
+    });
+    layer.on('click', () => {
+      if (ent.ofac_url) window.open(ent.ofac_url, '_blank');
+    });
+  }
+
+  // 5. legend
+  function addLegend() {
+    const legend = L.control({ position:'bottomright' });
+    legend.onAdd = () => {
+      const div = L.DomUtil.create('div','legend');
+      div.innerHTML = `
+        <i style="background:#ff0000"></i> High<br>
+        <i style="background:#ffa500"></i> Medium<br>
+        <i style="background:#00ff00"></i> Low
+      `;
+      return div;
+    };
+    legend.addTo(map);
+  }
 });
-
-function getColor(score){
-  return score>80 ? '#800026' :
-         score>60 ? '#BD0026' :
-         score>40 ? '#E31A1C' :
-         score>20 ? '#FC4E2A' :
-         score>0  ? '#FD8D3C' :
-                    '#FFEDA0';
-}
-
-function style(feature){
-  const iso = feature.properties.ISO_A3;
-  const sc = (data[iso]||{}).score||0;
-  return {
-    fillColor: getColor(sc),
-    weight:1, color:'#444', fillOpacity:0.7
-  };
-}
-
-function onEachFeature(f,layer){
-  const iso = f.properties.ISO_A3;
-  const ent = data[iso]||{};
-  const html = `
-    <strong>${f.properties.ADMIN}</strong><br/>
-    Score: ${ent.score||0} (${ent.risk||'n/a'})<br/>
-    EOs: ${ent.eo_count||0}, Dets: ${ent.det_count||0}, Lic: ${ent.license_count||0}
-  `;
-  layer.bindTooltip(html,{sticky:true});
-  layer.on('click',()=>{
-    if(ent.ofac_url) window.open(ent.ofac_url,'_blank');
-  });
-}
-
-function addLegend(){
-  const grades=[0,20,40,60,80];
-  const div=L.DomUtil.create('div','legend');
-  grades.forEach((g,i)=>{
-    div.innerHTML +=
-      `<i style="background:${getColor(g+1)}"></i> ${g}${grades[i+1]?('&ndash;'+grades[i+1]):+'+'}<br>`;
-  });
-  L.control({position:'bottomright'}).onAdd(()=>div).addTo(map);
-}
