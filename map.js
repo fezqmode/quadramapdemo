@@ -1,6 +1,5 @@
 // map.js
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. initialize map
   const map = L.map('mapid').setView([20, 0], 2);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
@@ -8,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let riskData = {};
 
-  // 2. load original riskData.json
+  // 1. load enriched JSON
   fetch('riskData_enriched.json')
     .then(res => {
-      if (!res.ok) throw new Error('Failed to load riskData.json: ' + res.status);
+      if (!res.ok) throw new Error('Could not load enriched data: ' + res.status);
       return res.json();
     })
     .then(data => {
@@ -19,71 +18,78 @@ document.addEventListener('DOMContentLoaded', () => {
       drawCountries();
       addLegend();
     })
-    .catch(err => console.error('Error loading riskData.json:', err));
+    .catch(err => {
+      console.error(err);
+      // fallback to original
+      console.warn('Falling back to riskData.json');
+      return fetch('riskData.json')
+        .then(r => r.json())
+        .then(d => { riskData = d; drawCountries(); addLegend(); });
+    });
 
-  // 3. draw GeoJSON layer
+  // 2. draw GeoJSON
   function drawCountries() {
     fetch('custom.geo.json')
       .then(res => res.json())
       .then(geo => {
         L.geoJSON(geo, {
-          style: styleByRisk,
-          onEachFeature: setupFeature
+          style: styleByFeature,
+          onEachFeature: attachInteractions
         }).addTo(map);
       })
-      .catch(err => console.error('Error loading custom.geo.json:', err));
+      .catch(err => console.error('GeoJSON load failed', err));
   }
 
-  // 4. style by risk field
-  function styleByRisk(feature) {
-    const iso = feature.properties.iso_a3 || feature.properties.ISO_A3 || '';
-    const entry = riskData[iso] || { risk: 'low' };
-    const colors = {
-      high:   '#ff0000',
-      medium: '#ffa500',
-      low:    '#00ff00'
-    };
+  // 3. style by risk (using enriched or fallback data)
+  function styleByFeature(f) {
+    const iso   = (f.properties.iso_a3 || f.properties.ISO_A3 || '').toUpperCase();
+    const ent   = riskData[iso] || {};
+    const risk  = ent.risk || 'low';
+    const cols  = { high:'#ff0000', medium:'#ffa500', low:'#00ff00' };
     return {
-      fillColor:   colors[entry.risk] || colors.low,
-      color:       '#333',
-      weight:      1,
-      fillOpacity: 0.6
+      fillColor:   cols[risk] || cols.low,
+      color:       '#333', weight:1, fillOpacity:0.6
     };
   }
 
-  // 5. attach tooltip, hover & click
-  function setupFeature(feature, layer) {
-    const iso  = feature.properties.iso_a3 || feature.properties.ISO_A3 || '';
-    const name = feature.properties.admin || feature.properties.ADMIN || iso;
-    const entry= riskData[iso] || {};
+  // 4. bind tooltip, hover & click
+  function attachInteractions(f, layer) {
+    const iso   = (f.properties.iso_a3 || f.properties.ISO_A3 || '').toUpperCase();
+    const name  = f.properties.admin || f.properties.ADMIN || iso;
+    const ent   = riskData[iso] || {};
 
-    // simple tooltip with name + risk
-    const riskLabel = entry.risk
-      ? entry.risk.charAt(0).toUpperCase() + entry.risk.slice(1)
-      : 'Unknown';
-    layer.bindTooltip(`${name}<br>Risk: ${riskLabel}`, { sticky: true });
+    // build tooltip with safe defaults
+    const lines = [
+      `<strong>${name}</strong>`,
+      `Risk: ${ent.risk ? ent.risk.charAt(0).toUpperCase()+ent.risk.slice(1) : 'Unknown'}`,
+      `Score: ${ent.score != null ? ent.score : '—'}`,
+      `EOs: ${ent.eo_count != null ? ent.eo_count : '—'}`,
+      `Dets: ${ent.det_count != null ? ent.det_count : '—'}`,
+      `Licenses: ${ent.license_count != null ? ent.license_count : '—'}`
+    ];
+    layer.bindTooltip(lines.join('<br>'), { sticky:true });
 
     layer.on('mouseover', () => {
       layer.setStyle({ weight:3, fillOpacity:0.8 });
       layer.bringToFront();
     });
-    layer.on('mouseout', () => {
-      layer.setStyle(styleByRisk(feature));
+    layer.on('mouseout',  () => {
+      layer.setStyle(styleByFeature(f));
     });
     layer.on('click', () => {
-      if (entry.url) window.open(entry.url, '_blank');
+      if (ent.ofac_url) window.open(ent.ofac_url, '_blank');
     });
   }
 
-  // 6. add legend
+  // 5. legend
   function addLegend() {
     const legend = L.control({ position:'bottomright' });
     legend.onAdd = () => {
       const div = L.DomUtil.create('div','legend');
       div.innerHTML = `
-        <i style="background:#ff0000"></i> High Risk<br>
-        <i style="background:#ffa500"></i> Medium Risk<br>
-        <i style="background:#00ff00"></i> Low Risk
+        <i style="background:#ff0000"></i> High<br>
+        <i style="background:#ffa500"></i> Medium<br>
+        <i style="background:#00ff00"></i> Low
       `;
       return div;
     };
