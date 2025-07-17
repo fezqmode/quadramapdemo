@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Country Sanctions Detail</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="leaflet.css">
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fafcff;
+      color: #1a1a1a;
+    }
+    .main {
+      max-width: 750px;
+      margin: 28px auto;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 3px 18px rgba(25,40,60,.10);
+      padding: 34px 32px 32px 32px;
+    }
+    h1 { font-size: 2.0rem; margin-top: 0; }
+    .subtitle { color: #555; margin-bottom: 0.7em; }
+    .meta {
+      margin-bottom: 16px;
+      font-size: 1.02em;
+      color: #334;
+    }
+    .detail-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.8em;
+    }
+    .detail-table th, .detail-table td {
+      text-align: left;
+      vertical-align: top;
+      padding: 8px 10px;
+      border-bottom: 1px solid #e5e8ec;
+      font-size: 1em;
+    }
+    .detail-table th {
+      background: #f7faff;
+      font-weight: 700;
+    }
+    .detail-table td {
+      background: #fff;
+    }
+    .source-link a {
+      color: #1768b1;
+      text-decoration: underline;
+      font-size: 0.98em;
+    }
+    .category-bar {
+      margin-bottom: 28px;
+      font-size: 1.12em;
+      padding: 6px 16px;
+      background: #f3f6fa;
+      border-radius: 6px;
+      display: inline-block;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: #224488;
+      text-decoration: none;
+      font-size: 1.07em;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <a class="back-link" href="index.html">&larr; Back to Map</a>
+    <h1 id="countryName">Loading…</h1>
+    <div class="category-bar" id="categoryBar"></div>
+    <div class="meta" id="summaryMeta"></div>
+    <table class="detail-table" id="detailsTable" style="display:none;">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Reference</th>
+          <th>Description</th>
+          <th>Targets</th>
+          <th>Source</th>
+        </tr>
+      </thead>
+      <tbody id="detailsTbody"></tbody>
+    </table>
+    <div id="noDataMsg" style="color:#b33; font-size:1.08em; display:none;">
+      No detailed sanctions data found for this selection.
+    </div>
+  </div>
+  <script>
+    // --- Helper to get parameter ---
+    function getParam(name) {
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name) || '';
+    }
+
+    // --- Data Loading and Render Logic ---
+    const iso = getParam('iso').toUpperCase();
+    const jurisdiction = getParam('jurisdiction');
+    const category = getParam('category');
+    // For nicer display
+    const jurisdictionMap = { US: "United States", EU: "European Union", UK: "United Kingdom" };
+
+    // Load data and render
+    fetch('riskData.json')
+      .then(r => r.json())
+      .then(riskData => {
+        let entry = (riskData[iso] && riskData[iso][jurisdiction]) || {};
+        let categoryData = (category !== 'all') ? entry[category] : null;
+
+        // Set country name (fallback ISO)
+        document.getElementById('countryName').textContent =
+          (window.countryNames && window.countryNames[iso]) || iso;
+
+        // Set category bar
+        document.getElementById('categoryBar').textContent =
+          `${jurisdictionMap[jurisdiction] || jurisdiction} – ` +
+          (category === 'all' ? "All Categories" : category);
+
+        // Summary info
+        let meta = '';
+        let cat = categoryData || entry;
+        if (cat) {
+          let keys = ['risk', 'score', 'eo', 'det', 'lic', 'reg'];
+          let labels = { risk: "Risk", score: "Score", eo: "EOs", det: "Determinations", lic: "Licenses", reg: "Regulations" };
+          keys.forEach(k => {
+            if (cat[k] != null) meta += `<b>${labels[k]}:</b> ${cat[k]} &nbsp; `;
+          });
+        }
+        document.getElementById('summaryMeta').innerHTML = meta;
+
+        // Details Table
+        let details = (categoryData && categoryData.details) ||
+                      (category === 'all' ? null : (entry[category] && entry[category].details));
+        if (Array.isArray(details) && details.length) {
+          document.getElementById('detailsTable').style.display = '';
+          let tbody = document.getElementById('detailsTbody');
+          tbody.innerHTML = '';
+          details.forEach(row => {
+            tbody.innerHTML += `<tr>
+              <td>${row.type || ''}</td>
+              <td>${row.reference || ''}</td>
+              <td>${row.description || ''}</td>
+              <td>${row.targets || ''}</td>
+              <td class="source-link">${row.full_text_url ? `<a href="${row.full_text_url}" target="_blank">Source</a>` : ''}</td>
+            </tr>`;
+          });
+          document.getElementById('noDataMsg').style.display = 'none';
+        } else {
+          document.getElementById('detailsTable').style.display = 'none';
+          document.getElementById('noDataMsg').style.display = '';
+        }
+      })
+      .catch(err => {
+        document.getElementById('countryName').textContent = iso;
+        document.getElementById('categoryBar').textContent = `${jurisdiction} – ${category}`;
+        document.getElementById('summaryMeta').textContent = '';
+        document.getElementById('detailsTable').style.display = 'none';
+        document.getElementById('noDataMsg').style.display = '';
+      });
+  </script>
+</body>
+</html>
