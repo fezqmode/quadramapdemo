@@ -140,13 +140,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const iso = feature.properties.iso_a3;
         layer.bindPopup(buildPopup(iso, feature), { autoPan: true, maxWidth: 390, className: 'custom-leaflet-popup' });
 
-        // -- Popup behavior: open on click --
+        // -- Popup behavior: open on click only (no pan/snap) --
         layer.on('click', function(e) {
           layer.openPopup();
-          map.panTo(e.latlng);
         });
 
-        // Optionally: open popup on mouseover (uncomment to enable)
+        // If you want hover-to-preview, uncomment below:
         // layer.on('mouseover', function(e) {
         //   if (!layer.isPopupOpen()) {
         //     layer.openPopup();
