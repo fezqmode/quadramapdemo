@@ -255,6 +255,7 @@
         "risk": "high",
         "reg": 6,
         "details": [
+          {
             "type": "Regulation",
             "reference": "Council Regulation (EU) No 833/2014",
             "description": "Sectoral sanctions on finance, energy, and defense, including restrictions on access to EU capital markets, oil equipment exports, and dual-use goods.",
