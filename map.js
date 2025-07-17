@@ -1,3 +1,5 @@
+// map.js
+
 document.addEventListener('DOMContentLoaded', () => {
   // Base map layer
   const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -22,9 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let geoData, riskData;
   let currentJurisdiction = 'US';
   let currentSubcategory = 'all';
-  let geoLayer = null;
 
-  // Dropdown setup
+  // Dropdowns
   function setupDropdowns() {
     const jurisdictionSelect = document.getElementById('jurisdictionSelect');
     const subcategorySelect = document.getElementById('subcategorySelect');
@@ -40,58 +41,71 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Popup HTML builder
-  function buildPopup(iso, feature) {
-    const entry = (riskData[iso] && riskData[iso][currentJurisdiction]) || {};
-    let catObj = entry;
-    if (currentSubcategory !== 'all' && entry[currentSubcategory]) {
-      catObj = entry[currentSubcategory];
+  // Helper: get subcategory data, fallback to first present
+  function getSubcategoryData(jurisdictionData) {
+    if (!jurisdictionData) return {};
+    if (currentSubcategory !== 'all') {
+      return jurisdictionData[currentSubcategory] || {};
     }
-    let score = catObj.score ?? entry.score ?? 0;
-    let risk = catObj.risk ?? entry.risk ?? 'N/A';
-    let eo = catObj.eo ?? entry.eo ?? 0;
-    let det = catObj.det ?? entry.det ?? 0;
-    let lic = catObj.lic ?? entry.lic ?? 0;
-    let reg = catObj.reg ?? entry.reg ?? 0;
-    let details = '';
+    // Fallback to first present category
+    const categories = ["Sectoral", "Financial", "Goods", "Services"];
+    for (const c of categories) {
+      if (jurisdictionData[c]) return jurisdictionData[c];
+    }
+    return {};
+  }
 
-    if (catObj.details && catObj.details.length) {
-      details = `<div style="margin-top:8px;"><b>Details:</b><ul style="margin-bottom:0;">`;
-      catObj.details.forEach(item => {
-        let ref = item.reference ? `<b>${item.reference}:</b> ` : '';
-        let url = item.full_text_url
-          ? ` <a href="${item.full_text_url}" target="_blank" rel="noopener">[source]</a>`
-          : '';
-        details += `<li>${ref}${item.description || ''}${url}</li>`;
+  // Popup builder
+  function buildPopup(iso, feature) {
+    const jurisdictionData = (riskData[iso] && riskData[iso][currentJurisdiction]) || {};
+    const subData = getSubcategoryData(jurisdictionData);
+
+    const score = subData.score ?? 0;
+    const risk = subData.risk ?? 'N/A';
+
+    // Show number of acts etc.
+    let extraFields = '';
+    if (currentJurisdiction === 'US') {
+      extraFields = `<em>EO:</em> ${subData.eo ?? 0}, <em>Det:</em> ${subData.det ?? 0}, <em>Lic:</em> ${subData.lic ?? 0}<br>`;
+    } else if (currentJurisdiction === 'EU' || currentJurisdiction === 'UK') {
+      extraFields = `<em>Regs:</em> ${subData.reg ?? 0}<br>`;
+    }
+
+    // Details list (short)
+    let details = '';
+    if (subData.details && Array.isArray(subData.details)) {
+      details = `<div style="margin-top:7px;"><b>Key Measures:</b><ul>`;
+      subData.details.slice(0, 4).forEach(item => {
+        details += `<li>${item.reference}: ${item.description}</li>`;
       });
+      if (subData.details.length > 4) details += `<li>...see more</li>`;
       details += '</ul></div>';
     }
-
-    let statLine = (typeof reg === 'number')
-      ? `<em>Regulations:</em> ${reg}<br>`
-      : `<em>EO:</em> ${eo}, <em>Det:</em> ${det}, <em>Lic:</em> ${lic}<br>`;
 
     return `
       <strong>${feature.properties.admin}</strong><br>
       <em>Risk:</em> ${risk}<br>
       <em>Score:</em> ${score}<br>
-      ${statLine}
-      <a href="${entry.url || `https://fezqmode.github.io/quadramapdemo/${iso}`}" target="_blank" rel="noopener">Open Country Page</a>
+      ${extraFields}
+      <a href="${jurisdictionData.url || `https://fezqmode.github.io/quadramapdemo/${iso}`}" target="_blank" rel="noopener">Open Country Page</a>
       ${details}
     `;
   }
 
   // --- Main Render Function ---
+  let geoLayer = null;
+
   function renderMap() {
-    if (geoLayer) map.removeLayer(geoLayer);
+    if (geoLayer) {
+      map.removeLayer(geoLayer);
+    }
     geoLayer = L.geoJSON(geoData, {
       style: function(feature) {
         const iso = feature.properties.iso_a3;
-        const entry = (riskData[iso] && riskData[iso][currentJurisdiction]) || {};
-        let catObj = (currentSubcategory !== 'all' && entry[currentSubcategory]) ? entry[currentSubcategory] : entry;
-        let score = catObj.score ?? entry.score ?? 0;
+        const jurisdictionData = (riskData[iso] && riskData[iso][currentJurisdiction]) || {};
+        const subData = getSubcategoryData(jurisdictionData);
         return {
-          fillColor: colorFor(score),
+          fillColor: colorFor(subData.score ?? 0),
           color: '#444',
           weight: 1,
           opacity: 1,
@@ -100,17 +114,22 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       onEachFeature: function(feature, layer) {
         const iso = feature.properties.iso_a3;
+        // Always build popup with current subcategory data
+        const popupHtml = buildPopup(iso, feature);
+        layer.bindPopup(popupHtml, {autoPan: true});
+        // Show popup on mouseover (not just click)
         layer.on('mouseover', function(e) {
+          this.openPopup();
           layer.setStyle({ weight: 2, color: '#000' });
-          layer.bindPopup(buildPopup(iso, feature)).openPopup(e.latlng || undefined);
         });
-        layer.on('mouseout', function() {
+        layer.on('mouseout', function(e) {
+          this.closePopup();
           geoLayer.resetStyle(layer);
-          layer.closePopup();
         });
-        layer.on('click', function() {
-          const entry = (riskData[iso] && riskData[iso][currentJurisdiction]) || {};
-          window.open(entry.url || `https://fezqmode.github.io/quadramapdemo/${iso}`, '_blank');
+        // Clicking opens country page in new tab
+        layer.on('click', function(e) {
+          const jurisdictionData = (riskData[iso] && riskData[iso][currentJurisdiction]) || {};
+          window.open(jurisdictionData.url || `https://fezqmode.github.io/quadramapdemo/${iso}`, '_blank');
         });
       }
     });
@@ -126,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
     riskData = risk;
     setupDropdowns();
     renderMap();
-    // Legend
+    // Legend remains unchanged
     const legend = L.control({ position: 'bottomright' });
     legend.onAdd = () => {
       const div = L.DomUtil.create('div', 'legend');
