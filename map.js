@@ -1,95 +1,114 @@
 // map.js
 document.addEventListener('DOMContentLoaded', () => {
+  // 1️⃣ Initialize the map
   const map = L.map('mapid').setView([20, 0], 2);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
   }).addTo(map);
 
   let riskData = {};
+  let scoreMin = Infinity, scoreMax = -Infinity;
 
-  // 1. load enriched JSON
+  // 2️⃣ Load enriched JSON (must include a numeric 'score' field)
   fetch('riskData_enriched.json')
     .then(res => {
-      if (!res.ok) throw new Error('Could not load enriched data: ' + res.status);
+      if (!res.ok) throw new Error(res.statusText);
       return res.json();
     })
     .then(data => {
       riskData = data;
+      // compute min/max
+      Object.values(riskData).forEach(e => {
+        const s = Number(e.score);
+        if (!isNaN(s)) {
+          scoreMin = Math.min(scoreMin, s);
+          scoreMax = Math.max(scoreMax, s);
+        }
+      });
       drawCountries();
-      addLegend();
+      addGradientLegend();
     })
-    .catch(err => {
-      console.error(err);
-      // fallback to original
-      console.warn('Falling back to riskData.json');
-      return fetch('riskData.json')
-        .then(r => r.json())
-        .then(d => { riskData = d; drawCountries(); addLegend(); });
-    });
+    .catch(err => console.error('Failed loading enriched JSON:', err));
 
-  // 2. draw GeoJSON
+  // 3️⃣ Draw GeoJSON layer
   function drawCountries() {
     fetch('custom.geo.json')
       .then(res => res.json())
       .then(geo => {
         L.geoJSON(geo, {
-          style: styleByFeature,
+          style: styleByScore,
           onEachFeature: attachInteractions
         }).addTo(map);
       })
-      .catch(err => console.error('GeoJSON load failed', err));
+      .catch(err => console.error('GeoJSON load failed:', err));
   }
 
-  // 3. style by risk (using enriched or fallback data)
-  function styleByFeature(f) {
-    const iso   = (f.properties.iso_a3 || f.properties.ISO_A3 || '').toUpperCase();
-    const ent   = riskData[iso] || {};
-    const risk  = ent.risk || 'low';
-    const cols  = { high:'#ff0000', medium:'#ffa500', low:'#00ff00' };
+  // 4️⃣ Style callback: map score → color
+  function styleByScore(feature) {
+    const iso = (feature.properties.iso_a3 || feature.properties.ISO_A3 || '').toUpperCase();
+    const entry = riskData[iso] || {};
+    const s = Number(entry.score);
+    let fill = '#ccc';  // no data
+    if (!isNaN(s) && scoreMax > scoreMin) {
+      // hue from 120° (green) → 0° (red)
+      const pct = (s - scoreMin) / (scoreMax - scoreMin);
+      const hue = 120 * (1 - pct);
+      fill = `hsl(${hue}, 100%, 50%)`;
+    }
     return {
-      fillColor:   cols[risk] || cols.low,
-      color:       '#333', weight:1, fillOpacity:0.6
+      fillColor:   fill,
+      color:       '#333',
+      weight:      1,
+      fillOpacity: 0.7
     };
   }
 
-  // 4. bind tooltip, hover & click
-  function attachInteractions(f, layer) {
-    const iso   = (f.properties.iso_a3 || f.properties.ISO_A3 || '').toUpperCase();
-    const name  = f.properties.admin || f.properties.ADMIN || iso;
-    const ent   = riskData[iso] || {};
+  // 5️⃣ Interactions: tooltip, hover, click
+  function attachInteractions(feature, layer) {
+    const iso   = (feature.properties.iso_a3 || feature.properties.ISO_A3 || '').toUpperCase();
+    const entry = riskData[iso] || {};
+    const name  = feature.properties.admin || feature.properties.ADMIN || iso;
+    const score = entry.score != null ? entry.score : '—';
+    const eo    = entry.eo_count != null    ? entry.eo_count    : '—';
+    const det   = entry.det_count != null   ? entry.det_count   : '—';
+    const lic   = entry.license_count != null ? entry.license_count : '—';
 
-    // build tooltip with safe defaults
-    const lines = [
-      `<strong>${name}</strong>`,
-      `Risk: ${ent.risk ? ent.risk.charAt(0).toUpperCase()+ent.risk.slice(1) : 'Unknown'}`,
-      `Score: ${ent.score != null ? ent.score : '—'}`,
-      `EOs: ${ent.eo_count != null ? ent.eo_count : '—'}`,
-      `Dets: ${ent.det_count != null ? ent.det_count : '—'}`,
-      `Licenses: ${ent.license_count != null ? ent.license_count : '—'}`
-    ];
-    layer.bindTooltip(lines.join('<br>'), { sticky:true });
+    const html = `
+      <strong>${name}</strong><br>
+      Score: ${score}<br>
+      EOs: ${eo} Dets: ${det} Licenses: ${lic}
+    `;
+    layer.bindTooltip(html, { sticky: true });
 
     layer.on('mouseover', () => {
-      layer.setStyle({ weight:3, fillOpacity:0.8 });
+      layer.setStyle({ weight: 3, fillOpacity: 0.9 });
       layer.bringToFront();
     });
-    layer.on('mouseout',  () => {
-      layer.setStyle(styleByFeature(f));
+    layer.on('mouseout', () => {
+      layer.setStyle(styleByScore(feature));
     });
     layer.on('click', () => {
-      if (ent.ofac_url) window.open(ent.ofac_url, '_blank');
+      if (entry.ofac_url) window.open(entry.ofac_url, '_blank');
     });
   }
 
-  // 5. legend
-  function addLegend() {
-    const legend = L.control({ position:'bottomright' });
+  // 6️⃣ Legend: continuous gradient
+  function addGradientLegend() {
+    const legend = L.control({ position: 'bottomright' });
     legend.onAdd = () => {
-      const div = L.DomUtil.create('div','legend');
+      const div = L.DomUtil.create('div', 'legend gradient-legend');
+      // create a horizontal gradient bar via inline style
       div.innerHTML = `
-        <i style="background:#ff0000"></i> High<br>
-        <i style="background:#ffa500"></i> Medium<br>
-        <i style="background:#00ff00"></i> Low
+        <div style="
+          background: linear-gradient(to right,
+            hsl(120,100%,50%),
+            hsl(60,100%,50%),
+            hsl(0,100%,50%));
+          height: 10px;
+          margin-bottom: 4px;
+        "></div>
+        <span>${scoreMin}</span>
+        <span style="float:right">${scoreMax}</span>
       `;
       return div;
     };
