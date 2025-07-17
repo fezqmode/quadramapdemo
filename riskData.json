@@ -249,117 +249,245 @@
       }
     },
     "EU": {
-      "Sectoral": {
+      {
+            "type": "Regulation",
+            "reference": "Council Regulation (EU) No 833/2014",
+            "description": "Sectoral sanctions on finance, energy, and defense, including restrictions on access to EU capital markets, oil equipment exports, and dual-use goods.",
+            "targets": "Russian financial, energy, and defense sectors",
+            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32014R0833"
+          },
+          {
+            "type": "Decision",
+            "reference": "Council Decision 2014/512/CFSP",
+            "description": "Introduces restrictive measures in response to Russia's actions destabilizing the situation in Ukraine.",
+            "targets": "Russian state entities and sectors",
+            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32014D0512"
+          },
+          {
+            "type": "Regulation",
+            "reference": "Council Regulation (EU) No 269/2014",
+            "description": "Freezes assets of designated individuals and entities responsible for undermining or threatening Ukraine's territorial integrity.",
+            "targets": "Russian and Crimean individuals/entities",
+            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32014R0269"
+          },
+          {
+            "type": "Regulation",
+            "reference": "Council Regulation (EU) 2022/879",
+            "description": "Strengthens sectoral sanctions against Russian state-owned enterprises and expands export bans.",
+            "targets": "Russian state-owned enterprises and targeted sectors",
+            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R0879"
+          },
+          {
+            "type": "Regulation",
+            "reference": "Council Regulation (EU) 2022/1904",
+            "description": "Broadens energy sanctions, import bans, and technical assistance restrictions on Russian crude oil and petroleum products.",
+            "targets": "Russian energy sector",
+            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R1904"
+          },
+          {
+            "type": "Regulation",
+            "reference": "Council Regulation (EU) 2023/427",
+            "description": "Amends and strengthens previous sectoral measures targeting dual-use goods, advanced technology, and military use.",
+            "targets": "Russian dual-use and high-tech sectors",
+            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R0427"
+          }
+        ]
+      },
+      "Financial": {
+        "score": 0,
+        "risk": "high",
+        "reg": 4,
+        "details": [
+          {
+            "type": "Regulation",
+            "reference": "Council Regulation (EU) No 833/2014, Articles 5, 5a, 5b",
+            "description": "Restrictions on access to EU capital markets, limitations on transactions with the Central Bank of Russia, and SWIFT disconnection for key Russian banks.",
+            "targets": "Russian financial institutions, Central Bank, targeted banks",
+            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0833"
+          },
+          {
+            "type": "Regulation",
+            "reference": "Council Regulation (EU) 2022/345",
+            "description": "Extends financial sector restrictions to more state-owned banks and prohibits provision of euro-denominated banknotes.",
+            "targets": "Russian state-owned banks",
+            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R0345"
+          },
+          {
+            "type": "Regulation",
+            "reference": "Council Regulation (EU) 2022/328",
+            "description": "Expands asset freeze and transaction bans for major Russian banks and financial institutions.",
+            "targets": "Russian major financial institutions",
+            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R0328"
+          },
+          {
+            "type": "Regulation",
+            "reference": "Council Regulation (EU) 2022/263",
+            "description": "Freezes assets and restricts financial transactions related to Crimea and Sevastopol.",
+            "targets": "Crimea, Sevastopol-related financial activities",
+            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R0263"
+          }
+        ]
+      },
+      "Goods": {
         "score": 0,
         "risk": "high",
         "reg": 6,
         "details": [
           {
             "type": "Regulation",
-            "reference": "EU Regulation 833/2014",
-            "description": "Restricts access to capital markets, arms embargo, dual-use restrictions, energy sector restrictions, export controls.",
-            "targets": "Russian financial, energy, defense sectors",
-            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32014R0833"
-          }
-        ]
-      },
-      "Financial": {
-        "score": 0,
-        "risk": "high",
-        "reg": 4,
-        "details": [
+            "reference": "Council Regulation (EU) No 833/2014",
+            "description": "Imposes restrictions on exports of dual-use goods, advanced technology, and oil equipment to Russia.",
+            "targets": "Russian technology, energy, and defense sectors",
+            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0833"
+          },
           {
             "type": "Regulation",
-            "reference": "EU Regulation 269/2014",
-            "description": "Asset freezes and prohibition of funds and economic resources to listed persons/entities.",
-            "targets": "Listed Russian persons and entities",
-            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32014R0269"
-          }
-        ]
-      },
-      "Goods": {
-        "score": null,
-        "risk": "high",
-        "reg": 5,
-        "details": [
+            "reference": "Council Regulation (EU) 2022/576",
+            "description": "Expands export bans to include luxury goods and other critical technologies.",
+            "targets": "Russian high-value and strategic sectors",
+            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R0576"
+          },
           {
             "type": "Regulation",
-            "reference": "EU Regulation 833/2014, Art. 2a–2d",
-            "description": "Export bans on dual-use goods, oil/gas equipment, aviation and space goods, and other listed items.",
-            "targets": "Russian importers, companies, and sectors",
-            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32014R0833"
+            "reference": "Council Regulation (EU) 2022/428",
+            "description": "Further restricts the export of goods and technology suited for use in aviation and space industry.",
+            "targets": "Russian aviation and aerospace sector",
+            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R0428"
+          },
+          {
+            "type": "Regulation",
+            "reference": "Council Regulation (EU) 2022/263",
+            "description": "Bans import/export of goods related to Crimea and Sevastopol.",
+            "targets": "Crimea, Sevastopol",
+            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R0263"
+          },
+          {
+            "type": "Regulation",
+            "reference": "Council Regulation (EU) 2022/879",
+            "description": "Strengthens sectoral sanctions against Russian state-owned enterprises and expands export bans.",
+            "targets": "Russian state-owned enterprises and targeted sectors",
+            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R0879"
+          },
+          {
+            "type": "Regulation",
+            "reference": "Council Regulation (EU) 2023/427",
+            "description": "Amends and strengthens previous sectoral measures targeting dual-use goods, advanced technology, and military use.",
+            "targets": "Russian dual-use and high-tech sectors",
+            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R0427"
           }
         ]
       },
       "Services": {
-        "score": null,
+        "score": 0,
         "risk": "high",
         "reg": 3,
         "details": [
           {
             "type": "Regulation",
-            "reference": "EU Regulation 833/2014, Art. 5n, 5m",
-            "description": "Bans on accounting, auditing, tax consulting, business and management consulting, public relations, and trust services.",
-            "targets": "Russian businesses and public sector",
-            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32014R0833"
+            "reference": "Council Regulation (EU) No 833/2014, Article 5n",
+            "description": "Prohibits provision of accounting, auditing, tax consulting, business/management consulting, and public relations services to Russian entities.",
+            "targets": "Russian entities",
+            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0833"
+          },
+          {
+            "type": "Regulation",
+            "reference": "Council Regulation (EU) 2022/879",
+            "description": "Expands the prohibition of services, including trust, corporate formation, and crypto-asset wallet services.",
+            "targets": "Russian companies and service providers",
+            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R0879"
+          },
+          {
+            "type": "Regulation",
+            "reference": "Council Regulation (EU) 2022/1904",
+            "description": "Broadens the scope of prohibited technical assistance and services in the energy sector.",
+            "targets": "Russian energy sector",
+            "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R1904"
           }
         ]
       }
     },
     "UK": {
-      "Sectoral": {
+     "Sectoral": {
         "score": 0,
         "risk": "high",
-        "reg": 5,
+        "reg": 7,
         "details": [
           {
             "type": "Regulation",
-            "reference": "UK Russia (Sanctions) (EU Exit) Regulations 2019",
-            "description": "Sectoral sanctions including finance, energy, defense, and goods restrictions.",
-            "targets": "Russian financial, energy, defense sectors",
-            "full_text_url": "https://www.legislation.gov.uk/uksi/2019/855/contents/made"
+            "reference": "Russia (Sanctions) (EU Exit) Regulations 2019 (SI 2019/855)",
+            "description": "Establishes sectoral restrictions on finance, energy, technology, defense, and key sectors of the Russian economy.",
+            "targets": "Russian government, banks, energy sector, defense industry",
+            "full_text_url": "https://www.legislation.gov.uk/uksi/2019/855/contents"
+          },
+          {
+            "type": "Amending Regulation",
+            "reference": "Russia (Sanctions) (EU Exit) (Amendment) Regulations 2022 (SI 2022/195, 2022/578, 2022/801, etc.)",
+            "description": "Expanded and intensified sectoral restrictions, including new asset freezes, trade bans, and service prohibitions.",
+            "targets": "Russian state entities, major companies, specified individuals",
+            "full_text_url": "https://www.legislation.gov.uk/uksi/2022/195/contents"
           }
         ]
       },
       "Financial": {
         "score": 0,
         "risk": "high",
-        "reg": 3,
+        "reg": 7,
         "details": [
           {
             "type": "Regulation",
-            "reference": "UK Russia (Sanctions) (EU Exit) Regulations 2019",
-            "description": "Asset freezes, capital market restrictions, financial services restrictions.",
-            "targets": "Russian individuals, financial sector",
-            "full_text_url": "https://www.legislation.gov.uk/uksi/2019/855/contents/made"
+            "reference": "Russia (Sanctions) (EU Exit) Regulations 2019, Part 3",
+            "description": "Asset freezes, prohibitions on dealing with funds/economic resources, restrictions on access to capital markets, including bans on SWIFT access.",
+            "targets": "Major Russian banks, state-owned enterprises, designated individuals",
+            "full_text_url": "https://www.legislation.gov.uk/uksi/2019/855/contents"
+          },
+          {
+            "type": "Amending Regulation",
+            "reference": "Russia (Sanctions) (EU Exit) (Amendment) Regulations 2022",
+            "description": "Prohibits provision of financial messaging services (e.g., SWIFT), further expands restrictions on sovereign debt and securities.",
+            "targets": "Russian Central Bank, National Wealth Fund, Ministry of Finance",
+            "full_text_url": "https://www.legislation.gov.uk/uksi/2022/195/contents"
           }
         ]
       },
       "Goods": {
-        "score": null,
+        "score": 0,
         "risk": "high",
-        "reg": 4,
+        "reg": 8,
         "details": [
           {
             "type": "Regulation",
-            "reference": "UK Russia (Sanctions) (EU Exit) Regulations 2019",
-            "description": "Export bans on military, dual-use, and energy-related goods, luxury goods.",
-            "targets": "Russian companies, sectors",
-            "full_text_url": "https://www.legislation.gov.uk/uksi/2019/855/contents/made"
+            "reference": "Russia (Sanctions) (EU Exit) Regulations 2019, Part 5",
+            "description": "Prohibits export, supply, delivery, making available, and transfer of military and dual-use goods, critical-industry goods, and technology.",
+            "targets": "Russian defense, aerospace, marine, energy sectors",
+            "full_text_url": "https://www.legislation.gov.uk/uksi/2019/855/contents"
+          },
+          {
+            "type": "Amending Regulation",
+            "reference": "Russia (Sanctions) (EU Exit) (Amendment) Regulations 2022 (and subsequent amendments)",
+            "description": "Expands goods restrictions to include luxury goods, oil refining equipment, quantum computing, and maritime navigation goods.",
+            "targets": "Russian commercial and defense sectors",
+            "full_text_url": "https://www.legislation.gov.uk/uksi/2022/195/contents"
           }
         ]
       },
       "Services": {
-        "score": null,
+        "score": 0,
         "risk": "high",
-        "reg": 4,
+        "reg": 7,
         "details": [
           {
             "type": "Regulation",
-            "reference": "UK Russia (Sanctions) (EU Exit) Regulations 2019",
-            "description": "Bans on professional services (accountancy, management consulting, PR), trust and company formation.",
-            "targets": "Russian private and public sector",
-            "full_text_url": "https://www.legislation.gov.uk/uksi/2019/855/contents/made"
+            "reference": "Russia (Sanctions) (EU Exit) Regulations 2019, as amended",
+            "description": "Prohibits accounting, business, management consulting, public relations, trust, and certain IT services to Russia.",
+            "targets": "Russian businesses and government entities",
+            "full_text_url": "https://www.legislation.gov.uk/uksi/2019/855/contents"
+          },
+          {
+            "type": "Amending Regulation",
+            "reference": "Russia (Sanctions) (EU Exit) (Amendment) (No. 14) Regulations 2022",
+            "description": "Expands service prohibitions to include auditing, advertising, architectural, and engineering services.",
+            "targets": "Russian private and state sectors",
+            "full_text_url": "https://www.legislation.gov.uk/uksi/2022/1344/contents"
           }
         ]
       }
