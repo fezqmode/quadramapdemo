@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         detailList.forEach(item => {
           details += `<li><b>${item.type}:</b> ${item.reference ? item.reference + ' – ' : ''}${item.description || ''}<br>
           <b>Targets:</b> ${item.targets || ''}<br>
-          <a href="${item.full_text_url}" target="_blank">Source</a></li>`;
+          <a href="${item.full_text_url}" target="_blank" rel="noopener noreferrer">Source</a></li>`;
         });
         details += '</ul>';
       }
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <b>Risk:</b> ${risk}<br>
         <b>Score:</b> ${score}<br>
         ${counts ? counts + '<br>' : ''}
-        <a href="https://fezqmode.github.io/quadramapdemo/${iso}" target="_blank">Open Country Page</a>
+        <a href="https://fezqmode.github.io/quadramapdemo/${iso}" target="_blank" rel="noopener noreferrer">Open Country Page</a>
         <br>${details}
       </div>
     `;
@@ -120,17 +120,17 @@ document.addEventListener('DOMContentLoaded', () => {
           className: 'custom-leaflet-popup'
         });
         // Mouseover: open popup
-        layer.on('mouseover', function(e) {
+        layer.on('mouseover', function() {
           if (!layer.isPopupOpen()) layer.openPopup();
           layer.setStyle({ weight: 2, color: '#000' });
         });
         // Mouseout: close popup, reset style
-        layer.on('mouseout', function(e) {
+        layer.on('mouseout', function() {
           if (layer.isPopupOpen()) layer.closePopup();
           geoLayer.resetStyle(layer);
         });
         // Click: open new page for country
-        layer.on('click', function(e) {
+        layer.on('click', function() {
           const entry = (riskData[iso] && riskData[iso][currentJurisdiction]) || {};
           window.open(entry.url || `https://fezqmode.github.io/quadramapdemo/${iso}`, '_blank');
         });
