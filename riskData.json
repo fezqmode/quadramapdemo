@@ -1,1386 +1,703 @@
 {
-  "CRI": {
-    "score": 12,
-    "risk": "low",
-    "eo": 1,
-    "det": 0,
-    "lic": 10,
-    "url": "https://fezqmode.github.io/quadramapdemo/CRI"
-  },
-  "MDG": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MDG"
-  },
-  "URY": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/URY"
-  },
-  "EST": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/EST"
-  },
-  "MKD": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MKD"
-  },
-  "BOL": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BOL"
-  },
-  "NLD": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/NLD"
-  },
-  "IDN": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/IDN"
-  },
-  "ATF": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ATF"
-  },
-  "CAF": {
-    "score": 3,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 3,
-    "url": "https://fezqmode.github.io/quadramapdemo/CAF"
-  },
-  "BEL": {
-    "score": 26,
-    "risk": "low",
-    "eo": 2,
-    "det": 0,
-    "lic": 22,
-    "url": "https://fezqmode.github.io/quadramapdemo/BEL"
-  },
-  "MAR": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MAR"
-  },
-  "NCL": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/NCL"
-  },
-  "ARG": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ARG"
-  },
-  "CHE": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CHE"
-  },
-  "GHA": {
-    "score": 16,
-    "risk": "low",
-    "eo": 1,
-    "det": 0,
-    "lic": 14,
-    "url": "https://fezqmode.github.io/quadramapdemo/GHA"
-  },
-  "NIC": {
-    "score": 12,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 12,
-    "url": "https://fezqmode.github.io/quadramapdemo/NIC"
-  },
-  "LUX": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/LUX"
-  },
-  "PAN": {
-    "score": 8,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 8,
-    "url": "https://fezqmode.github.io/quadramapdemo/PAN"
-  },
-  "PRK": {
-    "score": 12,
-    "risk": "low",
-    "eo": 1,
-    "det": 1,
-    "lic": 7,
-    "url": "https://fezqmode.github.io/quadramapdemo/PRK"
-  },
-  "GBR": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GBR"
-  },
-  "ATA": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ATA"
-  },
-  "GMB": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GMB"
-  },
-  "MMR": {
-    "score": 17,
-    "risk": "low",
-    "eo": 1,
-    "det": 1,
-    "lic": 12,
-    "url": "https://fezqmode.github.io/quadramapdemo/MMR"
-  },
-  "BLR": {
-    "score": 86,
-    "risk": "high",
-    "eo": 2,
-    "det": 0,
-    "lic": 22,
-    "url": "https://fezqmode.github.io/quadramapdemo/BLR"
-  },
-  "SLE": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SLE"
-  },
-  "TWN": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TWN"
-  },
-  "YEM": {
-    "score": 4,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 4,
-    "url": "https://fezqmode.github.io/quadramapdemo/YEM"
-  },
-  "UGA": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/UGA"
-  },
-  "GIN": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GIN"
-  },
-  "MWI": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MWI"
-  },
-  "BFA": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BFA"
-  },
-  "LKA": {
-    "score": 19,
-    "risk": "low",
-    "eo": 1,
-    "det": 0,
-    "lic": 17,
-    "url": "https://fezqmode.github.io/quadramapdemo/LKA"
-  },
-  "COL": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/COL"
-  },
-  "SWE": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SWE"
-  },
-  "JOR": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/JOR"
-  },
-  "LAO": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/LAO"
-  },
-  "ARM": {
-    "score": 207,
-    "risk": "high",
-    "eo": 6,
-    "det": 30,
-    "lic": 105,
-    "url": "https://fezqmode.github.io/quadramapdemo/ARM"
-  },
-  "FLK": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/FLK"
-  },
-  "COG": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/COG"
-  },
-  "PNG": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PNG"
-  },
-  "CZE": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CZE"
-  },
-  "HRV": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/HRV"
-  },
-  "VEN": {
-    "score": 178,
-    "risk": "high",
-    "eo": 4,
-    "det": 6,
-    "lic": 152,
-    "url": "https://fezqmode.github.io/quadramapdemo/VEN"
-  },
-  "MYS": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MYS"
-  },
-  "ROU": {
-    "score": 6,
-    "risk": "low",
-    "eo": 2,
-    "det": 0,
-    "lic": 2,
-    "url": "https://fezqmode.github.io/quadramapdemo/ROU"
-  },
-  "SDN": {
-    "score": 49,
-    "risk": "medium",
-    "eo": 11,
-    "det": 2,
-    "lic": 21,
-    "url": "https://fezqmode.github.io/quadramapdemo/SDN"
-  },
-  "GAB": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GAB"
-  },
-  "GRC": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GRC"
-  },
-  "DEU": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/DEU"
-  },
-  "POL": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/POL"
-  },
-  "CYP": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CYP"
-  },
-  "ERI": {
-    "score": 1,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 1,
-    "url": "https://fezqmode.github.io/quadramapdemo/ERI"
-  },
-  "CAN": {
-    "score": 3,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 3,
-    "url": "https://fezqmode.github.io/quadramapdemo/CAN"
-  },
-  "JAM": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/JAM"
-  },
-  "MDA": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MDA"
-  },
-  "CIV": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CIV"
-  },
-  "BDI": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BDI"
-  },
-  "BGD": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BGD"
-  },
-  "CMR": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CMR"
-  },
-  "AZE": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/AZE"
-  },
-  "TTO": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TTO"
-  },
-  "SVN": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SVN"
-  },
-  "MNE": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MNE"
-  },
-  "KOR": {
-    "score": 12,
-    "risk": "low",
-    "eo": 1,
-    "det": 1,
-    "lic": 7,
-    "url": "https://fezqmode.github.io/quadramapdemo/KOR"
-  },
-  "UZB": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/UZB"
-  },
-  "ALB": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ALB"
-  },
-  "CHN": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CHN"
-  },
-  "JPN": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/JPN"
-  },
-  "MLI": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MLI"
-  },
-  "VNM": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/VNM"
-  },
-  "THA": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/THA"
-  },
-  "QAT": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/QAT"
-  },
-  "BIH": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BIH"
-  },
-  "SVK": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SVK"
-  },
-  "HUN": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/HUN"
-  },
-  "FJI": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/FJI"
-  },
-  "ARE": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ARE"
-  },
-  "PER": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PER"
-  },
-  "KGZ": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/KGZ"
-  },
-  "AFG": {
-    "score": 16,
-    "risk": "low",
-    "eo": 1,
-    "det": 0,
-    "lic": 14,
-    "url": "https://fezqmode.github.io/quadramapdemo/AFG"
-  },
-  "GNQ": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GNQ"
-  },
-  "TJK": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TJK"
-  },
-  "LBY": {
-    "score": 14,
-    "risk": "low",
-    "eo": 1,
-    "det": 0,
-    "lic": 12,
-    "url": "https://fezqmode.github.io/quadramapdemo/LBY"
-  },
-  "MNG": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MNG"
-  },
-  "RWA": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/RWA"
-  },
-  "BRA": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BRA"
-  },
-  "IND": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/IND"
-  },
-  "USA": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/USA"
-  },
-  "BHS": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BHS"
-  },
-  "NAM": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/NAM"
-  },
-  "AUS": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/AUS"
-  },
-  "ZAF": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ZAF"
-  },
-  "BRN": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BRN"
-  },
-  "GNB": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GNB"
-  },
-  "PHL": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PHL"
-  },
-  "ZMB": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ZMB"
-  },
-  "PRY": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PRY"
-  },
-  "SLV": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SLV"
-  },
-  "HND": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/HND"
-  },
-  "GTM": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GTM"
-  },
-  "MRT": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MRT"
-  },
-  "TUN": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TUN"
-  },
-  "SOM": {
-    "score": 5,
-    "risk": "low",
-    "eo": 1,
-    "det": 0,
-    "lic": 3,
-    "url": "https://fezqmode.github.io/quadramapdemo/SOM"
-  },
-  "ESH": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ESH"
-  },
-  "PRT": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PRT"
-  },
-  "SRB": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SRB"
-  },
-  "LSO": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/LSO"
-  },
-  "LBN": {
-    "score": 6,
-    "risk": "low",
-    "eo": 1,
-    "det": 0,
-    "lic": 4,
-    "url": "https://fezqmode.github.io/quadramapdemo/LBN"
-  },
-  "SAU": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SAU"
-  },
-  "CUB": {
-    "score": 3,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 3,
-    "url": "https://fezqmode.github.io/quadramapdemo/CUB"
-  },
-  "SWZ": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SWZ"
-  },
-  "KAZ": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/KAZ"
-  },
-  "UKR": {
-    "score": 45,
-    "risk": "medium",
-    "eo": 5,
-    "det": 2,
-    "lic": 29,
-    "url": "https://fezqmode.github.io/quadramapdemo/UKR"
-  },
-  "BGR": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BGR"
-  },
-  "MEX": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MEX"
-  },
-  "PAK": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PAK"
-  },
-  "TCD": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TCD"
-  },
-  "LTU": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/LTU"
-  },
-  "TZA": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TZA"
-  },
-  "KEN": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/KEN"
-  },
-  "NPL": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/NPL"
-  },
-  "EGY": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/EGY"
-  },
-  "DOM": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/DOM"
-  },
-  "BEN": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BEN"
-  },
-  "GRL": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GRL"
-  },
-  "LBR": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/LBR"
-  },
-  "NZL": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/NZL"
-  },
-  "DJI": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/DJI"
-  },
-  "GEO": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GEO"
-  },
-  "BLZ": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BLZ"
-  },
-  "IRL": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/IRL"
-  },
-  "BTN": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BTN"
-  },
-  "TLS": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TLS"
-  },
-  "CHL": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/CHL"
-  },
-  "ITA": {
-    "score": 8,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 8,
-    "url": "https://fezqmode.github.io/quadramapdemo/ITA"
-  },
-  "NGA": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/NGA"
-  },
-  "SUR": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SUR"
-  },
-  "IRQ": {
-    "score": 24,
-    "risk": "low",
-    "eo": 4,
-    "det": 1,
-    "lic": 13,
-    "url": "https://fezqmode.github.io/quadramapdemo/IRQ"
-  },
-  "AGO": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/AGO"
-  },
-  "ZWE": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ZWE"
-  },
-  "ESP": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ESP"
-  },
-  "SSD": {
-    "score": 5,
-    "risk": "low",
-    "eo": 1,
-    "det": 0,
-    "lic": 3,
-    "url": "https://fezqmode.github.io/quadramapdemo/SSD"
-  },
-  "ISL": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ISL"
-  },
-  "KWT": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/KWT"
-  },
-  "LVA": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/LVA"
-  },
-  "NER": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/NER"
-  },
-  "HTI": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/HTI"
-  },
-  "ISR": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ISR"
-  },
-  "KHM": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/KHM"
-  },
-  "ETH": {
-    "score": 10,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 10,
-    "url": "https://fezqmode.github.io/quadramapdemo/ETH"
-  },
-  "GUY": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/GUY"
-  },
-  "TKM": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TKM"
-  },
-  "ECU": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/ECU"
-  },
-  "TGO": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TGO"
-  },
-  "PRI": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PRI"
-  },
-  "SYR": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SYR"
-  },
-  "MOZ": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/MOZ"
+  "RUS": {
+    "Sectoral": [
+      {
+        "title": "Directive 1 (EO 13662): Financial Sector Restrictions",
+        "targets": "Certain Russian financial institutions",
+        "type": "Sectoral Sanctions",
+        "reference": "Full text of Directive 1"
+      },
+      {
+        "title": "Directive 2 (EO 13662): Energy Sector Restrictions",
+        "targets": "Certain Russian energy companies",
+        "type": "Sectoral Sanctions",
+        "reference": "Full text of Directive 2"
+      },
+      {
+        "title": "Directive 3 (EO 13662): Defense Sector Restrictions",
+        "targets": "Certain Russian defense companies",
+        "type": "Sectoral Sanctions",
+        "reference": "Full text of Directive 3"
+      },
+      {
+        "title": "Directive 4 (EO 13662): Deepwater, Arctic Offshore, Shale Projects Restrictions",
+        "targets": "Certain Russian energy companies",
+        "type": "Sectoral Sanctions",
+        "reference": "Full text of Directive 4"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 13662: Prohibits transactions with designated Russian financial institutions, restricts financing",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "30-day restriction on new debt/equity",
+          "Ban on transactions with sanctioned banks"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/ukraine_eo3.pdf"
+      },
+      {
+        "title": "EO 14024: Comprehensive financial sanctions against Russian financial services",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Ban on transactions with Russian Central Bank",
+          "Restrictions on securities trading"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/14024.pdf"
+      },
+      {
+        "title": "EO 14071: Ban on new investments and financial services",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Ban on consulting services in the financial sector",
+          "Insurance restrictions"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/14071.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 13660: Blocks property of certain persons related to the Ukraine crisis",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13661: Blocks property of additional persons related to the Ukraine crisis",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13662: Blocks property of certain sectors of the Russian economy",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13685: Blocks property related to the Crimea region of Ukraine",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 14024: Blocks property related to certain harmful foreign activities",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 14066: Prohibits certain imports and investments related to Russia",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 14068: Prohibits certain imports, exports, new investments related to Russia",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 14071: Prohibits new investments and certain services relating to Russia",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 13660: Blocks property of certain persons related to the Ukraine crisis",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13661: Blocks property of additional persons related to the Ukraine crisis",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13662: Blocks property of certain sectors of the Russian economy",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13685: Blocks property related to the Crimea region of Ukraine",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 14024: Blocks property related to certain harmful foreign activities",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 14066: Prohibits certain imports and investments related to Russia",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 14068: Prohibits certain imports, exports, new investments related to Russia",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 14071: Prohibits new investments and certain services relating to Russia",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ]
   },
   "IRN": {
-    "score": 73,
-    "risk": "high",
-    "eo": 9,
-    "det": 3,
-    "lic": 46,
-    "url": "https://fezqmode.github.io/quadramapdemo/IRN"
+    "Sectoral": [
+      {
+        "title": "EO 13902: Restrictions on construction, mining, manufacturing, and textile sectors",
+        "targets": "Key Iranian sectors",
+        "type": "Sectoral Sanctions",
+        "reference": "Full text of EO 13902"
+      },
+      {
+        "title": "EO 13876: Sanctions against the Iranian financial sector",
+        "targets": "Iranian financial institutions",
+        "type": "Sectoral Sanctions",
+        "reference": "Full text of EO 13876"
+      },
+      {
+        "title": "EO 13846: Energy sector and petrochemical industry",
+        "targets": "Iranian energy and petrochemical companies",
+        "type": "Sectoral Sanctions",
+        "reference": "Full text of EO 13846"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 13599: Blocks Iranian financial institutions and transactions",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Asset freeze on Iranian banks",
+          "Ban on correspondent banking relationships"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/iran_eo_02062012.pdf"
+      },
+      {
+        "title": "EO 13846: Comprehensive financial sanctions on Iran",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Ban on financial services, insurance and reinsurance"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13846.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 12170: Blocks Iranian government assets",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 12957: Prohibits certain transactions with the Iranian oil industry",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 12959: Prohibits trade and investment with Iran",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13059: Reinforces prohibition on trade and investment with Iran",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13553: Blocks property of persons involved in human rights abuses in Iran",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13599: Blocks assets of the Iranian government and financial institutions",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13846: Reimposition of certain sanctions related to Iran",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 12170: Blocks Iranian government assets",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 12957: Prohibits certain transactions with the Iranian oil industry",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 12959: Prohibits trade and investment with Iran",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13059: Reinforces prohibition on trade and investment with Iran",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13553: Blocks property of persons involved in human rights abuses in Iran",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13599: Blocks assets of the Iranian government and financial institutions",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13846: Reimposition of certain sanctions related to Iran",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ]
   },
-  "DNK": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/DNK"
+  "PRK": {
+    "Sectoral": [
+      {
+        "title": "EO 13466: Sectoral sanctions in the financial sector – blocking of assets and financial transactions",
+        "targets": "North Korean government and Workers’ Party",
+        "sector": "Financial services",
+        "reference": "Full text of EO 13466"
+      },
+      {
+        "title": "EO 13570: Sectoral trade sanctions – import bans",
+        "targets": "All sectors of the North Korean economy",
+        "sector": "Trade and goods movement",
+        "reference": "Full text of EO 13570"
+      },
+      {
+        "title": "EO 13722: Sectoral sanctions in the energy and transport sector",
+        "targets": "Energy, transport, and metal sectors",
+        "sector": "Energy, transport, metals",
+        "reference": "Full text of EO 13722"
+      },
+      {
+        "title": "EO 13810: Comprehensive sectoral sanctions",
+        "targets": "Financial, transport, and trade sectors",
+        "sector": "Cross-sectoral",
+        "reference": "Full text of EO 13810"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 13810: Comprehensive financial sanctions against North Korean financial institutions",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Ban on correspondent banking relationships",
+          "Restrictions on financial services and insurance"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13810.pdf"
+      },
+      {
+        "title": "EO 13722: Sectoral sanctions in the financial sector",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Ban on financial services, securities trading and insurance"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13722.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 13466: Blocks property of the North Korean government and Workers' Party",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13551: Blocks property of certain persons related to North Korea",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13570: Prohibits imports from North Korea",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13687: Blocks property of certain North Korean government officials and the Workers' Party",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13722: Blocks property and prohibits transactions with North Korea",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13810: Blocks property and prohibits transactions with certain persons related to North Korea",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 13466: Blocks property of the North Korean government and Workers' Party",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13551: Blocks property of certain persons related to North Korea",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13570: Prohibits imports from North Korea",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13687: Blocks property of certain North Korean government officials and the Workers' Party",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13722: Blocks property and prohibits transactions with North Korea",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13810: Blocks property and prohibits transactions with certain persons related to North Korea",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ]
+  }
+}
+{
+  "SYR": {
+    "Sectoral": [
+      {
+        "title": "EO 13582: Sectoral sanctions on the energy and financial sector",
+        "targets": "Syrian oil and gas industry, banking sector",
+        "sector": "Energy, finance",
+        "reference": "Full text of EO 13582"
+      },
+      {
+        "title": "EO 13606: Sectoral sanctions on the technology sector",
+        "targets": "Information and communications technology",
+        "sector": "Technology",
+        "reference": "Full text of EO 13606"
+      },
+      {
+        "title": "EO 13608: Secondary sanctions for circumvention transactions",
+        "targets": "All sectors with circumvention risks",
+        "sector": "Cross-sectoral",
+        "reference": "Full text of EO 13608"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 13582: Comprehensive financial sanctions on the Syrian financial sector",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Ban on new investments",
+          "Restrictions on financial services and insurance"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13582.pdf"
+      },
+      {
+        "title": "EO 13608: Sanctions for circumventing financial sanctions",
+        "type": "Secondary Sanctions",
+        "main_points": [
+          "Ban on financial transactions with persons circumventing sanctions"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13608.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 13338: Blocks property of certain persons and prohibits exports to Syria",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13460: Blocks property of certain persons related to Lebanese sovereignty",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13572: Blocks property of persons involved in human rights abuses in Syria",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13573: Blocks property of certain Syrian government officials",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13582: Blocks property of the Syrian government and prohibits investments and exports",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13606: Blocks property of persons linked to IT human rights abuses",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13608: Blocks property of persons involved in circumvention of sanctions",
+        "type": "Secondary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 13338: Blocks property of certain persons and prohibits exports to Syria",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13460: Blocks property of certain persons related to Lebanese sovereignty",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13572: Blocks property of persons involved in human rights abuses in Syria",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13573: Blocks property of certain Syrian government officials",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13582: Blocks property of the Syrian government and prohibits investments and exports",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13606: Blocks property of persons linked to IT human rights abuses",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13608: Blocks property of persons involved in circumvention of sanctions",
+        "type": "Secondary Sanctions"
+      }
+    ]
   },
-  "DZA": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/DZA"
+  "VEN": {
+    "Sectoral": [
+      {
+        "title": "EO 13808: Sectoral sanctions on the financial sector",
+        "targets": "New debt and equity of the Venezuelan government and PDVSA",
+        "sector": "Financial services",
+        "reference": "Full text of EO 13808"
+      },
+      {
+        "title": "EO 13850: Sectoral sanctions on gold and oil sector",
+        "targets": "Gold sector and state oil company PDVSA",
+        "sector": "Commodities, energy",
+        "reference": "Full text of EO 13850"
+      },
+      {
+        "title": "EO 13884: Comprehensive sectoral sanctions",
+        "targets": "All assets of the Venezuelan government",
+        "sector": "Cross-sectoral",
+        "reference": "Full text of EO 13884"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 13808: Comprehensive financial sanctions on Venezuela",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Ban on new debt and securities of the Venezuelan government",
+          "Restrictions on dividend payments"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13808.pdf"
+      },
+      {
+        "title": "EO 13827: Digital currency sanctions",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Ban on transactions with Venezuelan digital currencies, including the Petro"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13827.pdf"
+      },
+      {
+        "title": "EO 13835: Debt and equity sanctions",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Ban on buying debt, restrictions on pledging shares of Venezuelan companies"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13835.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 13692: Blocks property of certain persons related to Venezuela’s political situation",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13808: Prohibits certain financial transactions with the Venezuelan government",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13827: Prohibits transactions with Venezuelan digital currency",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13835: Prohibits transactions related to Venezuelan debt restructuring",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13850: Blocks property of persons linked to corruption in Venezuela",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13884: Blocks property of the Venezuelan government",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 13692: Blocks property of certain persons related to Venezuela’s political situation",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13808: Prohibits certain financial transactions with the Venezuelan government",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13827: Prohibits transactions with Venezuelan digital currency",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13835: Prohibits transactions related to Venezuelan debt restructuring",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13850: Blocks property of persons linked to corruption in Venezuela",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13884: Blocks property of the Venezuelan government",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ]
   },
-  "TUR": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/TUR"
+  "MMR": {
+    "Sectoral": [
+      {
+        "title": "EO 14014: Sectoral sanctions",
+        "targets": "Gems, timber, defense, and related materials",
+        "sector": "Commodities, defense",
+        "reference": "Full text of EO 14014"
+      },
+      {
+        "title": "EO 13464: Sectoral sanctions on the financial sector",
+        "targets": "Financial institutions and transactions",
+        "sector": "Financial services",
+        "reference": "Full text of EO 13464"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 14014: Financial sector sanctions after the military coup",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Restrictions on financial services",
+          "Ban on transactions with state funds",
+          "Insurance sector restrictions"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/14014.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 13047: Blocks property of certain persons related to the Myanmar situation",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13310: Blocks property of the government of Myanmar",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13448: Blocks property of certain persons related to Myanmar",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13464: Blocks property of certain persons related to Myanmar",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 14014: Blocks property of persons linked to the military coup in Myanmar",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 13047: Blocks property of certain persons related to the Myanmar situation",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13310: Blocks property of the government of Myanmar",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13448: Blocks property of certain persons related to Myanmar",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13464: Blocks property of certain persons related to Myanmar",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 14014: Blocks property of persons linked to the military coup in Myanmar",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ]
   },
-  "-99": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/-99"
+  "SDN": {
+    "Sectoral": [
+      {
+        "title": "EO 13067: Sectoral sanctions on the oil and petrochemical sector",
+        "targets": "Sudanese oil and gas companies",
+        "sector": "Energy",
+        "reference": "Full text of EO 13067"
+      },
+      {
+        "title": "EO 13400: Sectoral sanctions on the financial and defense sector",
+        "targets": "Financial institutions and defense companies in Darfur",
+        "sector": "Finance, defense",
+        "reference": "Full text of EO 13400"
+      },
+      {
+        "title": "EO 13761: Modified sectoral sanctions",
+        "targets": "Certain economic sectors in Darfur",
+        "sector": "Mining, transport",
+        "reference": "Full text of EO 13761"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 13067: Ban on financial services and transactions with the Sudanese government",
+        "type": "Primary Sanctions",
+        "main_points": [
+          "Ban on loans, credits, and financing for the Sudanese government"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13067.pdf"
+      },
+      {
+        "title": "EO 13400: Financial restrictions related to the Darfur situation",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Ban on insurance services and securities trading with sanctioned persons"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13400.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 13067: Blocks property of the Sudanese government and bans transactions with it",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13400: Blocks property of certain persons related to Darfur",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13761: Lifts certain sanctions on Sudan, but maintains sanctions on Darfur persons",
+        "type": "Primary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 13067: Blocks property of the Sudanese government and bans transactions with it",
+        "type": "Primary Sanctions"
+      },
+      {
+        "title": "EO 13400: Blocks property of certain persons related to Darfur",
+        "type": "Primary and Secondary Sanctions"
+      },
+      {
+        "title": "EO 13761: Lifts certain sanctions on Sudan, but maintains sanctions on Darfur persons",
+        "type": "Primary Sanctions"
+      }
+    ]
   },
-  "AUT": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/AUT"
-  },
-  "SEN": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SEN"
-  },
-  "RUS": {
-    "score": 98,
-    "risk": "high",
-    "eo": 8,
-    "det": 4,
-    "lic": 33,
-    "url": "https://fezqmode.github.io/quadramapdemo/RUS"
-  },
-  "OMN": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/OMN"
-  },
-  "COD": {
-    "score": 5,
-    "risk": "low",
-    "eo": 1,
-    "det": 0,
-    "lic": 3,
-    "url": "https://fezqmode.github.io/quadramapdemo/COD"
-  },
-  "SLB": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/SLB"
-  },
-  "PSE": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/PSE"
-  },
-  "BWA": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/BWA"
-  },
-  "FIN": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/FIN"
-  },
-  "VUT": {
-    "score": 0,
-    "risk": "low",
-    "eo": 0,
-    "det": 0,
-    "lic": 0,
-    "url": "https://fezqmode.github.io/quadramapdemo/VUT"
+  "SSD": {
+    "Sectoral": [
+      {
+        "title": "EO 13664: Sectoral sanctions on the energy and commodity sector",
+        "targets": "Oil, gas, and mineral companies",
+        "sector": "Energy, commodities",
+        "reference": "Full text of EO 13664"
+      }
+    ],
+    "Financial": [
+      {
+        "title": "EO 13664: Comprehensive financial sanctions related to South Sudan",
+        "type": "Primary and Secondary Sanctions",
+        "main_points": [
+          "Ban on financial services, insurance, and securities trading with sanctioned persons and conflict supporters"
+        ],
+        "reference": "https://home.treasury.gov/system/files/126/13664.pdf"
+      }
+    ],
+    "Goods": [
+      {
+        "title": "EO 13664: Blocks property of certain persons related to the situation in South Sudan",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ],
+    "Services": [
+      {
+        "title": "EO 13664: Blocks property of certain persons related to the situation in South Sudan",
+        "type": "Primary and Secondary Sanctions"
+      }
+    ]
   }
 }
