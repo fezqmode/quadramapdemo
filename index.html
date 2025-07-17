@@ -48,26 +48,10 @@
       margin-right: 3px;
       font-weight: 600;
     }
-
-    /* --- POPUP SCROLL FIX --- */
-    .leaflet-popup-content {
-      max-height: 270px;
-      overflow-y: auto;
-    }
+    /* Optional: To keep dropdown above popups on mobile */
     @media (max-width: 700px) {
-      .leaflet-popup-content {
-        max-height: 180px;
-      }
-    }
-    @media (min-width: 1100px) {
-      .leaflet-popup-content {
-        max-height: 370px;
-      }
-    }
-    /* Optional: Tweak popup width for readability */
-    .leaflet-popup-content {
-      min-width: 280px;
-      max-width: 390px;
+      .dropdown-bar { font-size: 13px; padding: 7px 10px; gap: 6px; }
+      .dropdown-bar select { font-size: 13px; }
     }
   </style>
 </head>
@@ -90,6 +74,7 @@
   </div>
 
   <div id="mapid"></div>
+
   <script src="leaflet.js"></script>
   <script src="map.js"></script>
 </body>
